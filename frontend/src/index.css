@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Typewriter animation keyframes */
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* Blinking cursor animation keyframes */
+@keyframes blinkTextCursor {
+    from {
+        border-right-color: rgba(228, 120, 48, 0.849);
+    }
+
+    to {
+        border-right-color: transparent;
+    }
+}
+
+/* Typewriter text effect */
+.typewriter {
+    overflow: hidden;
+    border-right: 0.15em solid rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
+    animation:
+        typewriter 3s steps(40) 1s 1 normal both,
+        blinkTextCursor 500ms steps(40) infinite normal;
+}
+
+/* Toggle switch container */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    /* Increased width for better UX */
+    height: 24px;
+    /* Increased height for better UX */
+}
+
+/* Hide default checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Toggle switch slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+    /* Adjusted for better aesthetics */
+}
+
+/* Slider before pseudo-element */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    /* Adjusted for better UX */
+    width: 19px;
+    /* Adjusted for better UX */
+    left: 2px;
+    bottom: 2px;
+    background-color: rgb(5, 5, 5);
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+/* Change background color when the switch is checked */
+input:checked+.slider {
+    background-color: #e0e0e0;
+}
+
+input:checked+.slider:before {
+    transform: translateX(18px);
+}
