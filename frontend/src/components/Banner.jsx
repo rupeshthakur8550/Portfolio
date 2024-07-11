@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from './context/AppContext';
-import backgroundImage from '../Assets/Banner2.jpg';
+import backgroundImage from '../Assets/Banner.svg';
 
 const Banner = () => {
     const { theme } = useTheme();
