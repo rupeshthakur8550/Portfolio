@@ -60,44 +60,44 @@ const Header = () => {
                         {'< Rupesh / Thakur >'}
                     </NavLink>
                 </div>
-                <div className="flex flex-wrap justify-center sm:gap-3 md:gap-6 items-center mx-auto">
+                <div className="flex flex-wrap justify-center sm:gap-3 md:gap-4 lg:gap-6 items-center mx-auto">
                     <NavLink
                         to="/"
-                        className={({ isActive }) => `block py-2 duration-200 ${isActive ? (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-900' : 'text-white') : (theme !== 'dark' ? 'text-orange-700' : 'text-orange-200')) : (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-700' : 'text-gray-200') : 'text-gray-700')} font-semibold text-lg mx-2 hidden sm:block`}
+                        className={({ isActive }) => `block py-2 duration-200 ${isActive ? (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-900' : 'text-white') : (theme !== 'dark' ? 'text-orange-700' : 'text-orange-200')) : (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-700' : 'text-gray-200') : 'text-gray-700')} font-semibold text-lg mx-2 hidden md:block`}
                         onClick={() => scrollToSection('home')}
                     >
                         Home
                     </NavLink>
                     <NavLink
                         to="#"
-                        className={({ isActive }) => `block py-2 duration-200 ${isActive ? (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-900' : 'text-white') : (theme !== 'dark' ? 'text-orange-700' : 'text-orange-200')) : (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-700' : 'text-gray-200') : 'text-gray-700')} font-semibold text-lg mx-2 hidden sm:block`}
+                        className={({ isActive }) => `block py-2 duration-200 ${isActive ? (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-900' : 'text-white') : (theme !== 'dark' ? 'text-orange-700' : 'text-orange-200')) : (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-700' : 'text-gray-200') : 'text-gray-700')} font-semibold text-lg mx-2 hidden md:block`}
                         onClick={() => scrollToSection('about')}
                     >
                         About
                     </NavLink>
                     <NavLink
                         to="#"
-                        className={({ isActive }) => `block py-2 duration-200 ${isActive ? (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-900' : 'text-white') : (theme !== 'dark' ? 'text-orange-700' : 'text-orange-200')) : (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-700' : 'text-gray-200') : 'text-gray-700')} font-semibold text-lg mx-2 hidden sm:block`}
+                        className={({ isActive }) => `block py-2 duration-200 ${isActive ? (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-900' : 'text-white') : (theme !== 'dark' ? 'text-orange-700' : 'text-orange-200')) : (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-700' : 'text-gray-200') : 'text-gray-700')} font-semibold text-lg mx-2 hidden md:block`}
                         onClick={() => scrollToSection('projects')}
                     >
                         Projects
                     </NavLink>
                     <NavLink
                         to="#"
-                        className={({ isActive }) => `block py-2 duration-200 ${isActive ? (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-900' : 'text-white') : (theme !== 'dark' ? 'text-orange-700' : 'text-orange-200')) : (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-700' : 'text-gray-200') : 'text-gray-700')} font-semibold text-lg mx-2 hidden sm:block`}
+                        className={({ isActive }) => `block py-2 duration-200 ${isActive ? (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-900' : 'text-white') : (theme !== 'dark' ? 'text-orange-700' : 'text-orange-200')) : (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-700' : 'text-gray-200') : 'text-gray-700')} font-semibold text-lg mx-2 hidden md:block`}
                         onClick={() => scrollToSection('contact')}
                     >
                         Contact Us
                     </NavLink>
                     <NavLink
                         to="#"
-                        className={({ isActive }) => `block py-2 duration-200 ${isActive ? (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-900' : 'text-white') : (theme !== 'dark' ? 'text-orange-700' : 'text-orange-200')) : (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-700' : 'text-gray-200') : 'text-gray-700')} font-semibold text-lg mx-2 hidden sm:block`}
+                        className={({ isActive }) => `block py-2 duration-200 ${isActive ? (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-900' : 'text-white') : (theme !== 'dark' ? 'text-orange-700' : 'text-orange-200')) : (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-700' : 'text-gray-200') : 'text-gray-700')} font-semibold text-lg mx-2 hidden md:block`}
                         onClick={() => scrollToSection('resume')}
                     >
                         Resume
                     </NavLink>
                 </div>
-                <div className="block sm:hidden mr-5">
+                <div className="block md:hidden mr-5">
                     <Dropdown
                         inline
                         arrowIcon={false}
@@ -105,7 +105,7 @@ const Header = () => {
                         label={
                             <NavLink
                                 to={linkValue}
-                                className={({ isActive }) => `block py-2 duration-200 ${isActive ? (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-900' : 'text-white') : (theme !== 'dark' ? 'text-orange-700' : 'text-orange-200')) : ''} font-semibold mx-2 block sm:hidden`}
+                                className={({ isActive }) => `block py-2 duration-200 ${isActive ? (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-900' : 'text-white') : (theme !== 'dark' ? 'text-orange-700' : 'text-orange-200')) : ''} font-semibold mx-2 block md:hidden`}
                             >
                                 {headerValue}
                             </NavLink>
@@ -158,7 +158,7 @@ const Header = () => {
                         </Dropdown.Item>
                     </Dropdown>
                 </div>
-                <ToggleSwitch checked={theme === 'dark'} onChange={toggleTheme} className="my-2 md:mx-4" />
+                <ToggleSwitch checked={theme === 'dark'} onChange={toggleTheme} className="ml-4 md:mx-4" />
             </Navbar >
         </div >
     );
