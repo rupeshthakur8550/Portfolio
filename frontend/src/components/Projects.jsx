@@ -2,7 +2,7 @@ import React from 'react';
 import { useTheme } from './context/AppContext';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Food_Space, Food_Menu_Page, Travel_Diaries, Travel_Diaries_Login } from '../Assets/ImportHandler.js'
+import { Food_Space, Cal1, Cal2, Food_Menu_Page, Route_Planning_Tool1, Route_Planning_Tool2, Route_Planning_Tool3, Travel_Diaries, Travel_Diaries_Login } from '../Assets/ImportHandler.js'
 
 const Projects = () => {
     const { theme } = useTheme();
@@ -43,7 +43,7 @@ const Projects = () => {
                 'Implemented local storage to store user input and output, ensuring efficient data management and a seamless user.',
                 'Utilized Flowbite-react to enhance the UI and provide a more intuitive user experience.',
             ],
-            image: ['path/to/your/image4_1.png', 'path/to/your/image4_2.png'] // Add multiple images for the carousel
+            image: [Cal1, Cal2]
         },
         {
             title: 'Route Planning Tool',
@@ -55,7 +55,7 @@ const Projects = () => {
                 'Implemented nearest neighbor algorithm and complementary algorithms to calculate the shortest route connecting user\'s destinations.',
                 'Integrated MapBox API for visual route representation.'
             ],
-            image: ['path/to/your/image1_1.png', 'path/to/your/image1_2.png'] // Add multiple images for the carousel
+            image: [Route_Planning_Tool1, Route_Planning_Tool2, Route_Planning_Tool3]
         },
         {
             title: 'Employee Management System',
