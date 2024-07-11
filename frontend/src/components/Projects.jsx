@@ -2,7 +2,7 @@ import React from 'react';
 import { useTheme } from './context/AppContext';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Food_Space_Banner, Food_Space_About, Food_Space_ContactUs, Food_Space_Footer } from '../Assets/ImportHandler.js'
+import { Food_Space, Food_Menu_Page, Travel_Diaries, Travel_Diaries_Login } from '../Assets/ImportHandler.js'
 
 const Projects = () => {
     const { theme } = useTheme();
@@ -19,7 +19,7 @@ const Projects = () => {
                 'Utilized Socket.io for real-time chatting in the frontend and backend, ensuring efficient data management and a seamless user experience.',
                 'Incorporated authentication mechanisms to ensure users can only edit or delete their own posts, enhancing security and privacy.'
             ],
-            image: ['path/to/your/image2_1.png', 'path/to/your/image2_2.png'] // Add multiple images for the carousel
+            image: [Travel_Diaries, Travel_Diaries_Login]
         },
         {
             title: 'Food Space',
@@ -31,7 +31,7 @@ const Projects = () => {
                 'Implemented CRUD operations for the Food Space application in Node.js to efficiently manage food orders and deliveries.',
                 'Designed an interactive UI for the application using React.js, HTML, CSS, and JavaScript, facilitating seamless interaction between different scenes.'
             ],
-            image: [Food_Space_Banner, Food_Space_About, Food_Space_ContactUs, Food_Space_Footer]
+            image: [Food_Space, Food_Menu_Page]
         },
         {
             title: 'Calculator with Local Storage',
@@ -109,7 +109,7 @@ const Projects = () => {
                                 <p className='text-base font-normal mb-2 text-gray-500 dark:text-gray-400'>{project.technologies}</p>
                                 <ul className='list-disc pl-5'>
                                     {project.description.map((desc, i) => (
-                                        <li key={i} className='text-base font-normal text-gray-500 dark:text-gray-400 mb-1'>{desc}</li>
+                                        <li key={i} className='text-base font-normal text-gray-500 text-justify dark:text-gray-400 mb-1'>{desc}</li>
                                     ))}
                                 </ul>
                             </div>

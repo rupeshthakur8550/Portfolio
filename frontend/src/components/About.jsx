@@ -51,7 +51,7 @@ const About = () => {
         {
             title: 'Post Graduate Degree - M.C.A',
             subtitle: 'Veermata Jijabai Technological Institute, Matunga (VJTI)',
-            date: 'Present',
+            date: '',
             content: 'CGPA / Percentage: 8.14 / 73.90%',
             university: 'Mumbai University'
         },
@@ -104,8 +104,9 @@ const About = () => {
                                 </div>
                                 <h3 className={`text-lg font-semibold mt-4 mb-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{edu.title}</h3>
                                 <time className='text-sm font-normal mb-2 text-gray-400 dark:text-gray-500'>{edu.date}</time>{edu.title === 'Post Graduate Degree - M.C.A' && <span className='bg-blue-100 text-blue-800 text-sm font-medium ml-3 px-2.5 py-1 rounded'>Latest</span>}
-                                <p className='text-base font-normal text-gray-500 dark:text-gray-400'>{edu.content}</p>
-                                {edu.university && <p className='text-base font-normal mb-4 text-gray-500 dark:text-gray-400'>{edu.university}</p>}
+                                <p className={`text-sm font-normal ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{edu.subtitle}</p>
+                                <p className={`text-base font-normal ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{edu.content}</p>
+                                {edu.university && <p className={`text-base font-normal mb-4 ${theme === ' dark' ? 'text-white' : 'text-gray-900'}`}>{edu.university}</p>}
                             </div>
                         ))}
                     </div>
