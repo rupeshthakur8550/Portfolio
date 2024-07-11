@@ -82,7 +82,7 @@ const About = () => {
             className={`min-h-screen flex flex-col justify-center items-center p-4 md:p-8 ${theme === 'light' ? 'bg-gray-100 text-gray-200' : 'bg-gray-900 text-gray-900'}`}
         >
             <div className={`w-full p-8 rounded-lg shadow-lg ${theme !== 'light' ? 'bg-white' : 'bg-gray-800'}`}>
-                <h1 className={`text-4xl my-8 text-center font-bold border-x-4 ${theme !== 'light' ? 'text-orange-700 border-gray-900' : 'text-orange-200'}`}>
+                <h1 className={`text-4xl my-8 md:ml-[20vw] md:mr-[20vw] text-center font-bold border-x-4 ${theme !== 'light' ? 'text-orange-700 border-gray-900' : 'text-orange-200'}`}>
                     ABOUT ME
                 </h1>
                 <p className='text-lg mb-6'>
@@ -94,7 +94,7 @@ const About = () => {
                     </h1>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
                         {educationDetails.map((edu, index) => (
-                            <div key={index} className={`p-4 rounded-lg border-y-2 text-lg shadow-lg ${theme !== 'light' ? 'bg-white' : 'bg-gray-800'}`}>
+                            <div key={index} className={`p-4 rounded-lg border-y-2 text-lg shadow-lg ${theme === 'light' ? 'bg-white' : 'bg-gray-800'}`}>
                                 <div className='flex gap-5 justify-center'>
                                     <span className='flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900'>
                                         <svg className='w-4 h-4 text-blue-800 dark:text-blue-300' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 20 20'>
@@ -102,7 +102,7 @@ const About = () => {
                                         </svg>
                                     </span>
                                 </div>
-                                <h3 className={`text-lg font-semibold mt-4 mb-2 ${theme !== 'dark' ? 'text-white' : 'text-gray-900'}`}>{edu.title}</h3>
+                                <h3 className={`text-lg font-semibold mt-4 mb-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{edu.title}</h3>
                                 <time className='text-sm font-normal mb-2 text-gray-400 dark:text-gray-500'>{edu.date}</time>{edu.title === 'Post Graduate Degree - M.C.A' && <span className='bg-blue-100 text-blue-800 text-sm font-medium ml-3 px-2.5 py-1 rounded'>Latest</span>}
                                 <p className='text-base font-normal text-gray-500 dark:text-gray-400'>{edu.content}</p>
                                 {edu.university && <p className='text-base font-normal mb-4 text-gray-500 dark:text-gray-400'>{edu.university}</p>}
