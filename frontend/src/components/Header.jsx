@@ -158,7 +158,7 @@ const Header = () => {
                         </Dropdown.Item>
                     </Dropdown>
                 </div>
-                <ToggleSwitch checked={theme === 'dark'} onChange={toggleTheme} className="ml-4 md:mx-4" />
+                <ToggleSwitch checked={theme === 'dark'} onChange={toggleTheme} className="ml-2 md:mx-4" />
             </Navbar >
         </div >
     );
