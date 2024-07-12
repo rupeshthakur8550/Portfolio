@@ -2,7 +2,7 @@ import React from 'react';
 import { useTheme } from './context/AppContext';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Food_Space, Cal1, Cal2, Food_Menu_Page, Route_Planning_Tool1, Route_Planning_Tool2, Route_Planning_Tool3, Travel_Diaries, Travel_Diaries_Login } from '../Assets/ImportHandler.js'
+import { Food_Space, Food_Space_Order, Food_User_PlaceOrder, Food_My_Menu, Food_User_Dashboard, Food_seller_AddItems, Food_seller_Order, Food_seller_ViewItems, Food_seller_Profile, Cal1, Cal2, Food_Menu_Page, EMS1, EMS2, EMS3, EMS4, Route_Planning_Tool1, Route_Planning_Tool2, Route_Planning_Tool3, Travel_Diaries, Travel_Diaries_Login } from '../Assets/ImportHandler.js'
 
 const Projects = () => {
     const { theme } = useTheme();
@@ -31,7 +31,7 @@ const Projects = () => {
                 'Implemented CRUD operations for the Food Space application in Node.js to efficiently manage food orders and deliveries.',
                 'Designed an interactive UI for the application using React.js, HTML, CSS, and JavaScript, facilitating seamless interaction between different scenes.'
             ],
-            image: [Food_Space, Food_Menu_Page]
+            image: [Food_Space, Food_Menu_Page, Food_Space_Order, Food_User_PlaceOrder, Food_My_Menu, Food_User_Dashboard, Food_seller_AddItems, Food_seller_Order, Food_seller_ViewItems, Food_seller_Profile]
         },
         {
             title: 'Calculator with Local Storage',
@@ -67,7 +67,7 @@ const Projects = () => {
                 'Implemented CRUD operations for the Employee Management System in Java to efficiently manage employee data.',
                 'Designed an interactive UI for the application using JSP, HTML, CSS, and JavaScript, facilitating seamless interaction between different scenes.'
             ],
-            image: ['path/to/your/image3_1.png', 'path/to/your/image3_2.png'] // Add multiple images for the carousel
+            image: [EMS1, EMS2, EMS3, EMS4]
         },
     ];
 

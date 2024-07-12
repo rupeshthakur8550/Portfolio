@@ -10,7 +10,7 @@ const About = () => {
         { category: 'Frontend', items: ['react', 'jsp', 'HTML', 'CSS', 'javascript', 'materialUI', 'flowbitereact', 'tailwindCSS', 'reactIcons'] },
         { category: 'Backend', items: ['nodejs', 'express', 'java', 'servlet', 'javascript', 'nodemon', 'nodemailer', 'socketIO', 'redux'] },
         { category: 'Databases', items: ['mySQL', 'sqlite', 'mongodb', 'firebase'] },
-        { category: 'Developer Tools', items: ['VScode', 'eclipse', 'git', 'github', 'postman', 'thunderclient'] }
+        { category: 'Developer Tools', items: ['VScode', 'eclipse', 'git', 'github', 'postman'] }
     ];
 
     const iconMap = {
@@ -32,7 +32,6 @@ const About = () => {
         github: 'github',
         git: 'git',
         postman: 'postman',
-        thunderclient: 'thunderclient',
         materialUI: 'materialui',
         flowbitereact: 'react',
         tailwindCSS: 'tailwindcss',
