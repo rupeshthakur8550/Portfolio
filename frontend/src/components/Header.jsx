@@ -87,7 +87,7 @@ const Header = () => {
                         className={({ isActive }) => `block py-2 duration-200 ${isActive ? (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-900' : 'text-white') : (theme !== 'dark' ? 'text-orange-700' : 'text-orange-200')) : (isHomePage && !scrolled ? (theme !== 'dark' ? 'text-gray-700' : 'text-gray-200') : 'text-gray-700')} font-semibold text-lg mx-2 hidden md:block`}
                         onClick={() => scrollToSection('contact')}
                     >
-                        Contact Us
+                        Contact Me
                     </NavLink>
                     <NavLink
                         to="#"
@@ -142,10 +142,10 @@ const Header = () => {
                             className={`text-md ${isHomePage && !scrolled ? (theme === 'dark' ? 'text-white' : 'text-gray-900') : (theme === 'dark' ? 'text-white' : 'text-gray-900')}`}
                             onClick={() => {
                                 scrollToSection('contact');
-                                handleDropdownItemClick('Contact Us', '#');
+                                handleDropdownItemClick('Contact Me', '#');
                             }}
                         >
-                            Contact Us
+                            Contact Me
                         </Dropdown.Item>
                         <Dropdown.Item
                             className={`text-md ${isHomePage && !scrolled ? (theme === 'dark' ? 'text-white' : 'text-gray-900') : (theme === 'dark' ? 'text-white' : 'text-gray-900')}`}

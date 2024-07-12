@@ -2,7 +2,7 @@ import React from 'react';
 import { useTheme } from './context/AppContext';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Food_Space, Food_Space_Order, Food_User_PlaceOrder, Food_My_Menu, Food_User_Dashboard, Food_seller_AddItems, Food_seller_Order, Food_seller_ViewItems, Food_seller_Profile, Cal1, Cal2, Food_Menu_Page, EMS1, EMS2, EMS3, EMS4, Route_Planning_Tool1, Route_Planning_Tool2, Route_Planning_Tool3, Travel_Diaries, Travel_Diaries_Login } from '../Assets/ImportHandler.js'
+import { Food_Space, Food_Space_Order, Food_User_PlaceOrder, Food_My_Menu, Food_User_Dashboard, Food_seller_AddItems, Food_seller_Order, Food_seller_ViewItems, Food_seller_Profile, Cal1, Cal2, Food_Menu_Page, EMS1, EMS2, EMS3, EMS4, Route_Planning_Tool1, Route_Planning_Tool2, Route_Planning_Tool3, Travel_Diaries, Travel_Diaries_Login, TravelDiaries_AllPosts, TravelDiaries_AddPost, TravelDiaries_Chats, TravelDiaries_Profile, TravelDiaries_UpdateProfile } from '../Assets/ImportHandler.js'
 
 const Projects = () => {
     const { theme } = useTheme();
@@ -19,7 +19,7 @@ const Projects = () => {
                 'Utilized Socket.io for real-time chatting in the frontend and backend, ensuring efficient data management and a seamless user experience.',
                 'Incorporated authentication mechanisms to ensure users can only edit or delete their own posts, enhancing security and privacy.'
             ],
-            image: [Travel_Diaries, Travel_Diaries_Login]
+            image: [Travel_Diaries, Travel_Diaries_Login, TravelDiaries_AllPosts, TravelDiaries_AddPost, TravelDiaries_Chats, TravelDiaries_Profile, TravelDiaries_UpdateProfile]
         },
         {
             title: 'Food Space',

@@ -10,6 +10,11 @@ import Food_seller_AddItems from './AddItemPage.png'
 import Food_seller_Profile from './SellerDashBoardPage.png'
 import Travel_Diaries from './Travel_Diaries.png'
 import Travel_Diaries_Login from './Travel_Diaries_Login.png'
+import TravelDiaries_AllPosts from './TravelDiaries_AllPosts.png'
+import TravelDiaries_AddPost from './TravelDiaries_AddPosts.png'
+import TravelDiaries_Profile from './TravelDiaries_MyProfile.png'
+import TravelDiaries_Chats from './TravelDiaries_Chat.png'
+import TravelDiaries_UpdateProfile from './TravelDiaries_UpdateProfile.png'
 import Route_Planning_Tool1 from './Route_Planning_Tool1.png'
 import Route_Planning_Tool2 from './Route_Planning_Tool2.png'
 import Route_Planning_Tool3 from './Route_Planning_Tool3.png'
@@ -20,4 +25,4 @@ import EMS2 from './image2.png'
 import EMS3 from './image3.png'
 import EMS4 from './image.png'
 
-export { Food_Menu_Page, Food_User_PlaceOrder, Food_My_Menu, Food_User_Dashboard, Food_seller_AddItems, Food_seller_Order, Food_seller_ViewItems, Food_seller_Profile, Food_Space_Order, Cal1, Cal2, EMS1, EMS2, EMS3, EMS4, Route_Planning_Tool1, Route_Planning_Tool2, Route_Planning_Tool3, Food_Space, Travel_Diaries, Travel_Diaries_Login };
+export { Food_Menu_Page, Food_User_PlaceOrder, Food_My_Menu, Food_User_Dashboard, Food_seller_AddItems, Food_seller_Order, Food_seller_ViewItems, Food_seller_Profile, Food_Space_Order, Cal1, Cal2, EMS1, EMS2, EMS3, EMS4, Route_Planning_Tool1, Route_Planning_Tool2, Route_Planning_Tool3, Food_Space, Travel_Diaries, Travel_Diaries_Login, TravelDiaries_AllPosts, TravelDiaries_AddPost, TravelDiaries_Chats, TravelDiaries_Profile, TravelDiaries_UpdateProfile };
