@@ -1,10 +1,37 @@
 // About.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTheme } from './context/AppContext';
 import shield from '../Assets/Shield.svg';
 
 const About = () => {
     const { theme } = useTheme();
+
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const aboutSection = document.querySelector('#about');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
+            });
+        }, {
+            threshold: 0.1,
+        });
+
+        if (aboutSection) {
+            observer.observe(aboutSection);
+        }
+
+        return () => {
+            if (aboutSection) {
+                observer.unobserve(aboutSection);
+            }
+        };
+    }, []);
 
     const technologies = [
         { category: 'Frontend', items: ['react', 'jsp', 'HTML', 'CSS', 'javascript', 'materialUI', 'flowbitereact', 'tailwindCSS', 'reactIcons'] },
@@ -91,7 +118,7 @@ const About = () => {
                     <h1 className={`text-2xl my-8 pb-6 text-center md:ml-[30vw] md:mr-[30vw] font-bold border-b-2 ${theme !== 'light' ? 'text-orange-700 border-gray-900' : 'text-orange-200 '}`}>
                         EDUCATION
                     </h1>
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6' style={{ animation: isVisible ? 'slideInLeft 2s ease-out forwards' : 'none' }}>
                         {educationDetails.map((edu, index) => (
                             <div key={index} className={`p-4 rounded-lg border-y-2 text-lg shadow-lg ${theme === 'light' ? 'bg-white' : 'bg-gray-800'}`}>
                                 <div className='flex gap-5 justify-center'>
@@ -115,7 +142,7 @@ const About = () => {
                         TECHNICAL SKILLS
                     </h1>
                     {technologies.map((tech, index) => (
-                        <div key={index} className='mb-4'>
+                        <div key={index} className='mb-4' style={{ animation: isVisible ? 'slideIn 1s ease-out 0.4s forwards' : 'none' }}>
                             <h2 className='text-2xl font-semibold mb-2'>{tech.category}</h2>
                             <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 justify-items-center'>
                                 {tech.items.map((item, idx) => (

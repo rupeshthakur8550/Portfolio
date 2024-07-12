@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { useTheme } from './context/AppContext';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Food_Space, Food_Space_Order, Food_User_PlaceOrder, Food_My_Menu, Food_User_Dashboard, Food_seller_AddItems, Food_seller_Order, Food_seller_ViewItems, Food_seller_Profile, Cal1, Cal2, Food_Menu_Page, EMS1, EMS2, EMS3, EMS4, Route_Planning_Tool1, Route_Planning_Tool2, Route_Planning_Tool3, Travel_Diaries, Travel_Diaries_Login, TravelDiaries_AllPosts, TravelDiaries_AddPost, TravelDiaries_Chats, TravelDiaries_Profile, TravelDiaries_UpdateProfile } from '../Assets/ImportHandler.js'
+import { useInView } from 'react-intersection-observer';
+import { Food_Space, Food_Space_Order, Food_User_PlaceOrder, Food_My_Menu, Food_User_Dashboard, Food_seller_AddItems, Food_seller_Order, Food_seller_ViewItems, Food_seller_Profile, Cal1, Cal2, Food_Menu_Page, EMS1, EMS2, EMS3, EMS4, Route_Planning_Tool1, Route_Planning_Tool2, Route_Planning_Tool3, Travel_Diaries, Travel_Diaries_Login, TravelDiaries_AllPosts, TravelDiaries_AddPost, TravelDiaries_Chats, TravelDiaries_Profile, TravelDiaries_UpdateProfile } from '../Assets/ImportHandler.js';
 
 const Projects = () => {
     const { theme } = useTheme();
+    const [visibleProjects, setVisibleProjects] = useState([]);
 
     const projectDetails = [
         {
@@ -81,40 +83,53 @@ const Projects = () => {
                     PROJECTS
                 </h1>
                 <div className='grid grid-cols-1 md:mx-20 gap-6'>
-                    {projectDetails.map((project, index) => (
-                        <div key={index} className={`p-6 border-y-2 rounded-lg shadow-lg ${theme !== 'light' ? 'bg-white' : 'bg-gray-800'}`}>
-                            <div className='flex flex-col items-center'>
-                                <a href={project.link}>
-                                    <h1 className={`text-2xl my-8 pb-6 text-center font-bold md:ml-[30vw] md:mr-[30vw] border-b-2 ${theme !== 'light' ? 'text-orange-700 border-gray-900' : 'text-orange-200'}`}>
-                                        {project.title}
-                                    </h1>
-                                </a>
-                                {project.image && (
-                                    <Carousel
-                                        showArrows={true}
-                                        showThumbs={false}
-                                        infiniteLoop={true}
-                                        useKeyboardArrows={true}
-                                        autoPlay={true}
-                                        className='w-full h-full object-cover rounded-lg mb-4'
-                                    >
-                                        {project.image.map((img, imgIndex) => (
-                                            <div key={imgIndex}>
-                                                <img src={img} alt={project.title} className='w-full h-44 object-contain' />
-                                            </div>
+                    {projectDetails.map((project, index) => {
+                        const [ref, inView] = useInView({
+                            triggerOnce: true,
+                            threshold: 0.1,
+                            delay: index * 500, // Delay to animate each project one after another
+                        });
+
+                        return (
+                            <div
+                                key={index}
+                                ref={ref}
+                                className={`p-6 border-y-2 rounded-lg shadow-lg transition-transform duration-500 ease-out ${inView ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
+                                    } ${theme !== 'light' ? 'bg-white' : 'bg-gray-800'}`}
+                            >
+                                <div className='flex flex-col items-center'>
+                                    <a href={project.link}>
+                                        <h1 className={`text-2xl my-8 pb-6 text-center font-bold md:ml-[30vw] md:mr-[30vw] border-b-2 ${theme !== 'light' ? 'text-orange-700 border-gray-900' : 'text-orange-200'}`}>
+                                            {project.title}
+                                        </h1>
+                                    </a>
+                                    {project.image && (
+                                        <Carousel
+                                            showArrows={true}
+                                            showThumbs={false}
+                                            infiniteLoop={true}
+                                            useKeyboardArrows={true}
+                                            autoPlay={true}
+                                            className='w-full h-full object-cover rounded-lg mb-4'
+                                        >
+                                            {project.image.map((img, imgIndex) => (
+                                                <div key={imgIndex}>
+                                                    <img src={img} alt={project.title} className='w-full h-44 object-contain' />
+                                                </div>
+                                            ))}
+                                        </Carousel>
+                                    )}
+                                    <time className='text-sm font-normal mb-2'>{project.date}</time>
+                                    <p className='text-base font-normal mb-2 '>{project.technologies}</p>
+                                    <ul className='list-disc pl-5'>
+                                        {project.description.map((desc, i) => (
+                                            <li key={i} className='text-base font-normal text-justify mb-1'>{desc}</li>
                                         ))}
-                                    </Carousel>
-                                )}
-                                <time className='text-sm font-normal mb-2 text-gray-400 dark:text-gray-500'>{project.date}</time>
-                                <p className='text-base font-normal mb-2 text-gray-500 dark:text-gray-400'>{project.technologies}</p>
-                                <ul className='list-disc pl-5'>
-                                    {project.description.map((desc, i) => (
-                                        <li key={i} className='text-base font-normal text-gray-500 text-justify dark:text-gray-400 mb-1'>{desc}</li>
-                                    ))}
-                                </ul>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </div>
