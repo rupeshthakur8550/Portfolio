@@ -109,7 +109,7 @@ const Contact = () => {
                         <div className="flex justify-center">
                             <Button
                                 type="submit"
-                                className={`self-center hover:bg-gradient-to-r from-pink-500 to-orange-500 hover:text-white w-[40%] transition-transform transform hover:scale-105 rounded-md h-9 ${theme !== 'dark' ? 'text-gray-900 border-black' : 'text-white border-white'} border-2 lg:w-[12vw]`}
+                                className={`self-center hover:bg-gradient-to-r from-pink-500 to-orange-500 hover:text-white sm:w-[40%] mt-5 w-[60%] transition-transform text-nowrap transform hover:scale-105 rounded-md h-9 ${theme !== 'dark' ? 'text-gray-900 border-black' : 'text-white border-white'} border-2 lg:w-[12vw]`}
                             >
                                 Send Message
                             </Button>

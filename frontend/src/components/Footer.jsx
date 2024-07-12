@@ -19,7 +19,7 @@ const FooterP = () => {
                     </div>
                     <Footer.Divider className={`${theme === 'dark' ? 'border-gray-900' : ''} sm:hidden block my-3`} />
                     <div className='flex flex-col items-center sm:items-start text-center sm:text-left'>
-                        <Footer.Title className={`${theme === 'dark' ? 'text-gray-700' : 'text-gray-200'} text-lg font-semibold mb-4`} style={{ fontVariant: 'unicase' }} title='Contact Me' />
+                        <Footer.Title className={`${theme === 'dark' ? 'text-gray-700' : 'text-gray-200'} text-xl font-semibold mb-4`} style={{ fontVariant: 'unicase' }} title='Contact Me' />
                         <Footer.LinkGroup col>
                             <Footer.Link className={`${theme === 'dark' ? 'text-gray-700 hover:text-gray-950' : 'text-gray-100 hover:text-gray-300'} font-semibold dark:text-gray-100'}`} href='mailto:rupeshthakur80078@gmail.com'>Email: rupeshthakur80078@gmail.com</Footer.Link>
                             <Footer.Link className={`${theme === 'dark' ? 'text-gray-700 hover:text-gray-950' : 'text-gray-100 hover:text-gray-300'} font-semibold dark:text-gray-100'}`} href='tel:+918550948693'>Phone: +91-8550948693</Footer.Link>
