@@ -143,7 +143,7 @@ const About = () => {
                     </h1>
                     {technologies.map((tech, index) => (
                         <div key={index} className='mb-4' style={{ animation: isVisible ? 'slideIn 1s ease-out 0.4s forwards' : 'none' }}>
-                            <h2 className='text-2xl font-semibold mb-2'>{tech.category}</h2>
+                            <h2 className='text-2xl font-semibold my-2'>{tech.category} :</h2>
                             <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 justify-items-center'>
                                 {tech.items.map((item, idx) => (
                                     <div key={idx} className='flex flex-col items-center'>
