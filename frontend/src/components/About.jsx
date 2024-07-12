@@ -129,7 +129,7 @@ const About = () => {
                                     </span>
                                 </div>
                                 <h3 className={`text-lg font-semibold mt-4 mb-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{edu.title}</h3>
-                                {edu.date === 'Present' ? <span className='bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-1 rounded'>{edu.date}</span> : <time className='text-sm font-normal mb-2 text-gray-400 dark:text-gray-500'>{edu.date}</time>}
+                                {edu.date === 'Present' ? <span className='bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-1 rounded'>{edu.date}</span> : <time className={`text-sm font-normal mb-2 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>{edu.date}</time>}
                                 <p className={`text-base font-normal ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{edu.subtitle}</p>
                                 <p className={`text-base font-normal ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{edu.content}</p>
                                 {edu.university && <p className={`text-base font-normal ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{edu.university}</p>}
