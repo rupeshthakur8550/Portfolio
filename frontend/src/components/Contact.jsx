@@ -122,7 +122,7 @@ const Contact = () => {
                             MAP
                         </h1>
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3701.648601531522!2d75.05712391505026!3d21.03201668599824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd92fbf303dfe6d%3A0xfad6e3b4c7f775e7!2sGanesh%20Colony%2C%20Amalner%2C%20Maharashtra%20425101%2C%20India!5e0!3m2!1sen!2sus!4v1627393638242!5m2!1sen!2sus"
+                            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d465.42956738984236!2d75.0630618905313!3d21.055219946286833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDAzJzE4LjciTiA3NcKwMDMnNDguMCJF!5e0!3m2!1sen!2sin!4v1720795370443!5m2!1sen!2sin"
                             width="100%"
                             height="100%"
                             frameBorder="0"
