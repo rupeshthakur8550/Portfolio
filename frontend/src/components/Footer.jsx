@@ -31,7 +31,7 @@ const FooterP = () => {
                 <div className='w-full my-3 sm:flex text-center sm:justify-between'>
                     <Footer.Copyright
                         className={`${theme === 'dark' ? 'text-gray-700 hover:text-gray-950' : 'text-gray-100 hover:text-gray-300'} font-semibold dark:text-gray-100'}`}
-                        href='#'
+                        href='https://www.overleaf.com/7611623178tnwqwhvkwvff#818b0b'
                         by=" Rupesh Thakur"
                         year={new Date().getFullYear()}
                     />

@@ -1,7 +1,8 @@
-// About.js
 import React, { useEffect, useState } from 'react';
 import { useTheme } from './context/AppContext';
 import shield from '../Assets/Shield.svg';
+import Resume from '../Assets/Resume.pdf'
+import { Button } from 'flowbite-react';
 
 const About = () => {
     const { theme } = useTheme();
@@ -32,6 +33,15 @@ const About = () => {
             }
         };
     }, []);
+
+    const downloadResume = () => {
+        const link = document.createElement('a');
+        link.href = Resume;
+        link.setAttribute('download', 'Rupesh_Thakur_Resume.pdf');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
 
     const technologies = [
         { category: 'Frontend', items: ['react', 'jsp', 'HTML', 'CSS', 'javascript', 'materialUI', 'flowbitereact', 'tailwindCSS', 'reactIcons'] },
@@ -112,8 +122,44 @@ const About = () => {
                     ABOUT ME
                 </h1>
                 <p className='text-lg mb-6'>
-                    Hi, I'm Rupesh Thakur, an aspiring full stack web developer and software developer. I am passionate about building scalable web applications and working with modern technologies.
+                    <div className={`p-8 rounded-lg text-justify shadow-md ${theme === 'light' ? 'bg-white text-gray-900' : 'bg-gray-800 text-white'} `}>
+                        <h2 className="text-3xl font-bold mb-8">Hey there! I’m Rupesh Thakur.</h2>
+                        <p className="text-lg mb-4">
+                            I am a <span className="font-bold">MCA</span> student at <span className="font-bold">Veermata Jijabai Technological Institute, Matunga (VJTI)</span>.
+                            My expertise lies in frontend development, where I specialize in crafting dynamic user interfaces with <span className="font-bold">React</span> and leveraging the <span className="font-bold">Tailwind CSS framework with UI Frameworks</span>.
+                            On the backend, I excel in building robust server-side applications using <span className="font-bold">Node.js</span> and <span className="font-bold">Express.js</span>.
+                            As a full stack developer, I seamlessly integrate frontend and backend technologies, working fluently with <span className="font-bold">React</span>, <span className="font-bold">Tailwind CSS framework with UI Frameworks</span>,
+                            <span className="font-bold">Node.js</span>, and <span className="font-bold">Express.js</span>.
+                            My proficiency extends to core web technologies such as <span className="font-bold">HTML</span>, <span className="font-bold">CSS</span>, and <span className="font-bold">JavaScript</span>.
+                            You can explore my complete portfolio for insights into my projects, technologies I work with, and more.
+                        </p>
+                    </div>
                 </p>
+                <div>
+                    <h1 id='resume' className={`text-2xl my-8 pb-6 text-center font-bold md:ml-[30vw] md:mr-[30vw] border-b-2 ${theme !== 'light' ? 'text-orange-700 border-gray-900' : 'text-orange-200'}`}>
+                        RESUME
+                    </h1>
+                    <div align="center">
+                        <p className="text-lg mb-4">Download my resume to learn more about my experience and skills.</p>
+                        <Button
+                            type="submit"
+                            className={`self-center hover:bg-gradient-to-r from-pink-500 to-orange-500 hover:text-white sm:w-[40%] mt-5 w-[60%] transition-transform text-nowrap transform hover:scale-105 rounded-md h-9 ${theme === 'dark' ? 'text-gray-900 border-black' : 'text-white border-white'} border-2 lg:w-[12vw]`}
+                            onClick={downloadResume}
+                        >
+                            Download Resume
+                        </Button>
+                    </div>
+                </div>
+                <div>
+                    <h1 className={`text-2xl my-8 pb-6 text-center font-bold md:ml-[30vw] md:mr-[30vw] border-b-2 ${theme !== 'light' ? 'text-orange-700 border-gray-900' : 'text-orange-200'}`}>
+                        GITHUB STATS
+                    </h1>
+                    <div align="center">
+                        <img src="https://github-readme-streak-stats.herokuapp.com/?user=rupeshthakur8550&theme=onedark&hide_border=false" alt="GitHub Streak" /><br /><br />
+                        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rupeshthakur8550&theme=onedark&hide_border=false&layout=compact" alt="Top Languages" /><br /><br />
+                        <img src="https://github-readme-stats.vercel.app/api?username=rupeshthakur8550&theme=onedark&hide_border=false" alt="GitHub Stats" />
+                    </div>
+                </div>
                 <div className='mb-8'>
                     <h1 className={`text-2xl my-8 pb-6 text-center md:ml-[30vw] md:mr-[30vw] font-bold border-b-2 ${theme !== 'light' ? 'text-orange-700 border-gray-900' : 'text-orange-200 '}`}>
                         EDUCATION
@@ -173,8 +219,8 @@ const About = () => {
                         </div>
                     ))}
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
