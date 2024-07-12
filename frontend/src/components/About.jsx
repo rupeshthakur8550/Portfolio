@@ -3,36 +3,11 @@ import { useTheme } from './context/AppContext';
 import shield from '../Assets/Shield.svg';
 import Resume from '../Assets/Resume.pdf'
 import { Button } from 'flowbite-react';
+import { useInView } from 'react-intersection-observer';
 
 const About = () => {
     const { theme } = useTheme();
-
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const aboutSection = document.querySelector('#about');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.disconnect();
-                }
-            });
-        }, {
-            threshold: 0.1,
-        });
-
-        if (aboutSection) {
-            observer.observe(aboutSection);
-        }
-
-        return () => {
-            if (aboutSection) {
-                observer.unobserve(aboutSection);
-            }
-        };
-    }, []);
+    const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
     const downloadResume = () => {
         const link = document.createElement('a');
@@ -112,6 +87,12 @@ const About = () => {
         }
     ];
 
+    const [aboutRef, aboutInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const [resumeRef, resumeInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const [statsRef, statsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const [educationRef, educationInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const [skillsRef, skillsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+
     return (
         <div
             id='about'
@@ -121,10 +102,10 @@ const About = () => {
                 <h1 className={`text-4xl my-8 md:ml-[20vw] md:mr-[20vw] text-center font-bold border-x-4 ${theme !== 'light' ? 'text-orange-700 border-gray-900' : 'text-orange-200'}`}>
                     ABOUT ME
                 </h1>
-                <p className='text-lg mb-6'>
-                    <div className={`p-8 rounded-lg text-justify shadow-md ${theme === 'light' ? 'bg-white text-gray-900' : 'bg-gray-800 text-white'} `}>
-                        <h2 className="text-3xl font-bold mb-8">Hey there! I’m Rupesh Thakur.</h2>
-                        <p className="text-lg mb-4">
+                <div ref={aboutRef}>
+                    <div className={`p-8 rounded-lg text-justify shadow-md ${theme === 'light' ? 'bg-white text-gray-900' : 'bg-gray-800 text-white'} `} style={{ animation: aboutInView ? 'fadeIn 1s ease-out' : '' }}>
+                        <h2 className="text-3xl font-bold mb-8" style={{ animation: aboutInView ? 'slideIn 1s ease-out 0.4s forwards' : '' }}>Hey there! I’m Rupesh Thakur.</h2>
+                        <p className="text-lg mb-4" style={{ animation: aboutInView ? 'slideIn 1s ease-out 0.9s forwards' : '' }}>
                             I am a <span className="font-bold">MCA</span> student at <span className="font-bold">Veermata Jijabai Technological Institute, Matunga (VJTI)</span>.
                             My expertise lies in frontend development, where I specialize in crafting dynamic user interfaces with <span className="font-bold">React</span> and leveraging the <span className="font-bold">Tailwind CSS framework with UI Frameworks</span>.
                             On the backend, I excel in building robust server-side applications using <span className="font-bold">Node.js</span> and <span className="font-bold">Express.js</span>.
@@ -134,8 +115,8 @@ const About = () => {
                             You can explore my complete portfolio for insights into my projects, technologies I work with, and more.
                         </p>
                     </div>
-                </p>
-                <div>
+                </div>
+                <div ref={resumeRef}>
                     <h1 id='resume' className={`text-2xl my-8 pb-6 text-center font-bold md:ml-[30vw] md:mr-[30vw] border-b-2 ${theme !== 'light' ? 'text-orange-700 border-gray-900' : 'text-orange-200'}`}>
                         RESUME
                     </h1>
@@ -150,21 +131,21 @@ const About = () => {
                         </Button>
                     </div>
                 </div>
-                <div>
+                <div ref={statsRef}>
                     <h1 className={`text-2xl my-8 pb-6 text-center font-bold md:ml-[30vw] md:mr-[30vw] border-b-2 ${theme !== 'light' ? 'text-orange-700 border-gray-900' : 'text-orange-200'}`}>
                         GITHUB STATS
                     </h1>
-                    <div align="center">
+                    <div align="center" style={{ animation: statsInView ? 'slideInLeft 2s ease-out forwards' : 'none' }}>
                         <img src="https://github-readme-streak-stats.herokuapp.com/?user=rupeshthakur8550&theme=onedark&hide_border=false" alt="GitHub Streak" /><br /><br />
                         <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rupeshthakur8550&theme=onedark&hide_border=false&layout=compact" alt="Top Languages" /><br /><br />
                         <img src="https://github-readme-stats.vercel.app/api?username=rupeshthakur8550&theme=onedark&hide_border=false" alt="GitHub Stats" />
                     </div>
                 </div>
-                <div className='mb-8'>
+                <div className='mb-8' ref={educationRef}>
                     <h1 className={`text-2xl my-8 pb-6 text-center md:ml-[30vw] md:mr-[30vw] font-bold border-b-2 ${theme !== 'light' ? 'text-orange-700 border-gray-900' : 'text-orange-200 '}`}>
                         EDUCATION
                     </h1>
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6' style={{ animation: isVisible ? 'slideInLeft 2s ease-out forwards' : 'none' }}>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6' style={{ animation: educationInView ? 'slideInLeft 2s ease-out forwards' : 'none' }}>
                         {educationDetails.map((edu, index) => (
                             <div key={index} className={`p-4 rounded-lg border-y-2 text-lg shadow-lg ${theme === 'light' ? 'bg-white' : 'bg-gray-800'}`}>
                                 <div className='flex gap-5 justify-center'>
@@ -183,12 +164,13 @@ const About = () => {
                         ))}
                     </div>
                 </div>
-                <div>
+
+                <div ref={skillsRef}>
                     <h1 className={`text-2xl my-8 pb-6 text-center font-bold md:ml-[30vw] md:mr-[30vw] border-b-2 ${theme !== 'light' ? 'text-orange-700 border-gray-900' : 'text-orange-200'}`}>
                         TECHNICAL SKILLS
                     </h1>
                     {technologies.map((tech, index) => (
-                        <div key={index} className='mb-4' style={{ animation: isVisible ? 'slideIn 1s ease-out 0.4s forwards' : 'none' }}>
+                        <div key={index} className='mb-4' style={{ animation: skillsInView ? 'slideIn 1s ease-out 0.4s forwards' : 'none' }}>
                             <h2 className='text-2xl font-semibold my-2'>{tech.category} :</h2>
                             <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 justify-items-center'>
                                 {tech.items.map((item, idx) => (
