@@ -142,7 +142,7 @@ const Header = () => {
                             className={`text-md ${isHomePage && !scrolled ? (theme === 'dark' ? 'text-white' : 'text-gray-900') : (theme === 'dark' ? 'text-white' : 'text-gray-900')}`}
                             onClick={() => {
                                 scrollToSection('contact');
-                                handleDropdownItemClick('Contact Me', '#');
+                                handleDropdownItemClick('Contact', '#');
                             }}
                         >
                             Contact Me
