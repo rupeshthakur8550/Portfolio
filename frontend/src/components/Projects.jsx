@@ -16,10 +16,10 @@ const Projects = () => {
             link: 'https://github.com/rupeshthakur8550/TravelDiaries',
             date: 'Present',
             description: [
-                'Developed a web application called "Travel Diaries" using React.js and Node.js to facilitate travel exploration and memory sharing.',
                 'Implemented features allowing users to create, edit, and delete travel memories, with captions, using CRUD operations in the backend.',
-                'Utilized Socket.io for real-time chatting in the frontend and backend, ensuring efficient data management and a seamless user experience.',
-                'Incorporated authentication mechanisms to ensure users can only edit or delete their own posts, enhancing security and privacy.'
+                'Utilized Socket.io for real-time chatting in the frontend and backend, ensuring efficient data management and a seamless user experience with 256 - bit chat encryption',
+                'Incorporated authentication mechanisms to ensure users can only edit or delete their own posts, enhancing security and privacy.',
+                'Added functionality for archiving user posts to prevent other users from seeing them, allowing only the original user to edit or delete them.'
             ],
             image: [Travel_Diaries, Travel_Diaries_Login, TravelDiaries_AllPosts, TravelDiaries_AddPost, TravelDiaries_Chats, TravelDiaries_Profile, TravelDiaries_UpdateProfile]
         },
@@ -29,7 +29,6 @@ const Projects = () => {
             link: 'https://github.com/rupeshthakur8550/FoodSpace',
             date: 'Present',
             description: [
-                'Developed a Food Space web application using MERN stack for efficient food ordering and delivery.',
                 'Implemented CRUD operations for the Food Space application in Node.js to efficiently manage food orders and deliveries.',
                 'Designed an interactive UI for the application using React.js, HTML, CSS, and JavaScript, facilitating seamless interaction between different scenes.'
             ],
@@ -53,9 +52,8 @@ const Projects = () => {
             link: 'https://github.com/rupeshthakur8550/Route-Planning-Tool',
             date: 'February 2024',
             description: [
-                'Developed a Route Planning Tool using React.js, Node.js, Express.js, and SQLite database for efficient route optimization.',
-                'Implemented nearest neighbor algorithm and complementary algorithms to calculate the shortest route connecting user\'s destinations.',
-                'Integrated MapBox API for visual route representation.'
+                `Implemented nearest neighbor algorithm and complementary algorithms to calculate the shortest route connecting user’s current location with user’s destinations locations`,
+                'Integrated MapBox API for visual route representation'
             ],
             image: [Route_Planning_Tool1, Route_Planning_Tool2, Route_Planning_Tool3]
         },
@@ -65,9 +63,9 @@ const Projects = () => {
             link: 'https://github.com/rupeshthakur8550/Employee-Management-System',
             date: 'March 2022',
             description: [
-                'Developed an Employee Management System web application using Java servlets and JSP for efficient data storage and retrieval.',
                 'Implemented CRUD operations for the Employee Management System in Java to efficiently manage employee data.',
-                'Designed an interactive UI for the application using JSP, HTML, CSS, and JavaScript, facilitating seamless interaction between different scenes.'
+                'Designed an interactive UI for the application using JSP, HTML, CSS, and JavaScript, facilitating seamless interaction between different scenes',
+                'Implemented two types of user roles: Admin(HR or Manager) and User(Employee).Admins have full access to perform CRUD operations on employee data, while Employees can view and update their own details.'
             ],
             image: [EMS1, EMS2, EMS3, EMS4]
         },
