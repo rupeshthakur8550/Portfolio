@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useTheme } from './context/AppContext';
 import { Label, TextInput, Textarea, Button } from 'flowbite-react';
-import axios from 'axios';
 
 const Contact = () => {
     const { theme } = useTheme();
@@ -17,17 +16,6 @@ const Contact = () => {
             ...formData,
             [e.target.name]: e.target.value
         });
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            await axios.post('/api/send-email', formData);
-            alert('Message sent successfully');
-        } catch (error) {
-            console.error('Error sending email:', error);
-            alert('Failed to send message');
-        }
     };
 
     return (
@@ -55,7 +43,11 @@ const Contact = () => {
                                 Feel free to reach out—I’m just an email away! 📩
                             </p>
                         </div>
-                        <form className="space-y-4 px-10" onSubmit={handleSubmit}>
+                        <form
+                            className="space-y-4 px-10"
+                            action="https://formsubmit.co/ed14ad24be62e5c37663b9027da029c4"
+                            method="POST"
+                        >
                             <div>
                                 <Label htmlFor="fullName" value="Full Name" className={`${theme === 'light' ? ' text-gray-900' : 'text-gray-100'}`} />
                                 <TextInput
@@ -103,7 +95,7 @@ const Contact = () => {
                                     rows="4"
                                     required
                                     shadow
-                                    className={`mt-1 block w-full border-2 rounded-md border-gray-800`}
+                                    className={`mt-1 pl-2 block w-full border-2 rounded-md border-gray-800`}
                                     onChange={handleChange}
                                 />
                             </div>
