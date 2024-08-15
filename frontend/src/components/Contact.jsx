@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTheme } from './context/AppContext';
 import { Label, TextInput, Textarea, Button } from 'flowbite-react';
+import axios from 'axios';
 
 const Contact = () => {
     const { theme } = useTheme();
@@ -10,12 +11,48 @@ const Contact = () => {
         contactNumber: '',
         message: ''
     });
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState('');
 
     const handleChange = (e) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
         });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setError('');
+        setSuccess(false);
+
+        try {
+            const response = await axios.post('https://api.web3forms.com/submit', {
+                access_key: 'a43ceda8-3913-4d2f-b19a-6bc78b422ed7',
+                name: formData.fullName,
+                email: formData.email,
+                contactNumber: formData.contactNumber,
+                message: formData.message
+            });
+
+            if (response.data.success) {
+                setSuccess(true);
+                setFormData({
+                    fullName: '',
+                    email: '',
+                    contactNumber: '',
+                    message: ''
+                });
+            } else {
+                setError('Something went wrong. Please try again.');
+            }
+        } catch (error) {
+            setError('Failed to send message. Please try again later.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -30,7 +67,8 @@ const Contact = () => {
                 <div className={`${theme === 'light' ? 'bg-white' : 'bg-gray-800'} flex justify-center flex-col`}>
                     <div className={`md:grid md:grid-cols-2 md:gap-8 border-b-8 ${theme !== 'dark' ? 'border-gray-900' : 'border-gray-100'} py-10 justify-center items-center`}>
                         <div>
-                            <p className={`text-justify text-lg mx-8 ${theme === 'light' ? ' text-gray-900' : 'text-gray-100'} mb-4`}>
+                            {/* Introductory Text */}
+                            <p className={`text-justify text-lg mx-8 ${theme === 'light' ? 'text-gray-900' : 'text-gray-100'} mb-4`}>
                                 👋 Hey there! I’m Rupesh Thakur, a passionate Full Stack Web Developer with expertise in both frontend and backend technologies. My toolkit includes Java and Node.js with Express.js, and I thrive on building scalable web applications that deliver exceptional user experiences.
                             </p>
                             <p className={`text-justify text-lg mx-8 ${theme === 'light' ? ' text-gray-900' : 'text-gray-100'} mb-4`}>
@@ -45,19 +83,19 @@ const Contact = () => {
                         </div>
                         <form
                             className="space-y-4 px-10"
-                            action="https://formsubmit.co/ed14ad24be62e5c37663b9027da029c4"
-                            method="POST"
+                            onSubmit={handleSubmit}
                         >
                             <div>
-                                <Label htmlFor="fullName" value="Full Name" className={`${theme === 'light' ? ' text-gray-900' : 'text-gray-100'}`} />
+                                <Label htmlFor="fullName" value="Full Name" className={`${theme === 'light' ? 'text-gray-900' : 'text-gray-100'}`} />
                                 <TextInput
                                     id="fullName"
                                     name="fullName"
                                     type="text"
                                     required
                                     shadow
-                                    className={`mt-1 block w-full border-2 rounded-md border-gray-800`}
+                                    className="mt-1 block w-full border-2 rounded-md border-gray-800"
                                     style={{ height: '35px' }}
+                                    value={formData.fullName}
                                     onChange={handleChange}
                                 />
                             </div>
@@ -69,33 +107,36 @@ const Contact = () => {
                                     type="email"
                                     required
                                     shadow
-                                    className={`mt-1 block w-full border-2 rounded-md border-gray-800`}
+                                    className="mt-1 block w-full border-2 rounded-md border-gray-800"
                                     style={{ height: '35px' }}
+                                    value={formData.email}
                                     onChange={handleChange}
                                 />
                             </div>
                             <div>
-                                <Label htmlFor="contactNumber" value="Contact Number" className={`${theme === 'light' ? ' text-gray-900' : 'text-gray-100'}`} />
+                                <Label htmlFor="contactNumber" value="Contact Number" className={`${theme === 'light' ? 'text-gray-900' : 'text-gray-100'}`} />
                                 <TextInput
                                     id="contactNumber"
                                     name="contactNumber"
                                     type="tel"
                                     required
                                     shadow
-                                    className={`mt-1 block w-full border-2 rounded-md border-gray-800`}
+                                    className="mt-1 block w-full border-2 rounded-md border-gray-800"
                                     style={{ height: '35px' }}
+                                    value={formData.contactNumber}
                                     onChange={handleChange}
                                 />
                             </div>
                             <div>
-                                <Label htmlFor="message" value="Message" className={`${theme === 'light' ? ' text-gray-900' : 'text-gray-100'}`} />
+                                <Label htmlFor="message" value="Message" className={`${theme === 'light' ? 'text-gray-900' : 'text-gray-100'}`} />
                                 <Textarea
                                     id="message"
                                     name="message"
                                     rows="4"
                                     required
                                     shadow
-                                    className={`mt-1 pl-2 block w-full border-2 rounded-md border-gray-800`}
+                                    className="mt-1 pl-2 block w-full border-2 rounded-md border-gray-800"
+                                    value={formData.message}
                                     onChange={handleChange}
                                 />
                             </div>
@@ -103,18 +144,22 @@ const Contact = () => {
                                 <Button
                                     type="submit"
                                     className={`self-center hover:bg-gradient-to-r from-pink-500 to-orange-500 hover:text-white sm:w-[40%] mt-5 w-[60%] transition-transform text-nowrap transform hover:scale-105 rounded-md h-9 ${theme !== 'dark' ? 'text-gray-900 border-black' : 'text-white border-white'} border-2 lg:w-[12vw]`}
+                                    disabled={loading}
                                 >
-                                    Send Message
+                                    {loading ? 'Sending...' : 'Send Message'}
                                 </Button>
                             </div>
+                            {success && <p className="text-green-500 text-center mt-4">Your message has been sent successfully!</p>}
+                            {error && <p className="text-red-500 text-center mt-4">{error}</p>}
                         </form>
                     </div>
+                    {/* Map Section */}
                     <div className="relative m-8 overflow-hidden rounded-lg" style={{ height: '70vh' }}>
                         <h1 className={`text-2xl my-8 pb-6 text-center font-bold md:ml-[30vw] md:mr-[30vw] border-b-2 ${theme === 'light' ? 'text-orange-700 border-gray-900' : 'text-orange-200'}`}>
                             MAP
                         </h1>
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d465.42956738984236!2d75.0630618905313!3d21.055219946286833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDAzJzE4LjciTiA3NcKwMDMnNDguMCJF!5e0!3m2!1sen!2sin!4v1720795370443!5m2!1sen!2sin"
+                            src="https://www.google.com/maps/embed?pb=..."
                             width="100%"
                             height="100%"
                             frameBorder="0"
@@ -126,7 +171,7 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 
