@@ -1,0 +1,445 @@
+{
+  "Portfolio": {
+    "IntroPage": {
+      "heroTitle": "SOFTWARE",
+      "heroSubtitle": "ENGINEER",
+      "bio": "I'm a versatile full-stack software engineer with nearly 2+ years of hands-on experience. I specialize in building scalable, end-to-end applications, combining robust backend logic with intuitive frontend designs. Driven by problem-solving, I turn complex challenges into seamless digital experiences.",
+      "introSentences": [
+        "Welcome to my digital workspace...",
+        "Full Stack Software Engineer",
+        "Building scalable web solutions",
+        "Transforming ideas into reality",
+        "Crafting exceptional user experiences",
+        "Your trusted development partner"
+      ],
+      "profile": {
+        "name": "Rupesh Thakur",
+        "description": "A Software Engineer who has developed countless innovative solutions with modern technologies."
+      },
+      "stats": [
+        { "label": "YEARS OF EXPERIENCE", "value": "2+" },
+        { "label": "PROJECTS COMPLETED", "value": "5+" },
+        { "label": "TECHNOLOGIES MASTERED", "value": "5+" }
+      ],
+      "education": {
+        "title": "Education",
+        "data": [
+          {
+            "title": "Master of Computer Applications",
+            "degree": "MCA,",
+            "batch": "2022-2024",
+            "institution": "VJTI, Matunga",
+            "learnings": [
+              "Advanced algorithms & data structures",
+              "Cloud computing and DevOps (Docker, Kubernetes)",
+              "System design & software architecture",
+              "Full-stack development with MERN",
+              "Capstone project and research papers"
+            ]
+          },
+          {
+            "title": "Bachelor of Science in Computer Science",
+            "degree": "BSc CS,",
+            "batch": "2019-2022",
+            "institution": "PCA, Amalner",
+            "learnings": [
+              "Fundamentals of programming (C++, Java)",
+              "DBMS, OS, and Computer Networks",
+              "Mathematics & logic design",
+              "Web development basics (HTML/CSS/JS)",
+              "Academic projects and presentations"
+            ]
+          }
+        ]
+      }
+    },
+    "Header": {
+      "navigation": [
+        { "label": "Home", "icon": "MdHome", "href": "/#about" },
+        {
+          "label": "Skills",
+          "icon": "MdFolder",
+          "href": "/#technologies"
+        },
+        { "label": "Experience", "icon": "MdWork", "href": "/experience" },
+        { "label": "Projects", "icon": "MdBuild", "href": "/projects" },
+        { "label": "Contact", "icon": "MdContacts", "href": "/contact" },
+        { "label": "Blogs", "icon": "MdOutlineMenuBook", "href": "/blogs" }
+      ]
+    },
+    "experience": {
+      "heading": "Work Experience",
+      "activitiesLabel": "Activities & Leadership",
+      "projectsLabel": "Project Initiatives",
+      "companyDetails": [
+        {
+          "company": "gruve.ai",
+          "duration": "Aug 2025 - Present",
+          "role": "SDE-1",
+          "bullets": [
+            "Developing full-stack applications, POCs, and automation flows using FastAPI, Langchain, and Langgraph.",
+            "Building RAG pipelines and managing data with Vector DBs, MongoDB, and SQL.",
+            "Designing and implementing internal tools and projects with React.js, TypeScript, and Redis Cache.",
+            "Managing authentication and security via Keycloak, including custom theme development.",
+            "Handling production deployments on Azure (ACA/AKS) and static deployments over VMs with Nginx.",
+            "Optimizing system performance using Comet Opik for observability and Redis for caching."
+          ],
+          "activities": [
+            {
+              "title": "Company Representative | Google Developers DevFest",
+              "points": [
+                "Represented gruve.ai at DevFest, exploring cutting-edge advancements in Generative AI, Intelligent Agents, and AI-driven automation.",
+                "Engaged with industry leaders to gain insights into scalable RAG architectures and the future of LLM-powered applications.",
+                "Participated in hands-on sessions focused on Google Cloud AI services, Agentic workflows, and emerging AI frameworks.",
+                "Shared key takeaways and strategic insights with the internal engineering team to influence upcoming AI project roadmaps."
+              ]
+            },
+            {
+              "title": "Internal Technical Mentorship & Knowledge Sharing",
+              "points": [
+                "Conducted sessions on React.js to help cross-functional teams understand frontend fundamentals and component lifecycles.",
+                "Led System Design sessions focused on the Prototype Design Pattern to improve object creation mechanisms in large-scale applications."
+              ]
+            }
+          ],
+          "projects": [
+            {
+              "title": "AIMine (AI Chatbot Platform)",
+              "duration": "Aug 2025 - Present",
+              "points": [
+                "Developed a chatbot using organizational internal data to provide insights on gruve's solutions and use cases.",
+                "Responsible for the entire Frontend development and partial backend logic.",
+                "Managed deployments on Azure Container Apps (ACA) and Azure Kubernetes Service (AKS).",
+                "Successfully handled production debugging, issue resolution, and redeployments."
+              ]
+            },
+            {
+              "title": "GSC (Global Silicon Council) AI Search",
+              "duration": "Aug 2025 - Oct 2025",
+              "points": [
+                "Simplified complex search mechanisms using React.js, FastAPI, and Neo4j.",
+                "Built the complete system from scratch, including UI, backend, and folder architecture.",
+                "Improved search accuracy and reduced result latency significantly."
+              ]
+            },
+            {
+              "title": "Glean Custom Connector Framework",
+              "duration": "Nov 2025 - Dec 2025",
+              "points": [
+                "Created a framework to reduce Glean's data source ingestion and verification time.",
+                "Utilized Glean API client SDK and FastAPI to automate ingestion status checks.",
+                "Reduced core development time for custom connectors by 60-70%. "
+              ]
+            },
+            {
+              "title": "Securview AI Dictionary Automation",
+              "duration": "Jan 2026 - Present",
+              "points": [
+                "Automated keyword dictionary creation for marketing teams using Langchain and Langgraph.",
+                "Generated contexts and converted them into HTML templates for Webflow integration.",
+                "Streamlined the content publishing process for the Securview website."
+              ]
+            }
+          ]
+        },
+        {
+          "company": "humancloud",
+          "duration": "Aug 2024 - Aug 2025",
+          "role": "Software Engineer",
+          "bullets": [
+            "Developed scalable full-stack applications and POCs for internal and client-facing projects.",
+            "Built complex UIs using React.js with modular and reusable component architectures.",
+            "Integrated FastAPI backends for financial data mapping and analysis tools.",
+            "Managed static web hosting deployments on Azure VMs using Nginx reverse proxy.",
+            "Collaborated on AI chatbot integrations to provide data-driven insights and visualizations."
+          ],
+          "activities": [
+            {
+              "title": "Internal Hackathon | gruve.ai",
+              "points": [
+                "Developed a full-stack travel reimbursement platform — 'Travel Go' — as a sub-application for employees logged in via Zoho portal.",
+                "Enabled employees to submit travel reimbursement requests by selecting departments and adding expense details for pre/post-travel cases.",
+                "Implemented an automated approval flow: if the department's budget allows, the system auto-approves and notifies managers, accounts, HR, and peers with travel details (location, dates, etc.).",
+                "Built a fallback logic allowing department heads and accounts to collaboratively reallocate budgets across teams in case of funding shortages.",
+                "Displayed all approvals, requests, and travel data in dynamic tabular views for better visibility and decision-making across stakeholders."
+              ]
+            }
+          ],
+          "projects": [
+            {
+              "title": "SOW Generator (Automated Reports)",
+              "duration": "Nov 2024 - June 2025",
+              "points": [
+                "Developed a tool for higher management to simplify Statement of Work (SOW) creation.",
+                "Implemented complex nested state logic and modular UI components in React.js.",
+                "Handled deployment on Azure VM using Nginx reverse proxy for secure access."
+              ]
+            },
+            {
+              "title": "FinCon App (Financial Consolidation)",
+              "duration": "Aug 2024 - Nov 2024",
+              "points": [
+                "Created an application for managing PL and Balance sheet data mapping across branches.",
+                "Built role-based screens and integrated CRUD APIs using FastAPI.",
+                "Developed an AI chatbot in Phase 2 to provide financial insights via tables and graphs."
+              ]
+            }
+          ]
+        },
+        {
+          "company": "Wipro",
+          "duration": "March 2022 - Jan 2023",
+          "role": "Software Engineer",
+          "bullets": [
+            "Worked on the Telefonica Project as a DB schema designer and query writer.",
+            "Responsible for designing schemas and writing complex SQL queries for precision and instant data fetching.",
+            "Performed CRUD operations (Updating, Reading, Deleting) and optimized database performance.",
+            "Gained hands-on experience with Cloud technologies, Core Java, Servlets, JDBC, and Hibernate."
+          ],
+          "activities": [
+            {
+               "title": "Google Cloud Practitioner Certification",
+               "points": [
+                 "Completed the Google Cloud Practitioner certification as part of the Cloud Learning initiative.",
+                 "Achieved this distinction as one of the top 15-20 candidates out of a cohort of 200+ students."
+               ]
+            }
+          ],
+          "projects": [
+            {
+              "title": "Database Optimization Initiative",
+              "duration": "Ongoing",
+              "points": [
+                "Refined legacy database queries to enhance execution speed and efficiency.",
+                "Simplified complex query structures to improve code readability and maintainability.",
+                "Focused on clean and high-performance data retrieval for critical business operations."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "SkillsPage": {
+      "header": {
+        "heading": " Technologies & Tools",
+        "subHeading": " My technical expertise spans across modern frameworks, databases, and development tools."
+      },
+      "instruction": " Tip: Click on a technology card above to see detailed experience and skills related to that stack.",
+      "skillsData": [
+        {
+          "name": "React",
+          "icon": "react",
+          "color": "bg-gradient-to-br from-[#61dafb] to-[#21d4fd]",
+          "description": "2 years of experience developing scalable and component-driven user interfaces using React. Proficient in state management with Redux and Context API, deploying applications on virtual machines, integrating CI/CD pipelines, and containerizing frontends with Docker."
+        },
+        {
+          "name": "Java",
+          "icon": "java",
+          "color": "bg-gradient-to-br from-[#f89820] to-[#ed1c24]",
+          "description": "3 years of experience in Core Java development, including JSP, Servlets, Hibernate, JDBC, and basic Spring. Built enterprise-grade applications following MVC architecture, with hands-on experience in backend development within team-based environments."
+        },
+        {
+          "name": "JavaScript",
+          "icon": "javascript",
+          "color": "bg-gradient-to-br from-[#f7df1e] to-[#f0db4f]",
+          "description": "2 years of experience building dynamic user interfaces and full-stack applications. Skilled in ES6+ features, asynchronous programming, and integrating JavaScript with frameworks such as React, Node.js, and Express."
+        },
+        {
+          "name": "TypeScript",
+          "icon": "typescript",
+          "color": "bg-gradient-to-br from-[#007acc] to-[#3178c6]",
+          "description": "1 year of experience using TypeScript to build type-safe and maintainable applications with React and Node.js. Skilled in defining interfaces, improving code readability, and collaborating on scalable codebases."
+        },
+        {
+          "name": "Node.js",
+          "icon": "nodejs",
+          "color": "bg-gradient-to-br from-[#68a063] to-[#8cc84b]",
+          "description": "2 years of experience using Node.js for backend development in academic projects. Built RESTful APIs, implemented file handling and email services, and applied containerization practices using Docker."
+        },
+        {
+          "name": "Express",
+          "icon": "express",
+          "color": "bg-gradient-to-br from-[#404040] to-[#000000]",
+          "description": "2 years of experience building backend services with Express.js during college projects. Developed middleware, authentication systems (JWT), and error-handling layers for scalable APIs."
+        },
+        {
+          "name": "MySQL",
+          "icon": "mysql",
+          "color": "bg-gradient-to-br from-[#00758f] to-[#f29111]",
+          "description": "2 years of experience designing and managing relational databases using MySQL. Proficient in writing complex SQL queries, schema normalization, and performance optimization through indexing."
+        },
+        {
+          "name": "SQLite",
+          "icon": "sqlite",
+          "color": "bg-gradient-to-br from-[#003b57] to-[#0f80cc]",
+          "description": "1 year of experience using SQLite for lightweight local databases in mobile and desktop applications. Skilled in schema design and fast prototyping for small-scale solutions."
+        },
+        {
+          "name": "MongoDB",
+          "icon": "mongodb",
+          "color": "bg-gradient-to-br from-[#4db33d] to-[#3fa037]",
+          "description": "3 years of experience working with MongoDB in MERN-stack projects. Proficient in schema design using Mongoose, implementing aggregation pipelines, and optimizing NoSQL queries for performance."
+        },
+        {
+          "name": "Firebase",
+          "icon": "firebase",
+          "color": "bg-gradient-to-br from-[#ffca28] to-[#ffa000]",
+          "description": "1 year of experience with Firebase services including Firestore, Google SSO integration, and real-time data synchronization. Used extensively in rapid prototyping and collaborative web applications."
+        },
+        {
+          "name": "Git",
+          "icon": "git",
+          "color": "bg-gradient-to-br from-[#f05032] to-[#e94e32]",
+          "description": "3 years of experience using Git for version control in solo and collaborative projects. Proficient in branching strategies, resolving merge conflicts, and integrating Git with CI/CD workflows."
+        },
+        {
+          "name": "GitHub",
+          "icon": "github",
+          "color": "bg-gradient-to-br from-[#333333] to-[#000000]",
+          "description": "3 years of experience with GitHub for repository management, code reviews, and project collaboration. Experienced in using GitHub Actions, project boards, and contributing to open-source projects."
+        },
+        {
+          "name": "Postman",
+          "icon": "postman",
+          "color": "bg-gradient-to-br from-[#ff6c37] to-[#ff4c00]",
+          "description": "2 years of experience using Postman for testing and documenting RESTful APIs. Proficient in automating test collections, validating request workflows, and debugging server-side logic."
+        },
+        {
+          "name": "Tailwind",
+          "icon": "tailwindcss",
+          "color": "bg-gradient-to-br from-[#06b6d4] to-[#0891b2]",
+          "description": "2 years of experience building responsive UIs using Tailwind CSS. Proficient in customizing design systems and implementing utility-first styling for React applications."
+        },
+        {
+          "name": "Material UI",
+          "icon": "materialui",
+          "color": "bg-gradient-to-br from-[#0081cb] to-[#00695c]",
+          "description": "2 years of experience developing user interfaces using Material UI. Skilled in component customization, theming, and ensuring consistent design across web applications."
+        },
+        {
+          "name": "Flowbite",
+          "icon": "react",
+          "color": "bg-gradient-to-br from-[#1e40af] to-[#3b82f6]",
+          "description": "1 year of experience using Flowbite for rapid UI development in React projects. Utilized pre-designed components to ensure design consistency and responsiveness."
+        },
+        {
+          "name": "FastAPI",
+          "icon": "fastapi",
+          "color": "bg-gradient-to-br from-[#009688] to-[#4caf50]",
+          "description": "1 year of experience developing high-performance RESTful APIs using FastAPI. Implemented JWT authentication, background tasks, and integrated APIs with frontend clients."
+        },
+        {
+          "name": "Vitest",
+          "icon": "vitest",
+          "color": "bg-gradient-to-br from-[#fedd00] to-[#ffeb3b]",
+          "description": "1 year of experience writing unit tests with Vitest for React components and hooks. Ensured code quality and robustness in Vite-based applications through comprehensive test coverage."
+        },
+        {
+          "name": "Jest",
+          "icon": "jest",
+          "color": "bg-gradient-to-br from-[#c21325] to-[#e53e3e]",
+          "description": "1 year of experience using Jest for testing React applications and Node.js services. Proficient in test-driven development, mocking dependencies, and maintaining high test coverage."
+        }
+      ]
+    },
+    "projectsPage": {
+      "title": "Project Archive",
+      "subtitle": "Click the folder stack to reveal my projects.",
+      "subtitleExpanded": "Explore the details of my work.",
+      "folderText": "My Projects",
+      "folderSubtext": "curated projects inside.",
+      "tapToExpand": "Tap to expand.",
+      "clickToOpen": "Click to Open"
+    },
+    "blogsPage": {
+      "title": "Latest Blogs",
+      "subtitle": "Thoughts, tutorials, and insights on software development and technology.",
+      "readArticle": "Read Article"
+    },
+    "contactPage": {
+      "title": "Get In Touch",
+      "subtitle": "I'm just an email away! Send me a message and I'll get back to you as soon as possible.",
+      "letsTalk": "Let's Talk!",
+      "description": "Whether you have a question about my work, want to collaborate on a project, or just want to say hi, feel free to drop me a message.",
+      "emailLabel": "Email Me on",
+      "email": "rupeshthakur80078@gmail.com",
+      "web3FormsAccessKey": "a43ceda8-3913-4d2f-b19a-6bc78b422ed7",
+      "form": {
+        "fullNameLabel": "Full Name",
+        "fullNamePlaceholder": "John Doe",
+        "emailLabel": "Email Address",
+        "emailPlaceholder": "john@example.com",
+        "contactLabel": "Contact Number",
+        "contactPlaceholder": "+1 234 567 890",
+        "messageLabel": "Message",
+        "messagePlaceholder": "Write your message here...",
+        "submitButton": "Send Message",
+        "submitting": "Sending...",
+        "successMessage": "Message sent successfully!",
+        "errorMessage": "Something went wrong. Please try again.",
+        "errorFallback": "Failed to send message. Please try again later."
+      }
+    },
+    "projects": [
+      {
+        "title": "FoodSpace",
+        "cardDescription": "A MERN-based food marketplace connecting local home cooks with nearby buyers, promoting zero food waste and 0% platform commission.",
+        "pageDescription": "FoodSpace is a full-stack web application inspired by platforms like Zomato and Swiggy, built to empower local home cooks and reduce food waste. The platform enables individuals to sell freshly prepared homemade food to nearby users without any platform fees. Buyers can browse food listings based on their primary location and a configurable distance range, while sellers have complete control over menu visibility, pricing, and availability.\n\nThe application focuses on transparency and decentralization — sellers receive payments directly, and the platform does not act as an intermediary for delivery. Each seller is responsible for fulfilling and delivering their own orders, ensuring trust and accountability.\n\nFrom a technical perspective, FoodSpace includes secure JWT-based authentication, role-based access for buyers and sellers, location-aware listings, cart and order management, and a dedicated seller dashboard. The frontend is optimized for responsiveness and usability using modern UI libraries, while the backend follows RESTful API principles for scalability and maintainability.\n\nDue to limited resources, the application is not hosted, but the complete source code and architecture are available on GitHub.",
+        "tech": ["MongoDB", "Express.js", "React.js", "Node.js", "JWT", "Tailwind CSS", "Flowbite React"],
+        "link": "https://github.com/rupeshthakur8550/FoodSpace",
+        "livelink": null,
+        "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop",
+        "problem": "Local communities face significant food waste, while talented home cooks lack a reliable platform to sell homemade food. Buyers also struggle to find authentic, nearby homemade meals at fair prices.",
+        "solution": "Designed and developed a transparent, commission-free marketplace using the MERN stack. Implemented location-based food discovery, seller-controlled listings, JWT-secured authentication, and a seller dashboard to enable direct buyer–seller interaction while strengthening the local food economy."
+      },
+      {
+        "title": "Travel Diaries",
+        "cardDescription": "A privacy-focused social platform for travel enthusiasts to share guides, connect with like-minded travelers, and chat in real time.",
+        "pageDescription": "Travel Diaries is a social networking web application built specifically for travel enthusiasts who want more than just photo sharing. The platform enables users to document complete travel journeys, including routes, experiences, and guidance, while fostering a responsible travel culture that respects destinations and local communities.\n\nUsers can create detailed posts, like and comment on shared experiences, and connect with individuals or groups that share similar travel interests. The application also features a real-time chat system supporting one-to-one and group conversations.\n\nA strong emphasis is placed on user privacy and data protection. Chats are end-to-end aware in behavior — deleted messages are removed from both sides, screenshots and chat saving are restricted, and sensitive actions are safeguarded. Authentication is handled using Google OAuth 2.0 and OTP-based email verification to ensure secure onboarding.\n\nFrom a technical standpoint, the application leverages the MERN stack for scalability, Socket.io for real-time communication, Firebase for secure image storage, and SMTP services for OTP delivery. Although not deployed due to resource limitations, the project demonstrates advanced full-stack, real-time, and privacy-centric application design.",
+        "tech": ["MongoDB", "Express.js", "React.js", "Node.js", "Socket.io", "OAuth 2.0", "Firebase", "SMTP"],
+        "link": "https://github.com/rupeshthakur8550/TravelDiaries",
+        "livelink": null,
+        "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop",
+        "problem": "Travelers rely on fragmented social media platforms that lack structured travel guides, meaningful connections, real-time interaction, and privacy-focused communication.",
+        "solution": "Built a dedicated travel social network using the MERN stack with real-time chat, OAuth-based authentication, OTP verification, and privacy-first chat controls. The platform enables structured travel storytelling, group collaboration, and secure communication."
+      },
+      {
+        "title": "Route Planning Tool",
+        "cardDescription": "A smart route optimization tool that calculates and visualizes the shortest path across multiple destinations using Mapbox.",
+        "pageDescription": "The Route Planning Tool is a web-based navigation application designed to help users efficiently plan trips involving multiple destinations. Unlike standard map applications that primarily focus on point-to-point navigation, this tool calculates an optimized route covering all selected locations with the shortest possible distance.\n\nUsers can enter their current location and add multiple destinations dynamically. The system processes these inputs using route optimization logic and visualizes the complete path on an interactive Mapbox-powered map.\n\nAs the user moves, the application updates the route in real time and automatically removes destination markers once they are reached, providing a clean and intuitive navigation experience. This makes the tool especially useful for delivery routes, travel itineraries, and multi-stop journeys.\n\nThe backend is built using Node.js and Express.js, with SQLite used for lightweight and efficient data storage. Although the application is not hosted, it demonstrates strong integration of mapping services, real-time updates, and algorithm-driven route optimization.",
+        "tech": ["React.js", "Mapbox", "Node.js", "Express.js", "SQLite"],
+        "link": "https://github.com/rupeshthakur8550/Route-Planning-Tool",
+        "livelink": null,
+        "image": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=2066&auto=format&fit=crop",
+        "problem": "Standard navigation tools are inefficient for planning trips with multiple stops, often resulting in longer travel times and unnecessary fuel consumption.",
+        "solution": "Developed a smart routing application using Mapbox and Node.js that computes the shortest route across multiple destinations, visualizes it interactively, and dynamically updates the route while removing completed stops."
+      }
+    ],
+    "blogs": [
+      {
+        "title": "Mastering React Hooks",
+        "summary": "A deep dive into useEffect, useMemo, and useCallback. Learn how to optimize your React applications and avoid common pitfalls.",
+        "date": "Jan 15, 2026",
+        "readTime": "5 min read",
+        "link": "#",
+        "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=2070&auto=format&fit=crop"
+      },
+      {
+        "title": "The Power of TypeScript",
+        "summary": "Why you should switch to TypeScript today. Exploring types, interfaces, and generics for safer and more maintainable code.",
+        "date": "Dec 20, 2025",
+        "readTime": "7 min read",
+        "link": "#",
+        "image": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=2128&auto=format&fit=crop"
+      },
+      {
+        "title": "Building Scalable APIs",
+        "summary": "Best practices for designing RESTful APIs with Node.js and Express. Authentication, rate limiting, and error handling strategies.",
+        "date": "Nov 10, 2025",
+        "readTime": "6 min read",
+        "link": "#",
+        "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
+      }
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap');
+@import "tailwindcss";
+@import "./theme.css";
+
+@theme {
+  /* Base Maps */
+  --color-theme-bg: var(--bg-primary);
+  --color-theme-card: var(--bg-secondary);
+  --color-theme-card-light: var(--bg-tertiary);
+  
+  --color-theme-text: var(--text-primary);
+  --color-theme-text-sec: var(--text-secondary);
+  --color-theme-text-muted: var(--text-muted);
+
+  /* Accent Maps */
+  --color-theme-orange: var(--accent-orange);
+  --color-theme-sky: var(--accent-sky);
+  --color-theme-purple: var(--accent-purple);
+  --color-theme-pink: var(--accent-pink);
+  --color-theme-green: var(--accent-green);
+  --color-theme-yellow: var(--accent-yellow);
+  --color-theme-red: var(--accent-red);
+
+  /* Cosmic Maps (Alias for backward compatibility/consistency) */
+  --color-cosmic-bg: var(--bg-primary);
+  --color-cosmic-card: var(--bg-secondary);
+  --color-cosmic-muted: var(--text-muted);
+  --color-cosmic-text: var(--text-primary);
+  --color-cosmic-text-muted: var(--text-muted);
+  --color-cosmic-accent: var(--accent-sky);
+  --color-cosmic-accent-hover: var(--accent-purple);
+}
+
+body {
+  background-color: var(--bg-primary); 
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: var(--text-primary);
+}
+
+/* Allows scroll but hides bar */
+html, body {
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background-color: var(--text-primary);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.perspective {
+  perspective: 1200px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}

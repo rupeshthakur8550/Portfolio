@@ -1,0 +1,29 @@
+:root {
+  /* 
+    Modular Theme System
+    Restoring the "Old Theme" aesthetic with centralized variables.
+  */
+  
+  /* Base Colors */
+  --bg-primary: #1a1a1a;       /* Original dark gray background */
+  --bg-secondary: #111827;     /* gray-900 for cards/sections */
+  --bg-tertiary: #1f2937;      /* gray-800 for lighter cards */
+  
+  /* Typography */
+  --text-primary: #ffffff;
+  --text-secondary: #e5e7eb;   /* gray-200 */
+  --text-muted: #9ca3af;       /* gray-400 */
+
+  /* Brand/Accent Colors (The "Old Theme" Palette) */
+  --accent-orange: #f97316;    /* Blob cursor, Experience dots */
+  --accent-sky: #38bdf8;       /* Links, Experience text, Header icons */
+  --accent-purple: #a855f7;    /* Projects folder, Gradients */
+  --accent-pink: #ec4899;      /* Gradients */
+  --accent-green: #4ade80;     /* Success states, Dots */
+  --accent-yellow: #facc15;    /* Dots */
+  --accent-red: #ef4444;       /* Dots */
+
+  /* Utility Transparencies (derived usage) */
+  --accent-purple-dim: rgba(168, 85, 247, 0.2);
+  --accent-sky-dim: rgba(56, 189, 248, 0.1);
+}
