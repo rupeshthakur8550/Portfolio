@@ -112,7 +112,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         )}
 
         {projects && (
-          <div className="flex-1 w-full relative pl-8 bg-cosmic-card/30 p-8 rounded-xl border border-cosmic-muted/10 transition-colors hover:bg-cosmic-card/50 group/projects hover:border-cosmic-accent">
+          <div className="flex-1 w-full relative md:pl-8 pl-4 bg-cosmic-card/30 md:p-8 p-4 rounded-xl border border-cosmic-muted/10 transition-colors hover:bg-cosmic-card/50 group/projects hover:border-cosmic-accent">
             <h5 className="font-bold text-cosmic-accent text-sm tracking-[0.2em] mb-6 uppercase group-hover/projects:text-cosmic-accent-hover transition-colors">
               {projectsLabel}
             </h5>
