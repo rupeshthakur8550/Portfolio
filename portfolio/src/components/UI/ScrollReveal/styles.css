@@ -1,0 +1,18 @@
+.scroll-reveal {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.scroll-reveal-text {
+    display: block;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: inherit;
+}
+
+.word {
+    display: inline-block;
+    position: relative;
+    will-change: opacity, filter, transform;
+}

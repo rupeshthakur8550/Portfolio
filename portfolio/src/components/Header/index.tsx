@@ -33,6 +33,7 @@ const menuItems: NavItem[] = common.Portfolio.Header.navigation.map(
 
 const Header = () => {
   const [hoveredItem, setHoveredItem] = useState<string>("");
+  const [activeSection, setActiveSection] = useState<string>("");
   const location = useLocation();
 
   // Handle hash scrolling across page transitions
@@ -49,6 +50,51 @@ const Header = () => {
       }
     }
   }, [location.pathname, location.hash]);
+
+  // Section Tracking for Highlighting
+  useEffect(() => {
+    // Reset active section when navigating away from Home page
+    if (location.pathname !== "/" && location.pathname !== "/home" && location.pathname !== "/about") {
+      setActiveSection("");
+      return;
+    }
+
+    const sections = ["about", "technologies"];
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -20% 0px",
+      threshold: 0.1, // Lower threshold for better sensitivity
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    // Special case for scrolling to the very top - ensure "about" is active
+    const handleScroll = () => {
+      if (window.scrollY < 100 && (location.pathname === "/" || location.pathname === "/home" || location.pathname === "/about")) {
+        setActiveSection("about");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [location.pathname]); // Removed activeSection from dependencies
 
   const handleNavClick = (href: string) => {
     if (href.startsWith("/#")) {
@@ -78,10 +124,18 @@ const Header = () => {
             onClick={() => handleNavClick(item.href || "/")}
             onMouseEnter={() => setHoveredItem(item.label)}
             onMouseLeave={() => setHoveredItem("")}
-            className={({ isActive }) =>
-              `flex items-center gap-2 px-4 py-2 rounded-xl cursor-pointer transition-all duration-300 font-semibold group
-               ${isActive && !item.href?.includes("#") ? 'bg-cosmic-accent/10 text-cosmic-accent' : 'hover:bg-cosmic-accent/5 hover:text-cosmic-accent text-cosmic-text-muted'}`
-            }
+            className={({ isActive }) => {
+              const isHashLink = item.href?.includes("#");
+              const targetId = item.href?.split("#")[1];
+              const isSectionActive = isHashLink && activeSection === targetId;
+              const isCurrentPageActive = isActive && !isHashLink;
+
+              const activeClasses = (isSectionActive || isCurrentPageActive)
+                ? 'bg-cosmic-accent/10 text-cosmic-accent'
+                : 'hover:bg-cosmic-accent/5 hover:text-cosmic-accent text-cosmic-text-muted';
+
+              return `flex items-center gap-2 px-4 py-2 rounded-xl cursor-pointer transition-all duration-300 font-semibold group ${activeClasses}`;
+            }}
             aria-label={item.label}
           >
             <IconComponent className="group-hover:text-cosmic-accent transition-colors lg:h-5 h-6" />
@@ -92,7 +146,7 @@ const Header = () => {
           </NavLink>
         );
       }),
-    [hoveredItem, location.pathname]
+    [hoveredItem, location.pathname, activeSection]
   );
 
   const mobileNavItems = useMemo(
@@ -108,26 +162,34 @@ const Header = () => {
             aria-label={item.label}
             className="relative flex flex-col items-center justify-center p-2 pt-3"
           >
-            {({ isActive }) => (
-              <>
-                <IconComponent
-                  size={24}
-                  className={`relative z-10 transition-all duration-300 ${isActive ? "text-cosmic-accent scale-110" : "text-cosmic-text-muted opacity-70"
-                    }`}
-                />
-                {isActive && (
-                  <motion.div
-                    layoutId="mobileNavIndicator"
-                    className="absolute inset-0 bg-cosmic-accent/10 rounded-xl"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+            {({ isActive }) => {
+              const isHashLink = item.href?.includes("#");
+              const targetId = item.href?.split("#")[1];
+              const isSectionActive = isHashLink && activeSection === targetId;
+              const isCurrentPageActive = isActive && !isHashLink;
+              const effectiveActive = isSectionActive || isCurrentPageActive;
+
+              return (
+                <>
+                  <IconComponent
+                    size={24}
+                    className={`relative z-10 transition-all duration-300 ${effectiveActive ? "text-cosmic-accent scale-110" : "text-cosmic-text-muted opacity-70"
+                      }`}
                   />
-                )}
-              </>
-            )}
+                  {effectiveActive && (
+                    <motion.div
+                      layoutId="mobileNavIndicator"
+                      className="absolute inset-0 bg-cosmic-accent/10 rounded-xl"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                </>
+              );
+            }}
           </NavLink>
         );
       }),
-    [location.pathname]
+    [location.pathname, activeSection]
   );
 
   return (
@@ -161,7 +223,7 @@ const Header = () => {
       </header>
 
       {/* Mobile Bottom Navigation */}
-      <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-lg z-50">
+      <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-lg z-[100]">
         <div className="bg-cosmic-card/80 backdrop-blur-lg border border-cosmic-text/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] px-4 py-1">
           <div className="flex justify-between items-center h-16">
             {mobileNavItems}

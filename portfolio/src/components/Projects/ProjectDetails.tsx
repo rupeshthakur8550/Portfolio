@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { FiArrowLeft, FiGithub, FiExternalLink } from "react-icons/fi";
 import GradientText from "../UI/GradientText";
 import LazyImage from "../UI/LazyImage";
+import ScrollReveal from "../UI/ScrollReveal";
 
 interface ProjectDetailsProps {
   project: {
@@ -95,9 +96,17 @@ const ProjectDetails = ({ project, onBack }: ProjectDetailsProps) => {
           {/* Description */}
           <div>
             <h3 className="text-xl font-semibold text-cosmic-accent mb-3">Overview</h3>
-            <p className="text-cosmic-text-muted leading-relaxed text-lg whitespace-pre-line">
-              {project.pageDescription}
-            </p>
+            <div>
+              <ScrollReveal
+                baseOpacity={0.2}
+                enableBlur
+                blurStrength={6}
+                baseRotation={0}
+                textClassName="text-cosmic-text-muted leading-relaxed text-lg whitespace-pre-line"
+              >
+                {project.pageDescription}
+              </ScrollReveal>
+            </div>
           </div>
 
           {/* Problem & Solution Grid */}
@@ -106,18 +115,30 @@ const ProjectDetails = ({ project, onBack }: ProjectDetailsProps) => {
               <h4 className="text-lg font-bold text-cosmic-accent mb-3 flex items-center gap-2">
                 The Problem
               </h4>
-              <p className="text-cosmic-text-muted leading-relaxed">
+              <ScrollReveal
+                baseOpacity={0.3}
+                enableBlur
+                blurStrength={4}
+                baseRotation={0}
+                textClassName="text-cosmic-text-muted leading-relaxed"
+              >
                 {project.problem}
-              </p>
+              </ScrollReveal>
             </div>
 
             <div className="bg-cosmic-card/50 p-6 rounded-xl border border-cosmic-muted/20 hover:border-cosmic-muted/40 transition-colors">
               <h4 className="text-lg font-bold text-cosmic-accent mb-3 flex items-center gap-2">
                 The Solution
               </h4>
-              <p className="text-cosmic-text-muted leading-relaxed">
+              <ScrollReveal
+                baseOpacity={0.3}
+                enableBlur
+                blurStrength={4}
+                baseRotation={0}
+                textClassName="text-cosmic-text-muted leading-relaxed"
+              >
                 {project.solution}
-              </p>
+              </ScrollReveal>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import common from "../../assets/json/common.json";
 import GradientText from "../UI/GradientText";
+import ScrollReveal from "../UI/ScrollReveal";
 
 interface Project {
   title: string;
@@ -54,7 +55,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         </h4>
         <div className="h-px flex-grow bg-gradient-to-r from-cosmic-accent/20 to-transparent"></div>
       </div>
-      <div className="flex-1 w-full relative my-5 bg-cosmic-card/30 p-8 rounded-xl border border-cosmic-muted/10 transition-colors hover:bg-cosmic-card/50 group/activity hover:border-cosmic-accent group-hover/activity:text-cosmic-text">
+      <div className="flex-1 w-full relative my-5 bg-cosmic-card/30 md:p-8 p-3 rounded-xl border border-cosmic-muted/10 transition-colors hover:bg-cosmic-card/50 group/activity hover:border-cosmic-accent group-hover/activity:text-cosmic-text">
         <ul className="space-y-4 max-w-4xl">
           {bullets.map((point, idx) => (
             <li
@@ -62,7 +63,15 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
               className="text-cosmic-text-muted text-sm sm:text-base leading-relaxed flex items-start group-hover/activity:text-cosmic-text transition-colors"
             >
               <span className="text-cosmic-accent mr-3 mt-1.5 text-xs">◆</span>
-              {point}
+              <ScrollReveal
+                baseOpacity={0.3}
+                enableBlur
+                blurStrength={4}
+                baseRotation={0}
+                textClassName="inline"
+              >
+                {point}
+              </ScrollReveal>
             </li>
           ))}
         </ul>
@@ -70,7 +79,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 
       <div className="flex flex-col xl:flex-row gap-10 items-start">
         {activities && (
-          <div className="flex-1 w-full relative pl-8 bg-cosmic-card/30 p-8 rounded-xl border border-cosmic-muted/10 transition-colors hover:bg-cosmic-card/50 group/activity hover:border-cosmic-accent">
+          <div className="flex-1 w-full relative md:pl-8 pl-4 bg-cosmic-card/30 md:p-8 p-3 rounded-xl border border-cosmic-muted/10 transition-colors hover:bg-cosmic-card/50 group/activity hover:border-cosmic-accent">
             <h5 className="font-bold text-cosmic-accent text-sm tracking-[0.2em] mb-6 uppercase group-hover/activity:text-cosmic-accent-hover transition-colors">
               {activitiesLabel}
             </h5>
@@ -85,7 +94,15 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                       key={i}
                       className="text-sm text-cosmic-text-muted group-hover/activity:text-cosmic-text leading-relaxed border-l border-cosmic-muted/20 pl-4 ml-1 transition-colors"
                     >
-                      {p}
+                      <ScrollReveal
+                        baseOpacity={0.3}
+                        enableBlur
+                        blurStrength={3}
+                        baseRotation={0}
+                        textClassName="inline"
+                      >
+                        {p}
+                      </ScrollReveal>
                     </li>
                   ))}
                 </ul>
@@ -116,7 +133,15 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                         key={i}
                         className="text-xs sm:text-sm text-cosmic-text-muted leading-relaxed border-l border-cosmic-muted/20 pl-4 ml-1 group-hover/projects:text-cosmic-text transition-colors"
                       >
-                        {p}
+                        <ScrollReveal
+                          baseOpacity={0.3}
+                          enableBlur
+                          blurStrength={3}
+                          baseRotation={0}
+                          textClassName="inline"
+                        >
+                          {p}
+                        </ScrollReveal>
                       </li>
                     ))}
                   </ul>
@@ -135,7 +160,7 @@ const Experience: React.FC = () => {
 
   return (
     <div
-      className="py-16 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto relative z-20 w-full"
+      className="py-16 pb-32 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto relative z-20 w-full"
       id="experience"
     >
       {/* Header Section */}
@@ -149,9 +174,16 @@ const Experience: React.FC = () => {
             {experienceData.heading}
           </GradientText>
         </div>
-        <p className="text-cosmic-text-muted text-lg sm:text-xl max-w-3xl mx-auto font-medium tracking-tight">
-          Refining the digital landscape through professional excellence and scalable engineering.
-        </p>
+        <div className="flex justify-center text-center">
+          <ScrollReveal
+            baseOpacity={0.2}
+            enableBlur
+            blurStrength={8}
+            textClassName="text-cosmic-text-muted text-lg sm:text-xl max-w-3xl mx-auto font-medium tracking-tight"
+          >
+            Refining the digital landscape through professional excellence and scalable engineering.
+          </ScrollReveal>
+        </div>
       </div>
 
       {/* Experience List */}

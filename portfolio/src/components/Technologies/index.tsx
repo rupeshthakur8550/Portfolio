@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import common from "../../assets/json/common.json";
 import GradientText from "../UI/GradientText";
+import ScrollReveal from "../UI/ScrollReveal";
 import {
   SiReact,
   SiJavascript,
@@ -105,15 +106,22 @@ const Technologies = () => {
       {/* 🔹 Header */}
       <div className="text-center mb-12 md:mb-20">
         <GradientText
-            animationSpeed={3}
-            showBorder={false}
-            className="text-5xl sm:text-7xl font-black tracking-tight"
+          animationSpeed={3}
+          showBorder={false}
+          className="text-5xl sm:text-7xl font-black tracking-tight"
         >
           {technologiesData.header.heading}
         </GradientText>
-        <p className="text-sm sm:text-lg text-gray-300 max-w-2xl mx-auto mt-2">
-          {technologiesData.header.subHeading}
-        </p>
+        <div className="mt-2 text-center flex justify-center">
+          <ScrollReveal
+            baseOpacity={0.2}
+            enableBlur
+            blurStrength={8}
+            textClassName="text-sm sm:text-lg text-gray-300 max-w-2xl mx-auto"
+          >
+            {technologiesData.header.subHeading}
+          </ScrollReveal>
+        </div>
       </div>
 
       {/* 🌀 Arc Layout */}
@@ -148,20 +156,18 @@ const Technologies = () => {
                       isActive
                         ? { name: "", color: "", description: "" }
                         : {
-                            name: tech.name,
-                            color: tech.color,
-                            description: tech.description,
-                          }
+                          name: tech.name,
+                          color: tech.color,
+                          description: tech.description,
+                        }
                     )
                   }
-                  className={`w-24 sm:w-32 h-28 sm:h-40 rounded-2xl cursor-pointer relative overflow-visible ${
-                    tech.color
-                  }
+                  className={`w-24 sm:w-32 h-28 sm:h-40 rounded-2xl cursor-pointer relative overflow-visible ${tech.color
+                    }
                     transform transition-transform duration-500 ease-out
-                    ${
-                      isActive
-                        ? "scale-[1.45] shadow-2xl"
-                        : "group-hover:scale-[1.35] group-hover:-translate-y-[200px] group-hover:z-[999] shadow-md"
+                    ${isActive
+                      ? "scale-[1.45] shadow-2xl"
+                      : "group-hover:scale-[1.35] group-hover:-translate-y-[200px] group-hover:z-[999] shadow-md"
                     }`}
                 >
                   <div className="relative z-10 flex flex-col items-center justify-center h-full p-3 sm:p-4 text-white gap-3">
@@ -185,17 +191,24 @@ const Technologies = () => {
         ) : (
           <>
             <h2
-              className={`text-3xl py-2 sm:text-5xl font-bold ${
-                ["express", "github"].includes(activeTech.name?.toLowerCase())
-                  ? "bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100"
-                  : activeTech.color
-              } bg-clip-text text-transparent`}
+              className={`text-3xl py-2 sm:text-5xl font-bold ${["express", "github"].includes(activeTech.name?.toLowerCase())
+                ? "bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100"
+                : activeTech.color
+                } bg-clip-text text-transparent`}
             >
               {activeTech.name}
             </h2>
-            <p className="text-sm sm:text-lg text-gray-300 max-w-2xl mx-auto mt-2">
-              {activeTech.description}
-            </p>
+            <div className="flex justify-center">
+              <ScrollReveal
+                key={activeTech.name}
+                baseOpacity={0.2}
+                enableBlur
+                blurStrength={8}
+                textClassName="text-sm sm:text-lg text-gray-300 max-w-2xl mx-auto mt-2"
+              >
+                {activeTech.description}
+              </ScrollReveal>
+            </div>
           </>
         )}
       </div>

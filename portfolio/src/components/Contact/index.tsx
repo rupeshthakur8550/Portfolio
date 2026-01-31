@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FiMail, FiSend, FiUser, FiPhone, FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
 import common from '../../assets/json/common.json';
 import GradientText from '../UI/GradientText';
+import ScrollReveal from '../UI/ScrollReveal';
 
 const Contact = () => {
     const contactText = common.Portfolio.contactPage;
@@ -66,7 +67,7 @@ const Contact = () => {
     };
 
     return (
-        <div id="contact" className="min-h-screen flex flex-col justify-center items-center py-20 px-4 relative z-20">
+        <div id="contact" className="min-h-screen flex flex-col justify-center items-center py-20 pb-40 px-4 relative z-20">
             <div className="text-center mb-10 md:mb-20">
                 <div className="mb-6">
                     <GradientText
@@ -77,9 +78,16 @@ const Contact = () => {
                         {contactText.title}
                     </GradientText>
                 </div>
-                <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto">
-                    {contactText.subtitle}
-                </p>
+                <div className="flex justify-center text-center">
+                    <ScrollReveal
+                        baseOpacity={0.2}
+                        enableBlur
+                        blurStrength={8}
+                        textClassName="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto"
+                    >
+                        {contactText.subtitle}
+                    </ScrollReveal>
+                </div>
             </div>
 
             <div className="w-full max-w-4xl bg-gray-900/50 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-12 shadow-2xl relative overflow-hidden">
@@ -87,12 +95,18 @@ const Contact = () => {
                 <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl -z-10 transform translate-x-1/2 -translate-y-1/2"></div>
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -z-10 transform -translate-x-1/2 translate-y-1/2"></div>
 
-                <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+                <div className="grid md:grid-cols-2 md:gap-12 items-start">
                     <div>
                         <h3 className="text-xl md:text-2xl font-bold text-white mb-6">{contactText.letsTalk}</h3>
-                        <p className="text-gray-400 mb-8 leading-relaxed text-sm md:text-base">
+                        <ScrollReveal
+                            baseOpacity={0.3}
+                            enableBlur
+                            blurStrength={5}
+                            baseRotation={0}
+                            textClassName="text-gray-400 mb-8 leading-relaxed text-sm md:text-base"
+                        >
                             {contactText.description}
-                        </p>
+                        </ScrollReveal>
 
                         <div className="space-y-6 mb-8 md:mb-0">
                             <div className="flex items-center space-x-4 text-gray-300">

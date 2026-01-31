@@ -5,6 +5,7 @@ import gsap from "gsap";
 import common from "../../assets/json/common.json";
 import DecryptedText from "../UI/DecryptedText";
 import GradientText from "../UI/GradientText";
+import ScrollReveal from "../UI/ScrollReveal";
 
 const ProfileCard = ({ profile }: { profile: any }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -52,9 +53,17 @@ const ProfileCard = ({ profile }: { profile: any }) => {
             {profile.name}
           </h2>
 
-          <p className="text-gray-600 text-center text-sm leading-relaxed px-2">
-            {profile.description}
-          </p>
+          <div className="flex justify-center">
+            <ScrollReveal
+              baseOpacity={0.2}
+              enableBlur
+              blurStrength={6}
+              baseRotation={0}
+              textClassName="text-gray-600 text-center text-sm leading-relaxed px-2"
+            >
+              {profile.description}
+            </ScrollReveal>
+          </div>
         </div>
       </div>
     </div>
@@ -88,9 +97,17 @@ const BioSection = ({ introData, sentenceIndex }: { introData: any; sentenceInde
       />
     </div>
 
-    <p className="md:text-justify text-base sm:text-lg leading-relaxed px-2 sm:px-6 mt-6 text-gray-300">
-      {introData.bio}
-    </p>
+    <div className="mt-6">
+      <ScrollReveal
+        baseOpacity={0.1}
+        enableBlur
+        baseRotation={2}
+        blurStrength={10}
+        textClassName="md:text-justify text-base sm:text-lg leading-relaxed px-2 sm:px-6 text-gray-300"
+      >
+        {introData.bio}
+      </ScrollReveal>
+    </div>
   </div>
 );
 
@@ -137,7 +154,15 @@ const EducationTimeline = ({ education, className = "" }: { education: any; clas
                 className="text-gray-400 text-sm sm:text-base leading-relaxed flex items-start"
               >
                 <span className="text-theme-sky/60 mr-3 mt-1.5 text-xs">◆</span>
-                {l}
+                <ScrollReveal
+                  baseOpacity={0.3}
+                  enableBlur
+                  blurStrength={4}
+                  baseRotation={0}
+                  textClassName="inline"
+                >
+                  {l}
+                </ScrollReveal>
               </li>
             ))}
           </ul>
@@ -230,11 +255,10 @@ const IntroPage = () => {
   }, [introData.introSentences.length]);
 
   return (
-    <>
+    <div id="about">
       {/* DESKTOP SLIDER VIEW (Hidden on mobile) */}
       <div
         ref={containerRef}
-        id="about"
         className="hidden md:flex relative w-full justify-center items-center overflow-hidden h-full min-h-[80vh]"
       >
         {/* Education Section (Slider Left) */}
@@ -289,8 +313,15 @@ const IntroPage = () => {
         {introData.stats.map((stat, i) => (
           <div key={i} className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl p-6 text-center shadow-lg hover:shadow-xl hover:border-theme-purple/30 transition-all duration-300">
             <div className="text-4xl sm:text-5xl font-extrabold text-theme-text mb-2">{stat.value}</div>
-            <div className="text-gray-400 text-xs sm:text-sm uppercase tracking-wider">
-              {stat.label}
+            <div className="flex justify-center">
+              <ScrollReveal
+                baseOpacity={0.4}
+                enableBlur={false}
+                baseRotation={0}
+                textClassName="text-gray-400 text-xs sm:text-sm uppercase tracking-wider"
+              >
+                {stat.label}
+              </ScrollReveal>
             </div>
           </div>
         ))}
@@ -300,7 +331,7 @@ const IntroPage = () => {
       <div className="md:hidden">
         <EducationTimeline education={introData.education} />
       </div>
-    </>
+    </div>
   );
 };
 

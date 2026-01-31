@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import common from "../../assets/json/common.json";
 import GradientText from "../UI/GradientText";
 import ProjectDetails from "./ProjectDetails";
+import ScrollReveal from "../UI/ScrollReveal";
 
 const Projects = () => {
   const projects = common.Portfolio.projects;
@@ -22,7 +23,7 @@ const Projects = () => {
   return (
     <div
       id="projects"
-      className="min-h-screen pt-16  px-4 md:px-10 max-w-7xl mx-auto relative z-20 flex flex-col items-center"
+      className="min-h-screen pt-16 pb-32 px-4 md:px-10 max-w-7xl mx-auto relative z-20 flex flex-col items-center"
       onClick={handleBackgroundClick}
     >
       <div className="text-center sm:mb-12 md:mb-20 mb-10">
@@ -34,9 +35,16 @@ const Projects = () => {
             {projectsText.title}
           </GradientText>
         </div>
-        <p className="text-cosmic-muted text-lg max-w-2xl mx-auto">
-          {selectedProject ? "Project Details" : (isExpanded ? projectsText.subtitleExpanded : projectsText.subtitle)}
-        </p>
+        <div className="flex justify-center text-center">
+          <ScrollReveal
+            baseOpacity={0.2}
+            enableBlur
+            blurStrength={8}
+            textClassName="text-cosmic-muted text-lg max-w-2xl mx-auto"
+          >
+            {selectedProject ? "Project Details" : (isExpanded ? projectsText.subtitleExpanded : projectsText.subtitle)}
+          </ScrollReveal>
+        </div>
       </div>
 
       <div className="relative w-full flex justify-center min-h-[200px] pb-20">
@@ -132,9 +140,17 @@ const Projects = () => {
                       {project.title}
                     </h3>
 
-                    <p className="text-cosmic-muted text-sm mb-6 leading-relaxed">
-                      {project.cardDescription}
-                    </p>
+                    <div className="mb-6">
+                      <ScrollReveal
+                        baseOpacity={0.3}
+                        enableBlur
+                        blurStrength={4}
+                        baseRotation={0}
+                        textClassName="text-cosmic-muted text-sm leading-relaxed"
+                      >
+                        {project.cardDescription}
+                      </ScrollReveal>
+                    </div>
 
                     <div className="flex flex-wrap gap-2 mt-auto">
                       {project.tech.map((tech, i) => (
