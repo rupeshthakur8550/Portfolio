@@ -55,7 +55,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         <div className="h-px flex-grow bg-gradient-to-r from-cosmic-accent/20 to-transparent"></div>
       </div>
       <div className="flex-1 w-full relative my-5 bg-cosmic-card/30 p-8 rounded-xl border border-cosmic-muted/10 transition-colors hover:bg-cosmic-card/50 group/activity hover:border-cosmic-accent group-hover/activity:text-cosmic-text">
-        <ul className="space-y-4 mb-10 max-w-4xl">
+        <ul className="space-y-4 max-w-4xl">
           {bullets.map((point, idx) => (
             <li
               key={idx}
