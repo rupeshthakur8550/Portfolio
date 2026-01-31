@@ -6,49 +6,60 @@ import common from "../../assets/json/common.json";
 import DecryptedText from "../UI/DecryptedText";
 import GradientText from "../UI/GradientText";
 
-const ProfileCard = ({ profile }: { profile: any }) => (
-  <div className="relative w-full max-w-sm group">
-    <div className="absolute -inset-1 bg-gradient-to-r from-theme-pink to-theme-purple rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-    <div className="bg-white rounded-xl p-6 md:p-10 mx-10 sm:mx-0 text-black relative overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-[1.02]">
-      {/* Decorative dots */}
-      <div className="absolute top-4 right-4 z-10">
-        <div className="flex space-x-2 items-center">
-          <div className="w-3.5 h-3.5 bg-theme-red rounded-full flex items-center justify-center">
-             <span className="text-[10px] text-white font-bold leading-none">✕</span>
-          </div>
-          <div className="w-3.5 h-3.5 bg-theme-yellow rounded-full flex items-center justify-center">
-             <span className="text-[10px] text-white font-bold leading-none">−</span>
-          </div>
-          <div className="w-3.5 h-3.5 bg-theme-green rounded-full flex items-center justify-center">
-             <span className="text-[10px] text-white font-bold leading-none">+</span>
-          </div>
-        </div>
-      </div>
+const ProfileCard = ({ profile }: { profile: any }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
 
-      {/* Dotted lines */}
-      <div className="absolute top-0 left-8 w-0.5 h-20 border-l-2 border-dashed border-theme-sky z-0"></div>
-      <div className="absolute top-10 left-0 w-12 h-0.5 border-t-2 border-dashed border-theme-sky z-0"></div>
-      <div className="absolute bottom-0 right-8 w-0.5 h-16 md:h-40 border-l-2 border-dashed border-theme-sky z-0"></div>
-      <div className="absolute bottom-10 right-0 w-12 md:w-16 h-0.5 border-t-2 border-dashed border-theme-sky z-0"></div>
-
-      <div className="relative z-10 pt-4">
-        <div className="relative mb-6">
-          <div className="w-40 h-56 rounded-2xl mx-auto overflow-hidden shadow-md">
-            <img src={heroImage} className="w-full h-full object-cover" alt="Profile" />
+  return (
+    <div className="relative w-full max-w-sm group">
+      <div className="absolute -inset-1 bg-gradient-to-r from-theme-pink to-theme-purple rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+      <div className="bg-white rounded-xl p-6 md:p-10 mx-10 sm:mx-0 text-black relative overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-[1.02]">
+        {/* Decorative dots */}
+        <div className="absolute top-4 right-4 z-10">
+          <div className="flex space-x-2 items-center">
+            <div className="w-3.5 h-3.5 bg-theme-red rounded-full flex items-center justify-center">
+              <span className="text-[10px] text-white font-bold leading-none">✕</span>
+            </div>
+            <div className="w-3.5 h-3.5 bg-theme-yellow rounded-full flex items-center justify-center">
+              <span className="text-[10px] text-white font-bold leading-none">−</span>
+            </div>
+            <div className="w-3.5 h-3.5 bg-theme-green rounded-full flex items-center justify-center">
+              <span className="text-[10px] text-white font-bold leading-none">+</span>
+            </div>
           </div>
         </div>
 
-        <h2 className="text-2xl font-bold text-center mb-4 text-gray-800">
-          {profile.name}
-        </h2>
+        {/* Dotted lines */}
+        <div className="absolute top-0 left-8 w-0.5 h-20 border-l-2 border-dashed border-theme-sky z-0"></div>
+        <div className="absolute top-10 left-0 w-12 h-0.5 border-t-2 border-dashed border-theme-sky z-0"></div>
+        <div className="absolute bottom-0 right-8 w-0.5 h-16 md:h-40 border-l-2 border-dashed border-theme-sky z-0"></div>
+        <div className="absolute bottom-10 right-0 w-12 md:w-16 h-0.5 border-t-2 border-dashed border-theme-sky z-0"></div>
 
-        <p className="text-gray-600 text-center text-sm leading-relaxed px-2">
-          {profile.description}
-        </p>
+        <div className="relative z-10 pt-4">
+          <div className="relative mb-6">
+            <div className={`w-40 h-56 rounded-2xl mx-auto overflow-hidden shadow-md transition-all duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0 bg-gray-100'}`}>
+              <img
+                src={heroImage}
+                className={`w-full h-full object-cover transition-transform duration-1000 ${isLoaded ? 'scale-100' : 'scale-110'}`}
+                alt="Profile"
+                //@ts-ignore
+                fetchpriority="high"
+                onLoad={() => setIsLoaded(true)}
+              />
+            </div>
+          </div>
+
+          <h2 className="text-2xl font-bold text-center mb-4 text-gray-800">
+            {profile.name}
+          </h2>
+
+          <p className="text-gray-600 text-center text-sm leading-relaxed px-2">
+            {profile.description}
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const BioSection = ({ introData, sentenceIndex }: { introData: any; sentenceIndex: number }) => (
   <div
@@ -234,7 +245,7 @@ const IntroPage = () => {
             clipPath: `polygon(0% 0%, ${sliderPosition}% 0%, ${sliderPosition}% 100%, 0% 100%)`,
           }}
         >
-           <EducationTimeline education={introData.education} />
+          <EducationTimeline education={introData.education} />
         </div>
 
         {/* Intro Section (Slider Right) */}
@@ -268,26 +279,26 @@ const IntroPage = () => {
       {/* MOBILE VIEW (Hidden on desktop) */}
       <div className="md:hidden flex flex-col items-center py-10 px-4 space-y-12">
         <div className="mt-8">
-           <ProfileCard profile={introData.profile} />
+          <ProfileCard profile={introData.profile} />
         </div>
         <BioSection introData={introData} sentenceIndex={sentenceIndex} />
       </div>
-      
+
       {/* Shared Stats Block */}
       <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-6 md:max-w-5xl mx-auto sm:mt-10 md:mb-20 px-4 w-[75%]">
         {introData.stats.map((stat, i) => (
-             <div key={i} className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl p-6 text-center shadow-lg hover:shadow-xl hover:border-theme-purple/30 transition-all duration-300">
-                <div className="text-4xl sm:text-5xl font-extrabold text-theme-text mb-2">{stat.value}</div>
-                <div className="text-gray-400 text-xs sm:text-sm uppercase tracking-wider">
-                    {stat.label}
-                </div>
+          <div key={i} className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl p-6 text-center shadow-lg hover:shadow-xl hover:border-theme-purple/30 transition-all duration-300">
+            <div className="text-4xl sm:text-5xl font-extrabold text-theme-text mb-2">{stat.value}</div>
+            <div className="text-gray-400 text-xs sm:text-sm uppercase tracking-wider">
+              {stat.label}
             </div>
+          </div>
         ))}
       </div>
 
       {/* Mobile Education Section (Hidden on desktop) */}
       <div className="md:hidden">
-         <EducationTimeline education={introData.education} />
+        <EducationTimeline education={introData.education} />
       </div>
     </>
   );

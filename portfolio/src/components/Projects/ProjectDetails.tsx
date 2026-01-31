@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FiArrowLeft, FiGithub, FiExternalLink } from "react-icons/fi";
 import GradientText from "../UI/GradientText";
+import LazyImage from "../UI/LazyImage";
 
 interface ProjectDetailsProps {
   project: {
@@ -38,10 +39,10 @@ const ProjectDetails = ({ project, onBack }: ProjectDetailsProps) => {
       <div className="bg-gray-900/80 backdrop-blur-md border border-gray-700 rounded-2xl overflow-hidden shadow-2xl">
         {/* Header Image */}
         <div className="relative h-64 md:h-80 w-full overflow-hidden">
-          <img
+          <LazyImage
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
           <div className="absolute bottom-0 left-0 p-8">
@@ -57,7 +58,7 @@ const ProjectDetails = ({ project, onBack }: ProjectDetailsProps) => {
         <div className="p-8 md:p-10 space-y-8">
           {/* Links */}
           <div className="flex gap-4">
-             <a
+            <a
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -79,8 +80,8 @@ const ProjectDetails = ({ project, onBack }: ProjectDetailsProps) => {
             )}
           </div>
 
-           {/* Tech Stack */}
-           <div className="flex flex-wrap gap-2">
+          {/* Tech Stack */}
+          <div className="flex flex-wrap gap-2">
             {project.tech.map((tech, i) => (
               <span
                 key={i}

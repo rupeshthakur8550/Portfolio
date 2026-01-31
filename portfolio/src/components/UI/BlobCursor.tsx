@@ -47,13 +47,13 @@ export default function BlobCursor({
   zIndex = 0
 }: BlobCursorProps) {
   const blobsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const [dimensions, setDimensions] = useState({ 
+  const [dimensions, setDimensions] = useState({
     baseSize: typeof window !== 'undefined' ? window.innerWidth * 0.20 : 200,
     isMobile: typeof window !== 'undefined' ? window.innerWidth < 768 : false
   });
 
   const updateDimensions = useCallback(() => {
-    setDimensions({ 
+    setDimensions({
       baseSize: window.innerWidth * 0.20,
       isMobile: window.innerWidth < 768
     });
@@ -103,11 +103,18 @@ export default function BlobCursor({
   return (
     <div
       className="fixed top-0 left-0 w-full h-full pointer-events-none"
-      style={{ zIndex }}
+      style={{ zIndex, isolation: 'isolate' }}
     >
       {useFilter && (
-        <svg className="absolute w-0 h-0">
-          <filter id={filterId}>
+        <svg className="absolute w-0 h-0" aria-hidden="true" focusable="false">
+          <filter
+            id={filterId}
+            x="-100%"
+            y="-100%"
+            width="300%"
+            height="300%"
+            colorInterpolationFilters="sRGB"
+          >
             <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation={filterStdDeviation} />
             <feColorMatrix in="blur" values={filterColorMatrixValues} />
           </filter>
@@ -116,7 +123,11 @@ export default function BlobCursor({
 
       <div
         className="pointer-events-none absolute inset-0 overflow-hidden select-none cursor-default"
-        style={{ filter: useFilter ? `url(#${filterId})` : undefined }}
+        style={{
+          filter: useFilter ? `url(#${filterId})` : undefined,
+          WebkitBackfaceVisibility: 'hidden',
+          WebkitTransform: 'translate3d(0, 0, 0)',
+        }}
       >
         {Array.from({ length: trailCount }).map((_, i) => (
           <div

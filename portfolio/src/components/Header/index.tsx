@@ -1,6 +1,7 @@
-import React, { useMemo, useState } from "react";
 import { MdHome, MdFolder, MdWork, MdBuild, MdOutlineMenuBook, MdContacts, } from "react-icons/md";
 import { NavLink, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useEffect, useMemo, useState } from "react";
 import common from "../../assets/json/common.json";
 import GradientText from "../UI/GradientText";
 
@@ -34,6 +35,21 @@ const Header = () => {
   const [hoveredItem, setHoveredItem] = useState<string>("");
   const location = useLocation();
 
+  // Handle hash scrolling across page transitions
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        // Delay slightly for any page transitions/loading
+        const timeoutId = setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 300);
+        return () => clearTimeout(timeoutId);
+      }
+    }
+  }, [location.pathname, location.hash]);
+
   const handleNavClick = (href: string) => {
     if (href.startsWith("/#")) {
       const id = href.split("#")[1];
@@ -43,8 +59,11 @@ const Header = () => {
           element.scrollIntoView({ behavior: "smooth" });
         }
       }
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (href.startsWith("/")) {
+      // Regular page navigation - ensure we start at top
+      if (location.pathname !== href) {
+        window.scrollTo(0, 0);
+      }
     }
   };
 
@@ -59,18 +78,15 @@ const Header = () => {
             onClick={() => handleNavClick(item.href || "/")}
             onMouseEnter={() => setHoveredItem(item.label)}
             onMouseLeave={() => setHoveredItem("")}
-            className="flex items-center gap-2 px-3 py-2 hover:bg-theme-text/10 hover:text-theme-text rounded-md cursor-pointer transition-all duration-200 font-semibold group"
+            className={({ isActive }) =>
+              `flex items-center gap-2 px-4 py-2 rounded-xl cursor-pointer transition-all duration-300 font-semibold group
+               ${isActive && !item.href?.includes("#") ? 'bg-cosmic-accent/10 text-cosmic-accent' : 'hover:bg-cosmic-accent/5 hover:text-cosmic-accent text-cosmic-text-muted'}`
+            }
             aria-label={item.label}
           >
-            <IconComponent className="text-theme-sky group-hover:text-theme-pink transition-colors lg:h-5 h-6" />
+            <IconComponent className="group-hover:text-cosmic-accent transition-colors lg:h-5 h-6" />
 
-            {/* Show label only on hover AND between md and lg screens */}
-            <span
-              className={`
-                hidden lg:block transition duration-300 ease-in-out text-theme-text
-                md:${hoveredItem === item.label ? "inline " : "hidden"}
-              `}
-            >
+            <span className={`hidden lg:block transition duration-300 ease-in-out`}>
               {item.label}
             </span>
           </NavLink>
@@ -83,18 +99,31 @@ const Header = () => {
     () =>
       menuItems.map((item) => {
         const IconComponent = item.icon;
+
         return (
           <NavLink
             to={item.href || "/"}
             key={item.label}
             onClick={() => handleNavClick(item.href || "/")}
             aria-label={item.label}
-            className="group"
+            className="relative flex flex-col items-center justify-center p-2 pt-3"
           >
-            <IconComponent
-              size={25}
-              className="group-hover:scale-110 text-theme-sky transition-transform duration-200"
-            />
+            {({ isActive }) => (
+              <>
+                <IconComponent
+                  size={24}
+                  className={`relative z-10 transition-all duration-300 ${isActive ? "text-cosmic-accent scale-110" : "text-cosmic-text-muted opacity-70"
+                    }`}
+                />
+                {isActive && (
+                  <motion.div
+                    layoutId="mobileNavIndicator"
+                    className="absolute inset-0 bg-cosmic-accent/10 rounded-xl"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+              </>
+            )}
           </NavLink>
         );
       }),
@@ -110,13 +139,13 @@ const Header = () => {
             to="/"
             onClick={() => window.scrollTo(0, 0)}
           >
-             <GradientText
-                animationSpeed={3}
-                showBorder={false}
-                className="text-3xl font-extrabold tracking-wide cursor-pointer hover:opacity-80 transition-opacity"
-             >
-                Portfolio
-             </GradientText>
+            <GradientText
+              animationSpeed={3}
+              showBorder={false}
+              className="text-3xl font-extrabold tracking-wide cursor-pointer hover:opacity-80 transition-opacity"
+            >
+              Portfolio
+            </GradientText>
           </NavLink>
 
           {/* Desktop Navigation */}
@@ -132,9 +161,11 @@ const Header = () => {
       </header>
 
       {/* Mobile Bottom Navigation */}
-      <div className="md:hidden fixed bottom-5 left-0 right-0 max-w-[100%] sm:mx-8 mx-4 rounded-[16px] bg-theme-card/80 border border-theme-text/10 backdrop-blur-md shadow-2xl z-50">
-        <div className="flex justify-around items-center py-3 px-5 max-w-md mx-auto sm:gap-10 gap-8">
-          {mobileNavItems}
+      <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-lg z-50">
+        <div className="bg-cosmic-card/80 backdrop-blur-lg border border-cosmic-text/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] px-4 py-1">
+          <div className="flex justify-between items-center h-16">
+            {mobileNavItems}
+          </div>
         </div>
       </div>
     </>

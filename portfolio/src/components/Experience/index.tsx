@@ -54,22 +54,23 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         </h4>
         <div className="h-px flex-grow bg-gradient-to-r from-cosmic-accent/20 to-transparent"></div>
       </div>
-
-      <ul className="space-y-4 mb-10 max-w-4xl">
-        {bullets.map((point, idx) => (
-          <li
-            key={idx}
-            className="text-cosmic-text-muted text-sm sm:text-base leading-relaxed flex items-start"
-          >
-            <span className="text-cosmic-accent mr-3 mt-1.5 text-xs">◆</span>
-            {point}
-          </li>
-        ))}
-      </ul>
+      <div className="flex-1 w-full relative my-5 bg-cosmic-card/30 p-8 rounded-xl border border-cosmic-muted/10 transition-colors hover:bg-cosmic-card/50 group/activity hover:border-cosmic-accent group-hover/activity:text-cosmic-text">
+        <ul className="space-y-4 mb-10 max-w-4xl">
+          {bullets.map((point, idx) => (
+            <li
+              key={idx}
+              className="text-cosmic-text-muted text-sm sm:text-base leading-relaxed flex items-start group-hover/activity:text-cosmic-text transition-colors"
+            >
+              <span className="text-cosmic-accent mr-3 mt-1.5 text-xs">◆</span>
+              {point}
+            </li>
+          ))}
+        </ul>
+      </div>
 
       <div className="flex flex-col xl:flex-row gap-10 items-start">
         {activities && (
-          <div className="flex-1 w-full relative pl-8 bg-cosmic-card/30 p-8 rounded-xl border border-cosmic-muted/10 transition-colors hover:bg-cosmic-card/50 group/activity">
+          <div className="flex-1 w-full relative pl-8 bg-cosmic-card/30 p-8 rounded-xl border border-cosmic-muted/10 transition-colors hover:bg-cosmic-card/50 group/activity hover:border-cosmic-accent">
             <h5 className="font-bold text-cosmic-accent text-sm tracking-[0.2em] mb-6 uppercase group-hover/activity:text-cosmic-accent-hover transition-colors">
               {activitiesLabel}
             </h5>
@@ -94,7 +95,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         )}
 
         {projects && (
-          <div className="flex-1 w-full relative pl-8 bg-cosmic-card/30 p-8 rounded-xl border border-cosmic-muted/10 transition-colors hover:bg-cosmic-card/50 group/projects">
+          <div className="flex-1 w-full relative pl-8 bg-cosmic-card/30 p-8 rounded-xl border border-cosmic-muted/10 transition-colors hover:bg-cosmic-card/50 group/projects hover:border-cosmic-accent">
             <h5 className="font-bold text-cosmic-accent text-sm tracking-[0.2em] mb-6 uppercase group-hover/projects:text-cosmic-accent-hover transition-colors">
               {projectsLabel}
             </h5>
@@ -137,38 +138,38 @@ const Experience: React.FC = () => {
       className="py-16 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto relative z-20 w-full"
       id="experience"
     >
-        {/* Header Section */}
-        <div className="text-center mb-12 md:mb-20">
-            <div className="mb-6">
-                <GradientText
-                    animationSpeed={3}
-                    showBorder={false}
-                    className="text-5xl sm:text-7xl font-black tracking-tight"
-                >
-                    {experienceData.heading}
-                </GradientText>
-            </div>
-            <p className="text-cosmic-text-muted text-lg sm:text-xl max-w-3xl mx-auto font-medium tracking-tight">
-                Refining the digital landscape through professional excellence and scalable engineering.
-            </p>
+      {/* Header Section */}
+      <div className="text-center mb-12 md:mb-20">
+        <div className="mb-6">
+          <GradientText
+            animationSpeed={3}
+            showBorder={false}
+            className="text-5xl sm:text-7xl font-black tracking-tight"
+          >
+            {experienceData.heading}
+          </GradientText>
         </div>
+        <p className="text-cosmic-text-muted text-lg sm:text-xl max-w-3xl mx-auto font-medium tracking-tight">
+          Refining the digital landscape through professional excellence and scalable engineering.
+        </p>
+      </div>
 
-        {/* Experience List */}
-        <div className="max-w-[1200px] mx-auto">
-          {experienceData.companyDetails.map((company: any, i: number) => (
-            <ExperienceCard
-              key={i + company.company}
-              company={company.company}
-              duration={company.duration}
-              role={company.role}
-              bullets={company.bullets}
-              activities={company.activities}
-              projects={company.projects}
-              activitiesLabel={experienceData.activitiesLabel}
-              projectsLabel={experienceData.projectsLabel}
-            />
-          ))}
-        </div>
+      {/* Experience List */}
+      <div className="max-w-[1200px] mx-auto">
+        {experienceData.companyDetails.map((company: any, i: number) => (
+          <ExperienceCard
+            key={i + company.company}
+            company={company.company}
+            duration={company.duration}
+            role={company.role}
+            bullets={company.bullets}
+            activities={company.activities}
+            projects={company.projects}
+            activitiesLabel={experienceData.activitiesLabel}
+            projectsLabel={experienceData.projectsLabel}
+          />
+        ))}
+      </div>
     </div>
   );
 };
