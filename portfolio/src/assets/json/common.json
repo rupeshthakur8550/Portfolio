@@ -17,9 +17,18 @@
         "description": "A Software Engineer who has developed countless innovative solutions with modern technologies."
       },
       "stats": [
-        { "label": "YEARS OF EXPERIENCE", "value": "2+" },
-        { "label": "PROJECTS COMPLETED", "value": "5+" },
-        { "label": "TECHNOLOGIES MASTERED", "value": "5+" }
+        {
+          "label": "YEARS OF EXPERIENCE",
+          "value": "2+"
+        },
+        {
+          "label": "PROJECTS COMPLETED",
+          "value": "5+"
+        },
+        {
+          "label": "TECHNOLOGIES MASTERED",
+          "value": "5+"
+        }
       ],
       "education": {
         "title": "Education",
@@ -55,16 +64,36 @@
     },
     "Header": {
       "navigation": [
-        { "label": "Home", "icon": "MdHome", "href": "/#about" },
+        {
+          "label": "Home",
+          "icon": "MdHome",
+          "href": "/#about"
+        },
         {
           "label": "Skills",
           "icon": "MdFolder",
           "href": "/#technologies"
         },
-        { "label": "Experience", "icon": "MdWork", "href": "/experience" },
-        { "label": "Projects", "icon": "MdBuild", "href": "/projects" },
-        { "label": "Contact", "icon": "MdContacts", "href": "/contact" },
-        { "label": "Blogs", "icon": "MdOutlineMenuBook", "href": "/blogs" }
+        {
+          "label": "Experience",
+          "icon": "MdWork",
+          "href": "/experience"
+        },
+        {
+          "label": "Projects",
+          "icon": "MdBuild",
+          "href": "/projects"
+        },
+        {
+          "label": "Contact",
+          "icon": "MdContacts",
+          "href": "/contact"
+        },
+        {
+          "label": "Blogs",
+          "icon": "MdOutlineMenuBook",
+          "href": "/blogs"
+        }
       ]
     },
     "experience": {
@@ -198,11 +227,11 @@
           ],
           "activities": [
             {
-               "title": "Google Cloud Practitioner Certification",
-               "points": [
-                 "Completed the Google Cloud Practitioner certification as part of the Cloud Learning initiative.",
-                 "Achieved this distinction as one of the top 15-20 candidates out of a cohort of 200+ students."
-               ]
+              "title": "Google Cloud Practitioner Certification",
+              "points": [
+                "Completed the Google Cloud Practitioner certification as part of the Cloud Learning initiative.",
+                "Achieved this distinction as one of the top 15-20 candidates out of a cohort of 200+ students."
+              ]
             }
           ],
           "projects": [
@@ -363,7 +392,6 @@
       "description": "Whether you have a question about my work, want to collaborate on a project, or just want to say hi, feel free to drop me a message.",
       "emailLabel": "Email Me on",
       "email": "rupeshthakur80078@gmail.com",
-      "web3FormsAccessKey": "a43ceda8-3913-4d2f-b19a-6bc78b422ed7",
       "form": {
         "fullNameLabel": "Full Name",
         "fullNamePlaceholder": "John Doe",
@@ -385,7 +413,15 @@
         "title": "FoodSpace",
         "cardDescription": "A MERN-based food marketplace connecting local home cooks with nearby buyers, promoting zero food waste and 0% platform commission.",
         "pageDescription": "FoodSpace is a full-stack web application inspired by platforms like Zomato and Swiggy, built to empower local home cooks and reduce food waste. The platform enables individuals to sell freshly prepared homemade food to nearby users without any platform fees. Buyers can browse food listings based on their primary location and a configurable distance range, while sellers have complete control over menu visibility, pricing, and availability.\n\nThe application focuses on transparency and decentralization — sellers receive payments directly, and the platform does not act as an intermediary for delivery. Each seller is responsible for fulfilling and delivering their own orders, ensuring trust and accountability.\n\nFrom a technical perspective, FoodSpace includes secure JWT-based authentication, role-based access for buyers and sellers, location-aware listings, cart and order management, and a dedicated seller dashboard. The frontend is optimized for responsiveness and usability using modern UI libraries, while the backend follows RESTful API principles for scalability and maintainability.\n\nDue to limited resources, the application is not hosted, but the complete source code and architecture are available on GitHub.",
-        "tech": ["MongoDB", "Express.js", "React.js", "Node.js", "JWT", "Tailwind CSS", "Flowbite React"],
+        "tech": [
+          "MongoDB",
+          "Express.js",
+          "React.js",
+          "Node.js",
+          "JWT",
+          "Tailwind CSS",
+          "Flowbite React"
+        ],
         "link": "https://github.com/rupeshthakur8550/FoodSpace",
         "livelink": null,
         "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop",
@@ -396,7 +432,16 @@
         "title": "Travel Diaries",
         "cardDescription": "A privacy-focused social platform for travel enthusiasts to share guides, connect with like-minded travelers, and chat in real time.",
         "pageDescription": "Travel Diaries is a social networking web application built specifically for travel enthusiasts who want more than just photo sharing. The platform enables users to document complete travel journeys, including routes, experiences, and guidance, while fostering a responsible travel culture that respects destinations and local communities.\n\nUsers can create detailed posts, like and comment on shared experiences, and connect with individuals or groups that share similar travel interests. The application also features a real-time chat system supporting one-to-one and group conversations.\n\nA strong emphasis is placed on user privacy and data protection. Chats are end-to-end aware in behavior — deleted messages are removed from both sides, screenshots and chat saving are restricted, and sensitive actions are safeguarded. Authentication is handled using Google OAuth 2.0 and OTP-based email verification to ensure secure onboarding.\n\nFrom a technical standpoint, the application leverages the MERN stack for scalability, Socket.io for real-time communication, Firebase for secure image storage, and SMTP services for OTP delivery. Although not deployed due to resource limitations, the project demonstrates advanced full-stack, real-time, and privacy-centric application design.",
-        "tech": ["MongoDB", "Express.js", "React.js", "Node.js", "Socket.io", "OAuth 2.0", "Firebase", "SMTP"],
+        "tech": [
+          "MongoDB",
+          "Express.js",
+          "React.js",
+          "Node.js",
+          "Socket.io",
+          "OAuth 2.0",
+          "Firebase",
+          "SMTP"
+        ],
         "link": "https://github.com/rupeshthakur8550/TravelDiaries",
         "livelink": null,
         "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop",
@@ -407,7 +452,13 @@
         "title": "Route Planning Tool",
         "cardDescription": "A smart route optimization tool that calculates and visualizes the shortest path across multiple destinations using Mapbox.",
         "pageDescription": "The Route Planning Tool is a web-based navigation application designed to help users efficiently plan trips involving multiple destinations. Unlike standard map applications that primarily focus on point-to-point navigation, this tool calculates an optimized route covering all selected locations with the shortest possible distance.\n\nUsers can enter their current location and add multiple destinations dynamically. The system processes these inputs using route optimization logic and visualizes the complete path on an interactive Mapbox-powered map.\n\nAs the user moves, the application updates the route in real time and automatically removes destination markers once they are reached, providing a clean and intuitive navigation experience. This makes the tool especially useful for delivery routes, travel itineraries, and multi-stop journeys.\n\nThe backend is built using Node.js and Express.js, with SQLite used for lightweight and efficient data storage. Although the application is not hosted, it demonstrates strong integration of mapping services, real-time updates, and algorithm-driven route optimization.",
-        "tech": ["React.js", "Mapbox", "Node.js", "Express.js", "SQLite"],
+        "tech": [
+          "React.js",
+          "Mapbox",
+          "Node.js",
+          "Express.js",
+          "SQLite"
+        ],
         "link": "https://github.com/rupeshthakur8550/Route-Planning-Tool",
         "livelink": null,
         "image": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=2066&auto=format&fit=crop",

@@ -25,7 +25,7 @@ const Projects = () => {
       className="min-h-screen pt-16  px-4 md:px-10 max-w-7xl mx-auto relative z-20 flex flex-col items-center"
       onClick={handleBackgroundClick}
     >
-      <div className="text-center mb-12 md:mb-20">
+      <div className="text-center sm:mb-12 md:mb-20 mb-10">
         <div className="mb-6">
           <GradientText
             animationSpeed={3}
@@ -39,7 +39,7 @@ const Projects = () => {
         </p>
       </div>
 
-      <div className="relative w-full flex justify-center min-h-[200px] md:pb-20">
+      <div className="relative w-full flex justify-center min-h-[200px] pb-20">
         <AnimatePresence mode="wait">
           {!isExpanded ? (
             <motion.div

@@ -35,7 +35,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   projectsLabel
 }) => {
   return (
-    <div className="relative border-l border-cosmic-muted/20 pl-10 ml-6 pb-16 last:pb-0 group">
+    <div className="relative border-l border-cosmic-muted/20 sm:pl-10 pl-7 md:ml-6 pb-16 last:pb-0 group">
       {/* Main Timeline Dot */}
       <div className="absolute w-4 h-4 bg-cosmic-accent rounded-full -left-[8.5px] top-1.5 ring-4 ring-cosmic-bg z-10 transition-all duration-300 group-hover:scale-125 group-hover:bg-cosmic-accent-hover"></div>
 
