@@ -100,7 +100,7 @@ const Technologies = () => {
 
   return (
     <div
-      className="px-4 sm:px-8 md:pb-24 pt-16 relative text-theme-text w-full lg:h-240 sm:h-400 h-200 overflow-hidden z-20"
+      className="px-4 sm:px-8 md:pb-24 pt-16 relative text-theme-text w-full lg:h-240 sm:h-400 h-220 overflow-hidden z-20"
       id="technologies"
     >
       {/* 🔹 Header */}

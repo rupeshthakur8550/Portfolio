@@ -73,7 +73,7 @@ const Contact = () => {
                     <GradientText
                         animationSpeed={3}
                         showBorder={false}
-                        className="text-3xl sm:text-7xl font-black tracking-tight"
+                        className="text-5xl sm:text-7xl font-black tracking-tight"
                     >
                         {contactText.title}
                     </GradientText>
