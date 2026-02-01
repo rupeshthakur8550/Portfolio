@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { HiSun, HiMoon } from "react-icons/hi2";
-import { useTheme } from "../../../hooks/useTheme";
+import { useTheme } from "../../hooks/useTheme";
 
 const ThemeToggle = () => {
     const { theme, toggleTheme } = useTheme();
