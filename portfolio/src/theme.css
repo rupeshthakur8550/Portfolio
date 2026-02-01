@@ -2,28 +2,88 @@
   /* 
     Modular Theme System
     Restoring the "Old Theme" aesthetic with centralized variables.
+    Defaulting to Dark Theme.
   */
-  
-  /* Base Colors */
-  --bg-primary: #1a1a1a;       /* Original dark gray background */
-  --bg-secondary: #111827;     /* gray-900 for cards/sections */
-  --bg-tertiary: #1f2937;      /* gray-800 for lighter cards */
-  
-  /* Typography */
+
+  /* Base Colors (Dark) */
+  --bg-primary: #1a1a1a;
+  /* Original dark gray background */
+  --bg-secondary: #111827;
+  /* gray-900 for cards/sections */
+  --bg-tertiary: #1f2937;
+  /* gray-800 for lighter cards */
+
+  /* Typography (Dark) */
   --text-primary: #ffffff;
-  --text-secondary: #e5e7eb;   /* gray-200 */
-  --text-muted: #9ca3af;       /* gray-400 */
+  --text-secondary: #e5e7eb;
+  /* gray-200 */
+  --text-muted: #9ca3af;
+  /* gray-400 */
 
   /* Brand/Accent Colors (The "Old Theme" Palette) */
-  --accent-orange: #f97316;    /* Blob cursor, Experience dots */
-  --accent-sky: #38bdf8;       /* Links, Experience text, Header icons */
-  --accent-purple: #a855f7;    /* Projects folder, Gradients */
-  --accent-pink: #ec4899;      /* Gradients */
-  --accent-green: #4ade80;     /* Success states, Dots */
-  --accent-yellow: #facc15;    /* Dots */
-  --accent-red: #ef4444;       /* Dots */
+  --accent-orange: #f97316;
+  /* Blob cursor, Experience dots */
+  --accent-sky: #38bdf8;
+  /* Links, Experience text, Header icons */
+  --accent-purple: #a855f7;
+  /* Projects folder, Gradients */
+  --accent-pink: #ec4899;
+  /* Gradients */
+  --accent-green: #4ade80;
+  /* Success states, Dots */
+  --accent-yellow: #facc15;
+  /* Dots */
+  --accent-red: #ef4444;
+  /* Dots */
 
-  /* Utility Transparencies (derived usage) */
+  /* Utility Transparencies */
   --accent-purple-dim: rgba(168, 85, 247, 0.2);
   --accent-sky-dim: rgba(56, 189, 248, 0.1);
+
+  /* Terminal Colors (Dark) */
+  --terminal-bg: #000000;
+  --terminal-border: rgba(168, 85, 247, 0.3);
+  --terminal-text: #ffffff;
+
+  /* Reverse Colors (Dual Tone - Light on Dark) */
+  --bg-rev: #f8fafc;
+  --text-rev: #0f172a;
+  --text-rev-muted: #475569;
+}
+
+/* Light Theme Overrides */
+.light {
+  /* Base Colors (Light) */
+  --bg-primary: #ffffff;
+  /* Pure white background */
+  --bg-secondary: #f9fafb;
+  /* gray-50 for cards/sections */
+  --bg-tertiary: #f3f4f6;
+  /* gray-100 for lighter cards */
+
+  /* Typography (Light) */
+  --text-primary: #111827;
+  /* gray-900 */
+  --text-secondary: #374151;
+  /* gray-700 */
+  --text-muted: #6b7280;
+  /* gray-500 */
+
+  /* Brand/Accent Colors (Adjusted for Light Theme Contrast) */
+  --accent-orange: #f97316;
+  --accent-sky: #0ea5e9;
+  --accent-purple: #a855f7;
+  --accent-pink: #ec4899;
+  --accent-green: #22c55e;
+  --accent-yellow: #eab308;
+  --accent-red: #ef4444;
+
+  /* Utility Transparencies */
+  --accent-purple-dim: rgba(168, 85, 247, 0.15);
+  --accent-sky-dim: rgba(14, 165, 233, 0.1);
+
+  /* Terminal Colors (Light) */
+  --terminal-bg: #f8fafc;
+  --terminal-border: #e2e8f0;
+  --terminal-text: #1e293b;
 }

@@ -100,11 +100,11 @@ const Technologies = () => {
 
   return (
     <div
-      className="px-4 sm:px-8 md:pb-24 pt-16 relative text-white w-full lg:h-240 sm:h-400 h-200 overflow-hidden z-20"
+      className="px-4 sm:px-8 md:pb-24 pt-16 relative text-theme-text w-full lg:h-240 sm:h-400 h-200 overflow-hidden z-20"
       id="technologies"
     >
       {/* 🔹 Header */}
-      <div className="text-center mb-12 md:mb-20">
+      <div className="text-center mb-12 md:mb-20 h-fit">
         <GradientText
           animationSpeed={3}
           showBorder={false}
@@ -117,7 +117,7 @@ const Technologies = () => {
             baseOpacity={0.2}
             enableBlur
             blurStrength={8}
-            textClassName="text-sm sm:text-lg text-gray-300 max-w-2xl mx-auto"
+            textClassName="text-sm sm:text-lg text-theme-text-sec max-w-2xl mx-auto"
           >
             {technologiesData.header.subHeading}
           </ScrollReveal>
@@ -185,7 +185,7 @@ const Technologies = () => {
       {/* 📌 Conditional Footer Display */}
       <div className="text-center absolute bottom-0 left-0 right-0 px-4 pb-6 md:pt-16">
         {activeTech.name === "" ? (
-          <p className="text-sm sm:text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-lg text-theme-text-muted max-w-2xl mx-auto">
             {technologiesData.instruction}
           </p>
         ) : (
@@ -198,16 +198,8 @@ const Technologies = () => {
             >
               {activeTech.name}
             </h2>
-            <div className="flex justify-center">
-              <ScrollReveal
-                key={activeTech.name}
-                baseOpacity={0.2}
-                enableBlur
-                blurStrength={8}
-                textClassName="text-sm sm:text-lg text-gray-300 max-w-2xl mx-auto mt-2"
-              >
-                {activeTech.description}
-              </ScrollReveal>
+            <div className="flex justify-center max-w-2xl mx-auto">
+              {activeTech.description}
             </div>
           </>
         )}

@@ -22,9 +22,9 @@ const Blogs = () => {
   return (
     <div
       id="blogs"
-      className="min-h-screen py-16 pb-32 px-4 md:px-10 max-w-6xl mx-auto relative z-20"
+      className="min-h-screen py-16 md:py-24 px-4 md:px-10 max-w-6xl mx-auto relative z-20"
     >
-      <div className="text-center mb-12 md:mb-20">
+      <div className="text-center mb-5 md:mb-20">
         <div className="mb-6">
           <GradientText
             animationSpeed={3}
@@ -39,7 +39,7 @@ const Blogs = () => {
             baseOpacity={0.2}
             enableBlur
             blurStrength={8}
-            textClassName="text-gray-300 text-lg max-w-2xl mx-auto"
+            textClassName="text-theme-text-sec text-lg max-w-2xl mx-auto"
           >
             {selectedBlog ? "Article Insights" : blogsText.subtitle}
           </ScrollReveal>
@@ -65,7 +65,7 @@ const Blogs = () => {
           ) : (
             <motion.div
               key="grid"
-              className="flex flex-wrap justify-center items-start gap-8 w-full"
+              className="flex flex-wrap items-start gap-8 w-full"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -74,7 +74,7 @@ const Blogs = () => {
                 <div
                   key={index}
                   onClick={() => setSelectedBlog(blog)}
-                  className="group block bg-gray-900/40 backdrop-blur-md border border-gray-700 rounded-xl p-6 hover:bg-gray-800/60 hover:border-purple-500/50 transition-all duration-300 w-full md:w-[calc(50%-16px)] lg:w-[calc(33.33%-22px)] cursor-pointer"
+                  className="group block bg-theme-text/80 backdrop-blur-md border border-theme-bg/10 rounded-xl p-6 hover:bg-theme-text/90 hover:border-theme-text/50 transition-all duration-300 w-full md:w-[calc(50%-16px)] lg:w-[calc(33.33%-22px)] cursor-pointer"
                 >
                   {/* Blog Image */}
                   <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
@@ -85,11 +85,11 @@ const Blogs = () => {
                     />
                   </div>
 
-                  <div className="flex justify-between items-center text-sm text-gray-400 mb-4">
+                  <div className="flex justify-between items-center text-sm text-theme-text-muted mb-4">
                     <span>{currentDate}</span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">
+                  <h3 className="text-xl font-bold text-theme-bg mb-3 group-hover:text-theme-purple transition-colors overflow-hidden text-ellipsis line-clamp-3">
                     {blog.title}
                   </h3>
 
@@ -99,13 +99,13 @@ const Blogs = () => {
                       enableBlur
                       blurStrength={4}
                       baseRotation={0}
-                      textClassName="text-gray-400 text-sm line-clamp-3"
+                      textClassName="text-theme-bg/60 text-sm line-clamp-3"
                     >
                       {blog.summary}
                     </ScrollReveal>
                   </div>
 
-                  <div className="flex items-center text-purple-400 font-medium group-hover:translate-x-2 transition-transform duration-300">
+                  <div className="flex items-center text-theme-purple font-medium group-hover:translate-x-2 transition-transform duration-300">
                     {blogsText.readArticle} <MdOutlineArrowForward className="ml-2" />
                   </div>
                 </div>

@@ -8,6 +8,8 @@ import Preloader from "./components/UI/Preloader";
 import BlobCursor from "./components/UI/BlobCursor";
 import heroImage from "./assets/images/hero.jpg";
 
+import { useTheme } from "./hooks/useTheme";
+
 const Home = lazy(() => import("./pages/Home"));
 const ExperiencePage = lazy(() => import("./pages/Experience"));
 const ProjectsPage = lazy(() => import("./pages/Projects"));
@@ -18,6 +20,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [assetsLoaded, setAssetsLoaded] = useState(false);
   const location = useLocation();
+  const { theme } = useTheme();
 
   useEffect(() => {
     // Preload critical assets
@@ -60,15 +63,15 @@ const App = () => {
       </AnimatePresence>
 
       {!loading && (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen transition-colors duration-300">
           <div className="hidden md:block">
             <BlobCursor
               blobType="circle"
               fillColor="var(--accent-orange)"
               trailCount={3}
-              innerColor="#fdf9f7"
+              innerColor={theme === "light" ? "#ffffff" : "#1a1a1a"}
               opacities={[0.6, 0.6, 0.6]}
-              shadowColor="#ffa34d"
+              shadowColor="var(--accent-orange)"
               shadowBlur={5}
               shadowOffsetX={10}
               shadowOffsetY={10}
@@ -84,10 +87,10 @@ const App = () => {
           </div>
 
           {/* Main content area with higher z-index */}
-          <main className="relative z-10 text-white flex-grow">
+          <main className="relative z-10 text-theme-text flex-grow">
             <Suspense fallback={<div className="min-h-screen bg-transparent" />}>
               <Routes location={location} key={location.pathname}>
-                <Route path="/" element={<Home />} />
+                <Route index element={<Home />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/about" element={<Home />} />
                 <Route path="/experience" element={<ExperiencePage />} />
@@ -95,6 +98,7 @@ const App = () => {
                 <Route path="/projects" element={<ProjectsPage />} />
                 <Route path="/blogs" element={<BlogsPage />} />
                 <Route path="/contact" element={<ContactPage />} />
+                <Route path="*" element={<Home />} />
               </Routes>
             </Suspense>
           </main>

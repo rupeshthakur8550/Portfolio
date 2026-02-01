@@ -25,6 +25,11 @@
   --color-theme-yellow: var(--accent-yellow);
   --color-theme-red: var(--accent-red);
 
+  /* Terminal Maps */
+  --color-terminal-bg: var(--terminal-bg);
+  --color-terminal-border: var(--terminal-border);
+  --color-terminal-text: var(--terminal-text);
+
   /* Cosmic Maps (Alias for backward compatibility/consistency) */
   --color-cosmic-bg: var(--bg-primary);
   --color-cosmic-card: var(--bg-secondary);
@@ -36,16 +41,19 @@
 }
 
 body {
-  background-color: var(--bg-primary); 
+  background-color: var(--bg-primary);
   font-family: 'Montserrat Alternates', sans-serif;
   color: var(--text-primary);
 }
 
 /* Allows scroll but hides bar */
-html, body {
+html,
+body {
   overflow: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
 }
 
 html::-webkit-scrollbar,
@@ -194,6 +202,7 @@ body::-webkit-scrollbar {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import common from "../../assets/json/common.json";
 import GradientText from "../UI/GradientText";
+import ThemeToggle from "../ThemeToggle";
 
 interface NavItem {
   label: string;
@@ -213,18 +214,21 @@ const Header = () => {
           {/* Desktop Navigation */}
 
           <nav
-            className="flex gap-2"
+            className="flex gap-2 items-center"
             role="navigation"
             aria-label="Main navigation"
           >
             {desktopNavItems}
+            <div className="ml-2 border-l border-theme-text/10 pl-4">
+              <ThemeToggle />
+            </div>
           </nav>
         </div>
       </header>
 
       {/* Mobile Bottom Navigation */}
       <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-lg z-[100]">
-        <div className="bg-cosmic-card/80 backdrop-blur-lg border border-cosmic-text/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] px-4 py-1">
+        <div className="bg-cosmic-card/80 backdrop-blur-lg border border-cosmic-text/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] px-4 py-1 w-full">
           <div className="flex justify-between items-center h-16">
             {mobileNavItems}
           </div>

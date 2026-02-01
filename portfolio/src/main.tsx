@@ -8,12 +8,6 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import IntroPage from "./components/IntroPage/index.tsx";
-import Technologies from "./components/Technologies/index.tsx";
-import Experience from "./components/Experience/index.tsx";
-import Projects from "./components/Projects/index.tsx";
-import Contact from "./components/Contact/index.tsx";
-import Blogs from "./components/Blogs/index.tsx";
 
 if (process.env.NODE_ENV === "development") {
   setupLocatorUI();
@@ -21,39 +15,9 @@ if (process.env.NODE_ENV === "development") {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/*",
     element: <App />,
     errorElement: <Navigate to="/" replace />,
-    children: [
-      {
-        index: true,
-        element: <Navigate to="/" />,
-      },
-      {
-        path: "/about",
-        element: <IntroPage />,
-      },
-      {
-        path: "/technologies",
-        element: <Technologies />,
-      },
-      {
-        path: "/experience",
-        element: <Experience />,
-      },
-      {
-        path: "/projects",
-        element: <Projects />,
-      },
-      {
-        path: "/contact",
-        element: <Contact />,
-      },
-      {
-        path: "/blogs",
-        element: <Blogs />,
-      },
-    ],
   },
 ]);
 

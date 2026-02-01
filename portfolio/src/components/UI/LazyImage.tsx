@@ -33,7 +33,7 @@ const LazyImage = ({ src, alt, className = "", priority = false }: LazyImageProp
                     alt={alt}
                     loading={priority ? "eager" : "lazy"}
                     //@ts-ignore
-                    fetchpriority={priority ? "high" : "auto"}
+                    fetchPriority={priority ? "high" : "auto"}
                     className={`w-full h-full object-cover transition-all duration-1000 ease-out ${isLoaded ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-105 blur-lg"
                         }`}
                 />

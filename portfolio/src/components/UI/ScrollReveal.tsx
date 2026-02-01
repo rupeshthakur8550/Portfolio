@@ -3,7 +3,6 @@ import type { ReactNode, RefObject } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import './styles.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,7 +38,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
         return text.split(/(\s+)/).map((word, index) => {
             if (word.match(/^\s+$/)) return word;
             return (
-                <span className="word" key={index}>
+                <span className="word inline-block relative will-change-[opacity,filter,transform]" key={index}>
                     {word}
                 </span>
             );
@@ -117,8 +116,8 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     });
 
     return (
-        <div ref={containerRef} className={`scroll-reveal ${containerClassName}`}>
-            <div className={`scroll-reveal-text ${textClassName}`}>{splitText}</div>
+        <div ref={containerRef} className={`relative block w-full ${containerClassName}`}>
+            <div className={`block whitespace-pre-wrap break-words leading-[inherit] ${textClassName}`}>{splitText}</div>
         </div>
     );
 };

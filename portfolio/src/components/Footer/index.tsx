@@ -44,7 +44,7 @@ const VerticalSocialBar = () => {
 
 const Footer = () => {
   return (
-    <div className="text-white absolute">
+    <div className="text-theme-text absolute">
       <VerticalSocialBar />
       {/* Hello Im here to develop something */}
     </div>
