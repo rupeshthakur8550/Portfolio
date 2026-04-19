@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 
 interface DecryptedTextProps {
   text: string;
@@ -22,12 +23,18 @@ const DecryptedText: React.FC<DecryptedTextProps> = ({
   characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+',
   animateOn = 'view',
 }) => {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const [displayText, setDisplayText] = useState(text);
   const [isScrambling, setIsScrambling] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
   const containerRef = useRef<HTMLSpanElement>(null);
 
-  const scramble = async () => {
+  const scramble = useCallback(() => {
+    if (prefersReducedMotion) {
+      setDisplayText(text);
+      setHasAnimated(true);
+      return;
+    }
     if (isScrambling) return;
     setIsScrambling(true);
 
@@ -70,9 +77,14 @@ const DecryptedText: React.FC<DecryptedTextProps> = ({
             setIsScrambling(false);
         }
     }, speed);
-  };
+  }, [characters, isScrambling, maxIterations, prefersReducedMotion, revealDirection, speed, text]);
 
   useEffect(() => {
+    if (prefersReducedMotion) {
+      setDisplayText(text);
+      return;
+    }
+
     if (animateOn === 'view') {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -90,8 +102,7 @@ const DecryptedText: React.FC<DecryptedTextProps> = ({
 
         return () => observer.disconnect();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [animateOn, hasAnimated]);
+  }, [animateOn, hasAnimated, prefersReducedMotion, scramble, text]);
 
 
   return (

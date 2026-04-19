@@ -9,6 +9,7 @@ const VerticalSocialBar = () => {
         href="https://github.com/rupeshthakur8550"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="GitHub profile"
       >
         <FiGithub size={22} className="hover:text-theme-sky transition" />
       </a>
@@ -16,6 +17,7 @@ const VerticalSocialBar = () => {
         href="https://leetcode.com/u/rupeshthakur80078/"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="LeetCode profile"
       >
         <SiLeetcode size={22} className="hover:text-theme-sky transition" />
       </a>
@@ -24,19 +26,18 @@ const VerticalSocialBar = () => {
         href="https://in.linkedin.com/in/rupesh-thakur-010209207?trk=people-guest_people_search-card"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="LinkedIn profile"
       >
         <FiLinkedin size={22} className="hover:text-theme-sky transition" />
       </a>
 
       <a
-        href="https://mail.google.com/mail/?view=cm&to=rupeshthakur80078@gmail.com"
-        target="_blank"
-        rel="noopener noreferrer"
+        href="mailto:rupeshthakur80078@gmail.com"
+        aria-label="Send an email"
       >
         <MdOutlineMail size={22} className="hover:text-theme-sky transition" />
       </a>
 
-      {/* Vertical line */}
       <div className="w-px h-20 bg-theme-text-sec mt-2"></div>
     </div>
   );
@@ -46,7 +47,6 @@ const Footer = () => {
   return (
     <div className="text-theme-text absolute">
       <VerticalSocialBar />
-      {/* Hello Im here to develop something */}
     </div>
   );
 };

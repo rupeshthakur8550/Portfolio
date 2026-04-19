@@ -2,7 +2,7 @@ import Experience from "../components/Experience";
 
 const ExperiencePage = () => {
   return (
-    <div className="md:pt-20">
+    <div>
       <Experience />
     </div>
   );

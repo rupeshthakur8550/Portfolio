@@ -2,7 +2,7 @@ import Contact from "../components/Contact";
 
 const ContactPage = () => {
   return (
-    <div className="md:pt-20">
+    <div>
       <Contact />
     </div>
   );

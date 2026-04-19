@@ -22,15 +22,14 @@ const ThemeToggle = () => {
                     transition={{ duration: 0.3, ease: "backOut" }}
                 >
                     {theme === "light" ? (
-                        <MdNightlight className="w-5 h-5 text-accent-purple" />
+                        <MdNightlight className="w-5 h-5 text-theme-purple" />
                     ) : (
-                        <MdWbSunny className="w-5 h-5 text-accent-yellow" />
+                        <MdWbSunny className="w-5 h-5 text-theme-yellow" />
                     )}
                 </motion.div>
             </AnimatePresence>
 
-            {/* Subtle hover effect background */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-accent-sky/0 to-accent-purple/0 group-hover:from-accent-sky/5 group-hover:to-accent-purple/5 transition-colors duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-theme-sky/0 to-theme-purple/0 group-hover:from-theme-sky/5 group-hover:to-theme-purple/5 transition-colors duration-500" />
         </motion.button>
     );
 };

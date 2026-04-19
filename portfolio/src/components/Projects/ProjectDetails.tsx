@@ -1,25 +1,18 @@
 import { motion } from "framer-motion";
 import { FiArrowLeft, FiGithub, FiExternalLink } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 import GradientText from "../UI/GradientText";
 import LazyImage from "../UI/LazyImage";
 import ScrollReveal from "../UI/ScrollReveal";
+import { type ProjectEntry } from "../../content/portfolio";
 
 interface ProjectDetailsProps {
-  project: {
-    title: string;
-    cardDescription: string;
-    pageDescription: string;
-    tech: string[];
-    link: string;
-    livelink: string | null;
-    image: string;
-    problem: string;
-    solution: string;
-  };
-  onBack: () => void;
+  project: ProjectEntry;
 }
 
-const ProjectDetails = ({ project, onBack }: ProjectDetailsProps) => {
+const ProjectDetails = ({ project }: ProjectDetailsProps) => {
+  const navigate = useNavigate();
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 20 }}
@@ -30,7 +23,7 @@ const ProjectDetails = ({ project, onBack }: ProjectDetailsProps) => {
       onClick={(e) => e.stopPropagation()}
     >
       <button
-        onClick={onBack}
+        onClick={() => navigate("/projects")}
         className="flex items-center gap-2 text-theme-text-muted hover:text-theme-text transition-colors mb-6 md:mb-8 group cursor-pointer"
       >
         <FiArrowLeft className="group-hover:-translate-x-1 transition-transform" />
@@ -56,7 +49,7 @@ const ProjectDetails = ({ project, onBack }: ProjectDetailsProps) => {
           </div>
         </div>
 
-        <div className="p-6 md:p-10 space-y-8">
+        <div className="p-6 pb-10 md:p-10 md:pb-14 space-y-8">
           {/* Links */}
           <div className="flex flex-wrap gap-4">
             <a

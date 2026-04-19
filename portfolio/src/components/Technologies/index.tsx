@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import common from "../../assets/json/common.json";
+import { portfolioContent } from "../../content/portfolio";
 import GradientText from "../UI/GradientText";
 import ScrollReveal from "../UI/ScrollReveal";
 import {
@@ -24,7 +24,7 @@ import {
 import { FaJava } from "react-icons/fa";
 
 const Technologies = () => {
-  const technologiesData = common.Portfolio.SkillsPage;
+  const technologiesData = portfolioContent.SkillsPage;
   const techList = technologiesData.skillsData;
   const [radius, setRadius] = useState(1700);
   const [activeTech, setActiveTech] = useState<{
@@ -100,10 +100,9 @@ const Technologies = () => {
 
   return (
     <div
-      className="px-4 sm:px-8 md:pb-24 pt-16 relative text-theme-text w-full lg:h-240 sm:h-400 h-220 overflow-hidden z-20"
+      className="px-4 sm:px-8 md:pb-24 pt-16 relative text-theme-text w-full overflow-hidden z-20"
       id="technologies"
     >
-      {/* 🔹 Header */}
       <div className="text-center mb-12 md:mb-20 h-fit">
         <GradientText
           animationSpeed={3}
@@ -124,9 +123,9 @@ const Technologies = () => {
         </div>
       </div>
 
-      {/* 🌀 Arc Layout */}
-      <div className="relative flex justify-center items-center pt-35">
-        <div className="relative w-full md:ml-0 ml-8">
+      <div className="relative mx-auto max-w-7xl px-2 py-4 md:px-6 md:py-8">
+        <div className="relative flex min-h-[24rem] justify-center items-start pt-14 md:min-h-[31rem] lg:min-h-[35rem]">
+          <div className="relative w-full md:ml-0 ml-8">
           {techList.map((tech, index) => {
             const angleStep = arcSpan / (techList.length - 1);
             const angle = -arcSpan / 2 + angleStep * index;
@@ -141,8 +140,8 @@ const Technologies = () => {
                 key={tech.name}
                 className="absolute group transition-all duration-300 ease-in-out md:right-0 will-change-transform"
                 style={{
-                  left: isActive ? "68%" : "50%",
-                  top: isActive ? "100%" : "50%",
+                  left: isActive ? "50%" : "50%",
+                  top: isActive ? "68%" : "50%",
                   transform: isActive
                     ? "translate(-50%, -50%)"
                     : `translate(${x}px, ${y}px)`,
@@ -150,7 +149,8 @@ const Technologies = () => {
                   zIndex: isActive ? 999 : index,
                 }}
               >
-                <div
+                <button
+                  type="button"
                   onClick={() =>
                     setActiveTech(
                       isActive
@@ -162,12 +162,14 @@ const Technologies = () => {
                         }
                     )
                   }
+                  aria-pressed={isActive}
+                  aria-label={`Toggle details for ${tech.name}`}
                   className={`w-24 sm:w-32 h-28 sm:h-40 rounded-2xl cursor-pointer relative overflow-visible ${tech.color
                     }
-                    transform transition-transform duration-500 ease-out
+                    transform transition-transform duration-500 ease-out border border-white/18
                     ${isActive
-                      ? "scale-[1.45] shadow-2xl"
-                      : "group-hover:scale-[1.35] group-hover:-translate-y-[200px] group-hover:z-[999] shadow-md"
+                      ? "scale-[1.18] shadow-2xl"
+                      : "group-hover:scale-[1.2] group-hover:-translate-y-8 group-hover:z-[999] shadow-md"
                     }`}
                 >
                   <div className="relative z-10 flex flex-col items-center justify-center h-full p-3 sm:p-4 text-white gap-3">
@@ -176,33 +178,36 @@ const Technologies = () => {
                       {tech.name}
                     </p>
                   </div>
-                </div>
+                </button>
               </div>
             );
           })}
+          </div>
         </div>
-      </div>
-      {/* 📌 Conditional Footer Display */}
-      <div className="text-center absolute bottom-0 left-0 right-0 px-4 pb-6 md:pt-16">
-        {activeTech.name === "" ? (
-          <p className="text-sm sm:text-lg text-theme-text-muted max-w-2xl mx-auto">
-            {technologiesData.instruction}
-          </p>
-        ) : (
-          <>
-            <h2
-              className={`text-3xl py-2 sm:text-5xl font-bold ${["express", "github"].includes(activeTech.name?.toLowerCase())
-                ? "bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100"
-                : activeTech.color
-                } bg-clip-text text-transparent`}
-            >
-              {activeTech.name}
-            </h2>
-            <div className="flex justify-center max-w-2xl mx-auto">
-              {activeTech.description}
-            </div>
-          </>
-        )}
+
+        <div className="relative mt-3 md:mt-5">
+          <div className="mx-auto flex min-h-[9rem] max-w-3xl flex-col items-center justify-center px-4 py-4 text-center md:px-8 md:py-5">
+            {activeTech.name === "" ? (
+              <p className="text-sm sm:text-lg text-theme-text-muted max-w-2xl mx-auto leading-relaxed">
+                {technologiesData.instruction}
+              </p>
+            ) : (
+              <>
+                <h2
+                  className={`text-3xl py-2 sm:text-5xl font-bold ${["express", "github"].includes(activeTech.name?.toLowerCase())
+                    ? "bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100"
+                    : activeTech.color
+                    } bg-clip-text text-transparent`}
+                >
+                  {activeTech.name}
+                </h2>
+                <p className="max-w-2xl text-sm leading-7 text-theme-text-sec md:text-base">
+                  {activeTech.description}
+                </p>
+              </>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

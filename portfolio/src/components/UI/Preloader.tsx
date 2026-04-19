@@ -1,58 +1,80 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
+
+const headers = ["EXPERIENCE", "PROJECTS", "BLOGS", "CONTACT", "TECHNOLOGIES"];
+const TITLE_DELAY_MS = 650;
+const CYCLE_START_DELAY_MS = 1500;
+const CYCLE_INTERVAL_MS = 550;
+const EXIT_HOLD_MS = 900;
+const ZOOM_DURATION_MS = 1450;
 
 const Preloader = ({
-    onComplete,
-    assetsLoaded
+    onComplete
 }: {
     onComplete: () => void;
-    assetsLoaded: boolean;
 }) => {
+    const prefersReducedMotion = usePrefersReducedMotion();
     const [showTitle, setShowTitle] = useState(false);
     const [cyclingText, setCyclingText] = useState("");
     const [isZooming, setIsZooming] = useState(false);
     const [animationSequenceDone, setAnimationSequenceDone] = useState(false);
 
-    // Sequence constants
-    const headers = ["EXPERIENCE", "PROJECTS", "BLOGS", "CONTACT", "TECHNOLOGIES"];
-
     useEffect(() => {
-        const titleTimer = setTimeout(() => setShowTitle(true), 500);
+        if (prefersReducedMotion) {
+            onComplete();
+            return undefined;
+        }
+
+        const titleTimer = window.setTimeout(() => setShowTitle(true), TITLE_DELAY_MS);
 
         let textIndex = 0;
-        const cycleStartTimer = setTimeout(() => {
-            const interval = setInterval(() => {
+        let cycleInterval: number | undefined;
+        const cycleStartTimer = window.setTimeout(() => {
+            cycleInterval = window.setInterval(() => {
                 if (textIndex < headers.length) {
                     setCyclingText(headers[textIndex]);
                     textIndex++;
                 } else {
-                    clearInterval(interval);
+                    if (cycleInterval) {
+                        window.clearInterval(cycleInterval);
+                    }
                     setAnimationSequenceDone(true);
                 }
-            }, 350); // Faster cycle for snappy feel
-        }, 1000);
+            }, CYCLE_INTERVAL_MS);
+        }, CYCLE_START_DELAY_MS);
 
         return () => {
-            clearTimeout(titleTimer);
-            clearTimeout(cycleStartTimer);
+            window.clearTimeout(titleTimer);
+            window.clearTimeout(cycleStartTimer);
+            if (cycleInterval) {
+                window.clearInterval(cycleInterval);
+            }
         };
-    }, []);
+    }, [onComplete, prefersReducedMotion]);
 
     useEffect(() => {
-        if (animationSequenceDone && assetsLoaded) {
-            // Start Zoom Effect
-            setTimeout(() => {
-                setIsZooming(true);
-                setTimeout(onComplete, 1000); // Wait for zoom to finish before unmounting
-            }, 500);
+        if (!animationSequenceDone) {
+            return undefined;
         }
-    }, [animationSequenceDone, assetsLoaded, onComplete]);
+
+        const zoomTimer = window.setTimeout(() => {
+            setIsZooming(true);
+        }, EXIT_HOLD_MS);
+
+        const completeTimer = window.setTimeout(onComplete, EXIT_HOLD_MS + ZOOM_DURATION_MS);
+
+        return () => {
+            window.clearTimeout(zoomTimer);
+            window.clearTimeout(completeTimer);
+        };
+    }, [animationSequenceDone, onComplete]);
 
     return (
         <motion.div
             initial={{ opacity: 1 }}
             animate={{ opacity: isZooming ? 0 : 1 }}
-            transition={{ duration: 1.5, ease: "easeIn", delay: 0.5 }} // Background fades out slowly as we zoom
+            transition={{ duration: 1.75, ease: "easeIn", delay: 0.35 }}
             className="fixed inset-0 z-[10000] flex flex-col items-center justify-center text-white font-mono overflow-hidden bg-black"
         >
             <div className="relative z-10 flex flex-col items-center gap-8">
@@ -67,7 +89,7 @@ const Preloader = ({
                             }
                             transition={
                                 isZooming
-                                    ? { duration: 2.2, ease: [0.7, 0, 0.3, 1] } // Cinematic slow-to-fast
+                                    ? { duration: ZOOM_DURATION_MS / 1000, ease: [0.7, 0, 0.3, 1] }
                                     : { duration: 0.8 }
                             }
                             style={{
@@ -92,7 +114,7 @@ const Preloader = ({
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
-                                transition={{ duration: 0.1 }}
+                                transition={{ duration: 0.2 }}
                                 className="text-orange-300/80 text-xs sm:text-sm tracking-[0.3em] sm:tracking-[0.5em] font-bold whitespace-nowrap"
                             >
                                 Loading {cyclingText}...

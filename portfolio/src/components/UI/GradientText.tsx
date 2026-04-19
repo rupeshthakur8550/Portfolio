@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 
 interface GradientTextProps {
     children: React.ReactNode;
@@ -16,6 +17,7 @@ const GradientText: React.FC<GradientTextProps> = ({
     showBorder = false,
     className = ""
 }) => {
+    const prefersReducedMotion = usePrefersReducedMotion();
     const gradientColors = [...colors, ...colors];
     const gradientStyle = {
         backgroundImage: `linear-gradient(to right, ${gradientColors.join(", ")})`,
@@ -31,10 +33,10 @@ const GradientText: React.FC<GradientTextProps> = ({
                     WebkitBackgroundClip: "text",
                     backgroundPositionX: "0%",
                 }}
-                animate={{
+                animate={prefersReducedMotion ? undefined : {
                     backgroundPositionX: "100%",
                 }}
-                transition={{
+                transition={prefersReducedMotion ? undefined : {
                     repeat: Infinity,
                     duration: animationSpeed,
                     ease: "linear",
@@ -50,10 +52,10 @@ const GradientText: React.FC<GradientTextProps> = ({
                             ...gradientStyle,
                             width: "100%"
                         }}
-                        animate={{
+                        animate={prefersReducedMotion ? undefined : {
                             backgroundPositionX: "100%",
                         }}
-                        transition={{
+                        transition={prefersReducedMotion ? undefined : {
                             repeat: Infinity,
                             duration: animationSpeed,
                             ease: "linear",

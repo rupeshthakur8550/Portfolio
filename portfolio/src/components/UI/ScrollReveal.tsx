@@ -3,6 +3,7 @@ import type { ReactNode, RefObject } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,10 +33,11 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     wordAnimationEnd = 'bottom bottom'
 }) => {
     const containerRef = useRef<HTMLHeadingElement>(null);
+    const prefersReducedMotion = usePrefersReducedMotion();
+    const plainText = typeof children === 'string' ? children : '';
 
     const splitText = useMemo(() => {
-        const text = typeof children === 'string' ? children : '';
-        return text.split(/(\s+)/).map((word, index) => {
+        return plainText.split(/(\s+)/).map((word, index) => {
             if (word.match(/^\s+$/)) return word;
             return (
                 <span className="word inline-block relative will-change-[opacity,filter,transform]" key={index}>
@@ -43,16 +45,13 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
                 </span>
             );
         });
-    }, [children]);
+    }, [plainText]);
 
     useGSAP(() => {
         const el = containerRef.current;
-        if (!el) return;
+        if (!el || prefersReducedMotion || !plainText) return;
 
         const scroller = scrollContainerRef && scrollContainerRef.current ? scrollContainerRef.current : window;
-
-        // Ensure triggers are updated for new content
-        ScrollTrigger.refresh();
 
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -112,12 +111,14 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
         }
     }, {
         scope: containerRef,
-        dependencies: [children, scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]
+        dependencies: [plainText, scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength, prefersReducedMotion]
     });
 
     return (
         <div ref={containerRef} className={`relative block w-full ${containerClassName}`}>
-            <div className={`block whitespace-pre-wrap break-words leading-[inherit] ${textClassName}`}>{splitText}</div>
+            <div className={`block whitespace-pre-wrap break-words leading-[inherit] ${textClassName}`}>
+                {prefersReducedMotion || !plainText ? children : splitText}
+            </div>
         </div>
     );
 };

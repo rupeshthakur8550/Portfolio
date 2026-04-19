@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState, useCallback } from 'react';
 import gsap from 'gsap';
+import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 
 export interface BlobCursorProps {
   blobType?: 'circle' | 'square';
@@ -47,6 +48,7 @@ export default function BlobCursor({
   zIndex = 0
 }: BlobCursorProps) {
   const blobsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const prefersReducedMotion = usePrefersReducedMotion();
   const [dimensions, setDimensions] = useState({
     baseSize: typeof window !== 'undefined' ? window.innerWidth * 0.20 : 200,
     isMobile: typeof window !== 'undefined' ? window.innerWidth < 768 : false
@@ -64,16 +66,14 @@ export default function BlobCursor({
     return () => window.removeEventListener('resize', updateDimensions);
   }, [updateDimensions]);
 
-  // Don't render on mobile (md breakpoint)
-  if (dimensions.isMobile) {
-    return null;
-  }
-
-  // Derived sizes based on 25% of screen size
   const sizes = [dimensions.baseSize, dimensions.baseSize * 0.6, dimensions.baseSize * 0.35];
   const innerSizes = [dimensions.baseSize * 0.1, dimensions.baseSize * 0.15, dimensions.baseSize * 0.12];
 
   useEffect(() => {
+    if (dimensions.isMobile || prefersReducedMotion) {
+      return undefined;
+    }
+
     const handleMove = (e: MouseEvent | TouchEvent) => {
       const x = 'clientX' in e ? e.clientX : e.touches[0].clientX;
       const y = 'clientY' in e ? e.clientY : e.touches[0].clientY;
@@ -98,7 +98,11 @@ export default function BlobCursor({
       window.removeEventListener('mousemove', handleMove);
       window.removeEventListener('touchmove', handleMove);
     };
-  }, [fastDuration, slowDuration, fastEase, slowEase]);
+  }, [dimensions.isMobile, fastDuration, slowDuration, fastEase, slowEase, prefersReducedMotion]);
+
+  if (dimensions.isMobile || prefersReducedMotion) {
+    return null;
+  }
 
   return (
     <div

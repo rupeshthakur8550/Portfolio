@@ -24,15 +24,6 @@ export default defineConfig({
     }),
   ],
   build: {
-    chunkSizeWarningLimit: 1000,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'vendor-three': ['three'],
-          'vendor-gsap': ['gsap', '@gsap/react'],
-          'vendor-utils': ['framer-motion', 'react-router-dom', 'react-icons'],
-        }
-      }
-    }
+    chunkSizeWarningLimit: 600,
   }
 })

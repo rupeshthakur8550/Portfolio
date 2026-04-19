@@ -1,38 +1,22 @@
 import { motion } from "framer-motion";
 import { FiArrowLeft, FiCalendar } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 import LazyImage from "../UI/LazyImage";
 import ScrollReveal from "../UI/ScrollReveal";
 import {
     AnimatedSpan,
     Terminal,
 } from "@/components/UI/terminal";
+import { type BlogEntry } from "../../content/portfolio";
 
 interface BlogDetailsProps {
-    blog: {
-        title: string;
-        summary: string;
-        fullContent: string;
-        date?: string;
-        image: string;
-        learningOutcomes: string[];
-        githubLink?: string;
-    };
-    onBack: () => void;
+    blog: BlogEntry;
 }
 
-const BlogDetails = ({ blog, onBack }: BlogDetailsProps) => {
-    // Calculate current date
-    const currentDate = new Date().toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric'
-    });
-
-    // Safeguard for content
+const BlogDetails = ({ blog }: BlogDetailsProps) => {
+    const navigate = useNavigate();
     const fullContent = blog.fullContent || "";
 
-    // Split content into segments: text and code blocks
-    // This regex matches markdown code blocks and keeps them in the result
     const segments = fullContent.split(/(```(?:\w+)?\s*[\s\S]*?```)/g);
 
     return (
@@ -45,7 +29,7 @@ const BlogDetails = ({ blog, onBack }: BlogDetailsProps) => {
             onClick={(e) => e.stopPropagation()}
         >
             <button
-                onClick={onBack}
+                onClick={() => navigate("/blogs")}
                 className="flex items-center gap-2 text-theme-text-muted hover:text-theme-text transition-colors mb-8 group cursor-pointer"
             >
                 <FiArrowLeft className="group-hover:-translate-x-1 transition-transform" />
@@ -62,17 +46,18 @@ const BlogDetails = ({ blog, onBack }: BlogDetailsProps) => {
                         <h1 className="text-2xl sm:text-4xl md:text-6xl font-black text-theme-pink mb-2 md:mb-4 tracking-tighter leading-none">
                             {blog.title}
                         </h1>
-                        <div className="flex items-center gap-3 md:gap-4 text-theme-bg/70 md:text-theme-text-sec font-medium">
-                            <span className="flex items-center gap-1.5 md:gap-2 text-xs md:text-base">
-                                <FiCalendar className="text-theme-purple" />
-                                {currentDate}
-                            </span>
-                        </div>
+                        {blog.date && (
+                            <div className="flex items-center gap-3 md:gap-4 text-theme-bg/70 md:text-theme-text-sec font-medium">
+                                <span className="flex items-center gap-1.5 md:gap-2 text-xs md:text-base">
+                                    <FiCalendar className="text-theme-purple" />
+                                    {blog.date}
+                                </span>
+                            </div>
+                        )}
                     </div>
                 </div>
 
-                <div className="p-6 sm:p-8 md:p-12 space-y-8 md:space-y-12">
-                    {/* Summary Section */}
+                <div className="p-6 pb-10 sm:p-8 sm:pb-12 md:p-12 md:pb-16 space-y-8 md:space-y-12">
                     <section>
                         <ScrollReveal
                             baseOpacity={0.2}
@@ -84,11 +69,9 @@ const BlogDetails = ({ blog, onBack }: BlogDetailsProps) => {
                             {blog.summary}
                         </ScrollReveal>
                     </section>
-                    {/* Dynamic Content Sections */}
                     <div className="space-y-8">
                         {segments.map((segment, index) => {
                             if (segment.startsWith("```")) {
-                                // Extract code from block
                                 const match = segment.match(/```(?:\w+)?\s*([\s\S]*?)```/);
                                 const code = match ? match[1].trim() : "";
                                 const codeLines = code.split("\n");
@@ -128,7 +111,6 @@ const BlogDetails = ({ blog, onBack }: BlogDetailsProps) => {
                         })}
                     </div>
 
-                    {/* Learning Outcomes as UL */}
                     <section className="space-y-6">
                         <h3 className="text-xl font-semibold text-theme-purple tracking-tight">Key Takeaways</h3>
                         <ul className="space-y-4">
@@ -149,7 +131,6 @@ const BlogDetails = ({ blog, onBack }: BlogDetailsProps) => {
                         </ul>
                     </section>
 
-                    {/* Github Link / Detailed Explanation Section */}
                     {blog.githubLink && (
                         <section className="mt-4 pt-6 md:pt-10 border-t border-theme-bg/10">
                             <h3 className="text-lg md:text-xl font-semibold text-theme-purple mb-3 md:mb-4 tracking-tight">Detailed Documentation</h3>

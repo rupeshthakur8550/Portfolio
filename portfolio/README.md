@@ -1,69 +1,36 @@
-# React + TypeScript + Vite
+# Portfolio Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Single-page portfolio application built with React 19, TypeScript, Vite, Tailwind CSS, GSAP, and React Router.
 
-Currently, two official plugins are available:
+## Scripts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `npm run dev`: start the Vite dev server
+- `npm run build`: type-check and build the production bundle
+- `npm run lint`: run ESLint
+- `npm run preview`: preview the production build locally
+- `npm run typecheck`: run TypeScript project references
 
-## Expanding the ESLint configuration
+## Architecture
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- `src/router.tsx`: single source of truth for route configuration
+- `src/App.tsx`: shared application shell with header, footer, route outlet, and non-blocking preloader overlay
+- `src/providers/ThemeProvider.tsx`: app-wide theme state
+- `src/content/portfolio.ts`: typed content adapter and slug helpers
+- `src/components/*`: feature and UI components
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Contact Form
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+The contact form no longer submits directly to a third-party API from the browser.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Preferred: set `VITE_CONTACT_FORM_ENDPOINT` to a secure server-side endpoint
+- Fallback: if no endpoint is configured, submit opens the user’s default mail client
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Deployment
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Static assets are served with Nginx using [nginx.conf](/Users/Rupesh.Thakur@gruve.ai/Documents/Projects/Projects/Portfolio/Portfolio/portfolio/nginx.conf)
+- The SPA fallback is handled with `try_files ... /index.html`
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Audit Artifacts
+
+- [code-review.md](/Users/Rupesh.Thakur@gruve.ai/Documents/Projects/Projects/Portfolio/Portfolio/portfolio/code-review.md)
+- [tasks.md](/Users/Rupesh.Thakur@gruve.ai/Documents/Projects/Projects/Portfolio/Portfolio/portfolio/tasks.md)

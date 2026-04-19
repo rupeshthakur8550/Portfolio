@@ -1,15 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useTheme } from "../../hooks/useTheme";
 import heroImage from "../../assets/images/hero.jpg";
 import { GiSwitchWeapon } from "react-icons/gi";
 import gsap from "gsap";
-import common from "../../assets/json/common.json";
+import { portfolioContent, type EducationEntry, type IntroContent, type IntroProfile } from "../../content/portfolio";
 import DecryptedText from "../UI/DecryptedText";
 import GradientText from "../UI/GradientText";
 import ScrollReveal from "../UI/ScrollReveal";
 
-const ProfileCard = ({ profile }: { profile: any }) => {
-    const [isLoaded, setIsLoaded] = useState(false);
+const ProfileCard = ({ profile }: { profile: IntroProfile }) => {
     const { toggleTheme } = useTheme();
     const lastTap = useRef<number>(0);
 
@@ -53,14 +52,13 @@ const ProfileCard = ({ profile }: { profile: any }) => {
 
                 <div className="relative z-10 pt-2 md:pt-4">
                     <div className="relative mb-5 md:mb-6">
-                        <div className={`w-32 h-44 md:w-40 md:h-56 rounded-2xl mx-auto overflow-hidden shadow-md transition-all duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0 bg-gray-100'}`}>
+                        <div className="w-32 h-44 md:w-40 md:h-56 rounded-2xl mx-auto overflow-hidden shadow-md bg-theme-card">
                             <img
                                 src={heroImage}
-                                className={`w-full h-full object-cover transition-transform duration-1000 ${isLoaded ? 'scale-100' : 'scale-110'} brightness-75`}
+                                className="w-full h-full object-cover brightness-90"
                                 alt="Profile"
-                                //@ts-ignore
                                 fetchPriority="high"
-                                onLoad={() => setIsLoaded(true)}
+                                loading="eager"
                             />
                         </div>
                     </div>
@@ -86,7 +84,7 @@ const ProfileCard = ({ profile }: { profile: any }) => {
     );
 };
 
-const BioSection = ({ introData, sentenceIndex }: { introData: any; sentenceIndex: number }) => (
+const BioSection = ({ introData, sentenceIndex }: { introData: IntroContent; sentenceIndex: number }) => (
     <div
         className="flex flex-col items-center w-full lg:w-7/12 text-center px-2"
         style={{ fontFamily: "QuickSand" }}
@@ -127,7 +125,7 @@ const BioSection = ({ introData, sentenceIndex }: { introData: any; sentenceInde
     </div>
 );
 
-const EducationTimeline = ({ education, className = "" }: { education: any; className?: string }) => (
+const EducationTimeline = ({ education, className = "" }: { education: IntroContent["education"]; className?: string }) => (
     <div className={`pt-16 md:py-24 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto w-full ${className}`}>
         <div className="text-center mb-12 md:mb-20">
             <GradientText
@@ -139,7 +137,7 @@ const EducationTimeline = ({ education, className = "" }: { education: any; clas
             </GradientText>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-            {education.data.map((edu: any, idx: number) => (
+            {education.data.map((edu: EducationEntry, idx: number) => (
                 <div
                     key={idx}
                     className="relative border-l border-theme-text/10 pl-10 group"
@@ -190,7 +188,7 @@ const EducationTimeline = ({ education, className = "" }: { education: any; clas
 );
 
 const IntroPage = () => {
-    const introData = common.Portfolio.IntroPage;
+    const introData = portfolioContent.IntroPage;
     const [sentenceIndex, setSentenceIndex] = useState<number>(0);
 
     const [sliderPosition, setSliderPosition] = useState(2);
@@ -200,7 +198,7 @@ const IntroPage = () => {
     const afterRef = useRef<HTMLDivElement>(null);
     const educationRef = useRef<HTMLDivElement>(null);
 
-    const updateSliderPosition = (clientX: number) => {
+    const updateSliderPosition = useCallback((clientX: number) => {
         if (containerRef.current) {
             const rect = containerRef.current.getBoundingClientRect();
             const x = clientX - rect.left;
@@ -225,7 +223,7 @@ const IntroPage = () => {
                 ease: "power2.out",
             });
         }
-    };
+    }, []);
 
     const handleMouseDown = (e: React.MouseEvent) => {
         setIsDragging(true);
@@ -237,13 +235,13 @@ const IntroPage = () => {
         updateSliderPosition(e.touches[0].clientX);
     };
 
-    const handleMouseMove = (e: MouseEvent | TouchEvent) => {
+    const handleMouseMove = useCallback((e: MouseEvent | TouchEvent) => {
         if (isDragging) {
             const clientX =
                 e instanceof MouseEvent ? e.clientX : e.touches[0].clientX;
             updateSliderPosition(clientX);
         }
-    };
+    }, [isDragging, updateSliderPosition]);
 
     const handleMouseUp = () => {
         setIsDragging(false);
@@ -262,7 +260,7 @@ const IntroPage = () => {
             document.removeEventListener("touchmove", handleMouseMove);
             document.removeEventListener("touchend", handleMouseUp);
         };
-    }, [isDragging]);
+    }, [handleMouseMove, isDragging]);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -292,7 +290,7 @@ const IntroPage = () => {
                 {/* Intro Section (Slider Right) */}
                 <div
                     ref={afterRef}
-                    className="flex flex-col lg:flex-row justify-center items-center max-w-full py-8 lg:py-5 gap-10 md:max-w-8xl mx-auto mb-10 z-20 md:mt-30"
+                    className="flex flex-col lg:flex-row justify-center items-center max-w-full py-8 lg:py-5 gap-10 md:max-w-8xl mx-auto mb-10 z-20 md:mt-12"
                     style={{
                         clipPath: `polygon(${sliderPosition}% 0%, 100% 0%, 100% 100%, ${sliderPosition}% 100%)`,
                     }}

@@ -55,7 +55,7 @@ export const AnimatedSpan = ({
     if (sequence.activeIndex === itemIndex) {
       setHasStarted(true)
     }
-  }, [sequence?.activeIndex, sequence?.sequenceStarted, hasStarted, itemIndex])
+  }, [sequence, sequence?.activeIndex, sequence?.sequenceStarted, hasStarted, itemIndex])
 
   const shouldAnimate = sequence ? hasStarted : startOnView ? isInView : true
 
@@ -143,6 +143,7 @@ export const TypingAnimation = ({
     startOnView,
     isInView,
     started,
+    sequence,
     sequence?.activeIndex,
     sequence?.sequenceStarted,
     itemIndex,
@@ -167,7 +168,7 @@ export const TypingAnimation = ({
     return () => {
       clearInterval(typingEffect)
     }
-  }, [children, duration, started])
+  }, [children, duration, itemIndex, sequence, started])
 
   return (
     <MotionComponent

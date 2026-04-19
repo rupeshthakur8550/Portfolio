@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import { useRef, useState, type ChangeEvent, type FormEvent } from 'react';
 import { FiMail, FiSend, FiUser, FiPhone, FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
-import common from '../../assets/json/common.json';
+import { portfolioContent } from '../../content/portfolio';
 import GradientText from '../UI/GradientText';
 import ScrollReveal from '../UI/ScrollReveal';
 
 const Contact = () => {
-    const contactText = common.Portfolio.contactPage;
+    const contactText = portfolioContent.contactPage;
+    const mountedAtRef = useRef(Date.now());
+    const [honeypot, setHoneypot] = useState('');
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -15,52 +17,94 @@ const Contact = () => {
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
+    const endpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT as string | undefined;
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
         });
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const resetForm = () => {
+        setFormData({
+            fullName: '',
+            email: '',
+            contactNumber: '',
+            message: ''
+        });
+        setHoneypot('');
+    };
+
+    const sendViaMailClient = () => {
+        const subject = encodeURIComponent(`New Message from Portfolio: ${formData.fullName}`);
+        const body = encodeURIComponent(
+            [
+                `Name: ${formData.fullName}`,
+                `Email: ${formData.email}`,
+                `Contact Number: ${formData.contactNumber}`,
+                '',
+                formData.message,
+            ].join('\n')
+        );
+
+        window.location.href = `mailto:${contactText.email}?subject=${subject}&body=${body}`;
+    };
+
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         setLoading(true);
         setError('');
         setSuccess(false);
 
+        if (honeypot.trim()) {
+            setLoading(false);
+            return;
+        }
+
+        if (Date.now() - mountedAtRef.current < 2500) {
+            setError('Please wait a moment before submitting the form.');
+            setLoading(false);
+            return;
+        }
+
         try {
-            const response = await fetch('https://api.web3forms.com/submit', {
+            if (!endpoint) {
+                sendViaMailClient();
+                setSuccess(true);
+                resetForm();
+                return;
+            }
+
+            const response = await fetch(endpoint, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
-                    name: formData.fullName,
-                    email: formData.email,
-                    contactNumber: formData.contactNumber,
-                    message: formData.message,
-                    subject: `New Message from Portfolio: ${formData.fullName}`
+                    name: formData.fullName.trim(),
+                    email: formData.email.trim(),
+                    contactNumber: formData.contactNumber.trim(),
+                    message: formData.message.trim(),
+                    pageUrl: window.location.href,
                 })
             });
 
-            const result = await response.json();
-
-            if (result.success) {
-                setSuccess(true);
-                setFormData({
-                    fullName: '',
-                    email: '',
-                    contactNumber: '',
-                    message: ''
-                });
-            } else {
-                setError(contactText.form.errorMessage);
+            if (!response.ok) {
+                throw new Error('Submission failed');
             }
-        } catch (error) {
-            setError(contactText.form.errorFallback);
+
+            setSuccess(true);
+            resetForm();
+        } catch {
+            if (!endpoint) {
+                sendViaMailClient();
+                setSuccess(true);
+                resetForm();
+            } else {
+                setError(contactText.form.errorFallback);
+            }
         } finally {
             setLoading(false);
         }
@@ -121,20 +165,34 @@ const Contact = () => {
                         </div>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
+                    <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5" noValidate>
+                        <div className="hidden" aria-hidden="true">
+                            <label htmlFor="company">Company</label>
+                            <input
+                                id="company"
+                                name="company"
+                                value={honeypot}
+                                onChange={(event) => setHoneypot(event.target.value)}
+                                autoComplete="off"
+                                tabIndex={-1}
+                            />
+                        </div>
                         <div className="space-y-3 md:space-y-4">
                             <div>
-                                <label className="block text-xs md:text-sm font-bold text-theme-bg/70 mb-1.5 md:mb-2">{contactText.form.fullNameLabel}</label>
+                                <label htmlFor="fullName" className="block text-xs md:text-sm font-bold text-theme-bg/70 mb-1.5 md:mb-2">{contactText.form.fullNameLabel}</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 md:pl-4 flex items-center pointer-events-none text-theme-bg/50">
                                         <FiUser size={14} className="md:size-4" />
                                     </div>
                                     <input
+                                        id="fullName"
                                         type="text"
                                         name="fullName"
                                         required
                                         value={formData.fullName}
                                         onChange={handleChange}
+                                        autoComplete="name"
+                                        aria-invalid={Boolean(error)}
                                         className="w-full pl-10 md:pl-12 pr-4 py-2.5 md:py-3.5 bg-theme-bg/5 border border-theme-bg/20 rounded-lg md:rounded-xl focus:ring-2 focus:ring-theme-purple focus:border-transparent text-theme-bg font-medium placeholder-theme-bg/40 text-sm md:text-base transition-all outline-none"
                                         placeholder={contactText.form.fullNamePlaceholder}
                                     />
@@ -142,17 +200,20 @@ const Contact = () => {
                             </div>
 
                             <div>
-                                <label className="block text-xs md:text-sm font-bold text-theme-bg/70 mb-1.5 md:mb-2">{contactText.form.emailLabel}</label>
+                                <label htmlFor="email" className="block text-xs md:text-sm font-bold text-theme-bg/70 mb-1.5 md:mb-2">{contactText.form.emailLabel}</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 md:pl-4 flex items-center pointer-events-none text-theme-bg/50">
                                         <FiMail size={14} className="md:size-4" />
                                     </div>
                                     <input
+                                        id="email"
                                         type="email"
                                         name="email"
                                         required
                                         value={formData.email}
                                         onChange={handleChange}
+                                        autoComplete="email"
+                                        aria-invalid={Boolean(error)}
                                         className="w-full pl-10 md:pl-12 pr-4 py-2.5 md:py-3.5 bg-theme-bg/5 border border-theme-bg/20 rounded-lg md:rounded-xl focus:ring-2 focus:ring-theme-purple focus:border-transparent text-theme-bg font-medium placeholder-theme-bg/40 text-sm md:text-base transition-all outline-none"
                                         placeholder={contactText.form.emailPlaceholder}
                                     />
@@ -160,17 +221,20 @@ const Contact = () => {
                             </div>
 
                             <div>
-                                <label className="block text-xs md:text-sm font-bold text-theme-bg/70 mb-1.5 md:mb-2">{contactText.form.contactLabel}</label>
+                                <label htmlFor="contactNumber" className="block text-xs md:text-sm font-bold text-theme-bg/70 mb-1.5 md:mb-2">{contactText.form.contactLabel}</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 md:pl-4 flex items-center pointer-events-none text-theme-bg/50">
                                         <FiPhone size={14} className="md:size-4" />
                                     </div>
                                     <input
+                                        id="contactNumber"
                                         type="tel"
                                         name="contactNumber"
                                         required
                                         value={formData.contactNumber}
                                         onChange={handleChange}
+                                        autoComplete="tel"
+                                        aria-invalid={Boolean(error)}
                                         className="w-full pl-10 md:pl-12 pr-4 py-2.5 md:py-3.5 bg-theme-bg/5 border border-theme-bg/20 rounded-lg md:rounded-xl focus:ring-2 focus:ring-theme-purple focus:border-transparent text-theme-bg font-medium placeholder-theme-bg/40 text-sm md:text-base transition-all outline-none"
                                         placeholder={contactText.form.contactPlaceholder}
                                     />
@@ -179,13 +243,16 @@ const Contact = () => {
                         </div>
 
                         <div>
-                            <label className="block text-xs md:text-sm font-bold text-theme-bg/70 mb-1.5 md:mb-2">{contactText.form.messageLabel}</label>
+                            <label htmlFor="message" className="block text-xs md:text-sm font-bold text-theme-bg/70 mb-1.5 md:mb-2">{contactText.form.messageLabel}</label>
                             <textarea
+                                id="message"
                                 name="message"
                                 required
                                 rows={3}
                                 value={formData.message}
                                 onChange={handleChange}
+                                autoComplete="off"
+                                aria-invalid={Boolean(error)}
                                 className="w-full px-4 md:px-5 py-2.5 md:py-3.5 bg-theme-bg/5 border border-theme-bg/20 rounded-lg md:rounded-xl focus:ring-2 focus:ring-theme-purple focus:border-transparent text-theme-bg font-medium placeholder-theme-bg/40 text-sm md:text-base transition-all outline-none resize-none"
                                 placeholder={contactText.form.messagePlaceholder}
                             ></textarea>
@@ -212,15 +279,21 @@ const Contact = () => {
                             )}
                         </button>
 
+                        {!endpoint && (
+                            <p className="text-xs md:text-sm text-theme-bg/60 text-center">
+                                No secure form endpoint is configured, so submit will open your default mail client.
+                            </p>
+                        )}
+
                         {success && (
-                            <div className="flex items-center justify-center space-x-2 text-green-400 bg-green-400/10 p-3 md:p-4 rounded-lg border border-green-400/20 animate-fade-in text-xs md:text-sm font-medium">
+                            <div role="status" aria-live="polite" className="flex items-center justify-center space-x-2 text-green-400 bg-green-400/10 p-3 md:p-4 rounded-lg border border-green-400/20 animate-fade-in text-xs md:text-sm font-medium">
                                 <FiCheckCircle />
                                 <span>{contactText.form.successMessage}</span>
                             </div>
                         )}
 
                         {error && (
-                            <div className="flex items-center justify-center space-x-2 text-red-400 bg-red-400/10 p-3 md:p-4 rounded-lg border border-red-400/20 animate-fade-in text-xs md:text-sm font-medium">
+                            <div role="alert" aria-live="assertive" className="flex items-center justify-center space-x-2 text-red-400 bg-red-400/10 p-3 md:p-4 rounded-lg border border-red-400/20 animate-fade-in text-xs md:text-sm font-medium">
                                 <FiAlertCircle />
                                 <span>{error}</span>
                             </div>
