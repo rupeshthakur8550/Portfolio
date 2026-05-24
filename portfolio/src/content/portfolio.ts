@@ -91,8 +91,14 @@ export interface ProjectEntry {
   link: string;
   livelink: string | null;
   image: string;
+  outcome: string;
   problem: string;
-  solution: string;
+  constraint: string;
+  architecture: string;
+  tradeoff: string;
+  security: string;
+  metric: string;
+  whatIdChange: string;
 }
 
 export interface BlogEntry {

@@ -49,8 +49,9 @@ const Blogs = () => {
           .map((blog) => (
             <article
               key={blog.slug}
-              className="group block bg-theme-text/80 backdrop-blur-md border border-theme-bg/10 rounded-xl p-6 hover:bg-theme-text/90 hover:border-theme-text/50 transition-all duration-300 w-full md:w-[calc(50%-16px)] lg:w-[calc(33.33%-22px)]"
+              className="group relative block bg-white/5 hover:bg-white/10 backdrop-blur-3xl border border-white/5 rounded-[1.5rem] p-6 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-theme-purple/30 w-full md:w-[calc(50%-16px)] lg:w-[calc(33.33%-22px)] overflow-hidden"
             >
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <Link
                 to={`/blogs/${blog.slug}`}
                 className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-theme-sky rounded-xl"
@@ -70,7 +71,7 @@ const Blogs = () => {
                   </div>
                 )}
 
-                <h3 className="text-xl font-bold text-theme-bg mb-3 group-hover:text-theme-purple transition-colors overflow-hidden text-ellipsis line-clamp-3">
+                <h3 className="text-xl font-bold text-theme-text mb-3 group-hover:text-theme-purple transition-colors overflow-hidden text-ellipsis line-clamp-3">
                   {blog.title}
                 </h3>
 
@@ -80,7 +81,7 @@ const Blogs = () => {
                     enableBlur
                     blurStrength={4}
                     baseRotation={0}
-                    textClassName="text-theme-bg/60 text-sm line-clamp-3"
+                    textClassName="text-theme-text-sec text-sm line-clamp-3"
                   >
                     {blog.summary}
                   </ScrollReveal>

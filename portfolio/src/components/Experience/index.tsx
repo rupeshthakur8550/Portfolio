@@ -1,6 +1,6 @@
 import React from "react";
 import { portfolioContent, type CompanyExperience } from "../../content/portfolio";
-import GradientText from "../UI/GradientText";
+import { Badge } from "../UI/badge";
 import ScrollReveal from "../UI/ScrollReveal";
 
 interface Project {
@@ -36,125 +36,120 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
     projectsLabel
 }) => {
     return (
-        <article className="relative overflow-hidden rounded-[1.9rem] border border-white/12 bg-white/7 backdrop-blur-2xl shadow-[0_24px_90px_rgba(0,0,0,0.16)] mb-10 last:mb-0 before:absolute before:inset-0 before:bg-[linear-gradient(135deg,rgba(255,255,255,0.14),rgba(255,255,255,0.03)_36%,rgba(56,189,248,0.08)_70%,rgba(168,85,247,0.08))] before:pointer-events-none">
-            <div className="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-theme-sky via-theme-purple to-theme-pink" />
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-white/40 via-white/20 to-transparent" />
-            <div className="px-6 py-7 md:px-10 md:py-10">
-            <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4 mb-4">
-                <h3 className="text-2xl sm:text-4xl font-bold text-theme-sky tracking-tight">
-                    {company}
-                </h3>
-                <span className="text-xs font-mono font-bold text-theme-text-sec tracking-[0.22em] uppercase bg-white/10 px-3 py-1.5 rounded-full border border-white/14 self-baseline backdrop-blur-md">
-                    {duration}
-                </span>
-            </div>
+        <article className="group relative bg-card/80 backdrop-blur-xl border border-border rounded-3xl mb-12 p-6 md:p-10 hover:border-border/80 transition-all duration-500 overflow-hidden shadow-sm hover:shadow-md">
+            {/* Glassmorphic/Neopop Hover Accent */}
+            <div className="absolute inset-0 bg-gradient-to-br from-foreground/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#00E676] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-x-0 group-hover:scale-x-100"></div>
 
-            <div className="flex items-center gap-4 mb-7">
-                <span className="inline-flex h-3 w-3 rounded-full bg-theme-purple shadow-[0_0_0_6px_rgba(168,85,247,0.12)]" />
-                <h4 className="text-sm md:text-base font-semibold text-theme-text-sec tracking-[0.28em] uppercase">
-                    {role}
-                </h4>
-                <div className="h-px flex-grow bg-gradient-to-r from-theme-purple/30 via-theme-sky/20 to-transparent"></div>
-            </div>
+            <div className="flex flex-col gap-6 relative z-20">
+                {/* Header */}
+                <div className="border-b border-border/50 pb-6 flex flex-col md:flex-row justify-between md:items-end gap-4">
+                    <div>
+                        <h3 className="text-2xl md:text-4xl font-semibold tracking-tight text-foreground mb-1">
+                            {company}
+                        </h3>
+                        <h4 className="text-lg md:text-xl font-medium text-muted-foreground">
+                            {role}
+                        </h4>
+                    </div>
+                    {/* Terminal Monospace Date */}
+                    <Badge variant="outline" className="px-3 py-1 bg-muted/30 border-border text-emerald-600 dark:text-[#00E676] font-mono text-xs md:text-sm rounded-md">
+                        {duration}
+                    </Badge>
+                </div>
 
-            <div className="flex-1 w-full relative mb-8 md:p-8 p-5 rounded-2xl border border-white/10 bg-white/8 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.14)]">
-                <ul className="space-y-4 md:max-w-4xl">
-                    {bullets.map((point, idx) => (
-                        <li
-                            key={idx}
-                            className="text-theme-text-sec font-semibold text-xs sm:text-base leading-relaxed flex items-start"
-                        >
-                            <span className="mt-2 mr-3 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-theme-sky" />
-                            <ScrollReveal
-                                baseOpacity={0.4}
-                                enableBlur
-                                blurStrength={4}
-                                baseRotation={0}
-                                textClassName="inline"
+                {/* Body */}
+                <div className="pt-2">
+                    <ul className="space-y-4">
+                        {bullets.map((point, idx) => (
+                            <li
+                                key={idx}
+                                className="text-foreground/80 font-light text-sm md:text-base leading-relaxed flex items-start group/item"
                             >
-                                {point}
-                            </ScrollReveal>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-
-            <div className="flex flex-col md:flex-row gap-8 items-stretch">
-                {activities && (
-                    <section className="flex-1 w-full h-full relative md:p-8 p-6 rounded-2xl border border-white/10 bg-white/8 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.14)]">
-                        <h5 className="font-bold text-theme-sky text-xs md:text-sm tracking-[0.2em] mb-4 md:mb-6 uppercase">
-                            {activitiesLabel}
-                        </h5>
-                        {activities.map((activity, idx) => (
-                            <div key={idx} className="mb-4 last:mb-0">
-                                <p className="font-semibold text-theme-text text-xs md:text-sm mb-2 md:mb-3">
-                                    {activity.title}
-                                </p>
-                                <ul className="space-y-2 md:space-y-2.5">
-                                    {activity.points.map((p, i) => (
-                                        <li
-                                            key={i}
-                                            className="text-[11px] md:text-sm text-theme-text-sec leading-relaxed pl-4 md:pl-5 relative"
-                                        >
-                                            <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-theme-purple/80" />
-                                            <ScrollReveal
-                                                baseOpacity={0.4}
-                                                enableBlur
-                                                blurStrength={3}
-                                                baseRotation={0}
-                                                textClassName="inline"
-                                            >
-                                                {p}
-                                            </ScrollReveal>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                                <span className="mr-3 text-muted-foreground/50 font-mono text-sm group-hover/item:text-[#00E676] transition-colors mt-0.5">▹</span>
+                                <ScrollReveal
+                                    baseOpacity={1}
+                                    enableBlur={false}
+                                    baseRotation={0}
+                                    textClassName="inline"
+                                >
+                                    {point}
+                                </ScrollReveal>
+                            </li>
                         ))}
-                    </section>
-                )}
+                    </ul>
+                </div>
 
-                {projects && (
-                    <section className="flex-1 w-full h-full relative md:p-8 p-6 rounded-2xl border border-white/10 bg-white/8 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.14)]">
-                        <h5 className="font-bold text-theme-sky text-xs md:text-sm tracking-[0.2em] mb-4 md:mb-6 uppercase">
-                            {projectsLabel}
-                        </h5>
-                        <div className="space-y-6 md:space-y-8">
-                            {projects.map((project, idx) => (
-                                <div key={idx} className="group/project">
-                                    <div className="flex justify-between items-start gap-2 mb-2 flex-col md:flex-row">
-                                        <p className="font-semibold text-theme-text text-xs md:text-sm transition-colors">
-                                            {project.title}
+                {/* Projects & Activities */}
+                <div className="flex flex-col lg:flex-row gap-6 mt-4">
+                    {activities && (
+                        <section className="flex-1 bg-muted/10 border border-border/50 rounded-2xl p-5 hover:bg-muted/20 transition-colors shadow-sm">
+                            <h5 className="font-mono text-xs text-muted-foreground uppercase tracking-widest mb-4">
+                                // {activitiesLabel}
+                            </h5>
+                            <div className="space-y-4">
+                                {activities.map((activity, idx) => (
+                                    <div key={idx} className="mb-4 last:mb-0">
+                                        <p className="text-foreground/90 font-medium text-sm mb-2">
+                                            {activity.title}
                                         </p>
-                                        <p className="text-[9px] md:text-[10px] text-theme-text-sec font-mono whitespace-nowrap mt-0.5 md:mt-1 tracking-tighter uppercase transition-colors">
-                                            {project.duration}
-                                        </p>
-                                    </div>
-                                    <ul className="space-y-1.5 md:space-y-2">
-                                        {project.points.map((p, i) => (
-                                            <li
-                                                key={i}
-                                                className="text-[11px] md:text-sm text-theme-text-sec leading-relaxed pl-4 md:pl-5 relative"
-                                            >
-                                                <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-theme-sky/80" />
-                                                <ScrollReveal
-                                                    baseOpacity={0.4}
-                                                    enableBlur
-                                                    blurStrength={3}
-                                                    baseRotation={0}
-                                                    textClassName="inline"
+                                        <ul className="space-y-2">
+                                            {activity.points.map((p, i) => (
+                                                <li
+                                                    key={i}
+                                                    className="text-xs md:text-sm font-light text-muted-foreground leading-relaxed flex items-start"
                                                 >
-                                                    {p}
-                                                </ScrollReveal>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-                )}
+                                                    <span className="mr-2 text-muted-foreground/30 font-mono">→</span>
+                                                    <span>{p}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {projects && (
+                        <section className="flex-1 bg-muted/10 border border-border/50 rounded-2xl p-5 hover:bg-muted/20 transition-colors shadow-sm">
+                            <h5 className="font-mono text-xs text-muted-foreground uppercase tracking-widest mb-4">
+                                // {projectsLabel}
+                            </h5>
+                            <div className="space-y-5">
+                                {projects.map((project, idx) => (
+                                    <div key={idx} className="relative pl-4 border-l border-border hover:border-[#00E676] transition-colors">
+                                        <div className="flex justify-between items-start gap-2 mb-2 flex-col md:flex-row">
+                                            <p className="text-foreground/90 font-medium text-sm">
+                                                {project.title}
+                                            </p>
+                                            <Badge variant="outline" className="font-mono text-muted-foreground text-[10px] md:text-xs tracking-wider border-border/50 bg-transparent rounded-md">
+                                                {project.duration}
+                                            </Badge>
+                                        </div>
+                                        <ul className="space-y-2">
+                                            {project.points.map((p, i) => (
+                                                <li
+                                                    key={i}
+                                                    className="text-xs md:text-sm font-light text-muted-foreground leading-relaxed flex items-start"
+                                                >
+                                                    <span className="mr-2 text-muted-foreground/30 font-mono">→</span>
+                                                    <span>{p}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+                </div>
             </div>
+
+            {/* Subtle geometric dots (Memphis influence, but minimal) */}
+            <div className="absolute top-4 right-4 flex gap-1 opacity-20 dark:opacity-20 opacity-10">
+                <div className="w-1 h-1 rounded-full bg-foreground"></div>
+                <div className="w-1 h-1 rounded-full bg-foreground"></div>
+                <div className="w-1 h-1 rounded-full bg-foreground"></div>
             </div>
         </article>
     );
@@ -165,43 +160,55 @@ const Experience: React.FC = () => {
 
     return (
         <div
-            className="py-16 md:py-26 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto relative z-20 w-full"
+            className="py-16 md:py-24 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto relative z-20 w-full overflow-hidden"
             id="experience"
         >
+            {/* Background Glows (Premium Glass) */}
+            <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-[#00E676] rounded-full blur-[150px] opacity-10 dark:opacity-[0.03] -z-10 pointer-events-none"></div>
+            <div className="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[150px] opacity-10 dark:opacity-[0.03] -z-10 pointer-events-none"></div>
+
             {/* Header Section */}
-            <div className="text-center mb-12 md:mb-20">
-                <div className="text-center mb-10 md:mb-20 px-4">
-                    <GradientText
-                        animationSpeed={3}
-                        showBorder={false}
-                        className="text-3xl sm:text-7xl font-black tracking-tight"
-                    >
-                        {experienceData.heading}
-                    </GradientText>
-                    <div className="flex justify-center mt-3 md:mt-4">
-                        Refining the digital landscape through professional excellence and scalable engineering.
-                    </div>
+            <div className="mb-16 md:mb-24 relative flex flex-col items-start max-w-3xl">
+                <div className="font-mono text-emerald-600 dark:text-[#00E676] text-sm md:text-base tracking-widest uppercase mb-4 flex items-center gap-3">
+                    <span className="w-8 h-[1px] bg-[#00E676]/50"></span>
+                    <span>Professional Journey</span>
                 </div>
+                <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-foreground mb-6">
+                    {experienceData.heading}
+                </h2>
+                <p className="text-muted-foreground font-light text-lg md:text-xl leading-relaxed">
+                    A timeline of refining digital landscapes, building scalable architectures, and driving technical excellence.
+                </p>
             </div>
 
             {/* Experience List */}
-            <div className="max-w-[1200px] mx-auto">
-                {experienceData.companyDetails.map((company: CompanyExperience, i: number) => (
-                    <ExperienceCard
-                        key={i + company.company}
-                        company={company.company}
-                        duration={company.duration}
-                        role={company.role}
-                        bullets={company.bullets}
-                        activities={company.activities}
-                        projects={company.projects}
-                        activitiesLabel={experienceData.activitiesLabel}
-                        projectsLabel={experienceData.projectsLabel}
-                    />
-                ))}
+            <div className="max-w-[1200px]">
+                <div className="border-l border-border/50 pl-0 md:pl-8 ml-0 md:ml-4 relative">
+                    {/* Timeline Line gradient */}
+                    <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-gradient-to-b from-border via-border/50 to-transparent hidden md:block"></div>
+                    
+                    {experienceData.companyDetails.map((company: CompanyExperience, i: number) => (
+                        <div key={i + company.company} className="relative">
+                            {/* Timeline dot */}
+                            <div className="absolute -left-[37px] top-10 w-3 h-3 rounded-full border-2 border-emerald-500 dark:border-[#00E676] bg-background hidden md:block z-10"></div>
+                            
+                            <ExperienceCard
+                                company={company.company}
+                                duration={company.duration}
+                                role={company.role}
+                                bullets={company.bullets}
+                                activities={company.activities}
+                                projects={company.projects}
+                                activitiesLabel={experienceData.activitiesLabel}
+                                projectsLabel={experienceData.projectsLabel}
+                            />
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
 };
 
 export default Experience;
+

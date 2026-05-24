@@ -15,6 +15,11 @@
   --color-theme-text-muted: var(--text-muted);
 
   /* Accent Maps */
+  --color-theme-primary: var(--accent-primary);
+  --color-theme-info: var(--accent-info);
+  --color-theme-success: var(--accent-success);
+
+  /* Fallbacks */
   --color-theme-orange: var(--accent-orange);
   --color-theme-sky: var(--accent-sky);
   --color-theme-purple: var(--accent-purple);
@@ -41,12 +46,12 @@
 html,
 body {
   overflow: auto;
-  scrollbar-gutter: stable;
+  font-family: "Montserrat Alternates", sans-serif;
 }
 
 body {
   background-color: var(--bg-primary);
-  font-family: "Montserrat Alternates", sans-serif;
+  font-family: "Satoshi", "Inter", sans-serif;
   color: var(--text-primary);
 }
 
