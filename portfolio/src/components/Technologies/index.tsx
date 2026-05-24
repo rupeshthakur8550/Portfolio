@@ -23,6 +23,13 @@ import {
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 
+import { FaDocker, FaPython } from "react-icons/fa";
+import { SiLangchain } from "react-icons/si";
+import { VscAzure } from "react-icons/vsc";
+import { DiRedis } from "react-icons/di";
+import { TbGraph } from "react-icons/tb";
+
+
 const Technologies = () => {
     const technologiesData = portfolioContent.SkillsPage;
     const techList = technologiesData.skillsData;
@@ -52,6 +59,13 @@ const Technologies = () => {
         fastapi: SiFastapi,
         vitest: SiVitest,
         jest: SiJest,
+        langchain: SiLangchain,
+        langgraph: TbGraph,
+        azure: VscAzure,
+        redis: DiRedis,
+        python: FaPython,
+        docker: FaDocker,
+
     };
 
     // 🧠 Radius calculation logic
@@ -125,7 +139,7 @@ const Technologies = () => {
 
             <div className="relative mx-auto max-w-7xl px-2 py-4 md:px-6 md:py-8">
                 <div className="relative flex min-h-[10rem] justify-center items-start pt-14 md:min-h-[12rem] lg:min-h-[20rem]">
-                    <div className="relative w-full md:ml-0 ml-8">
+                    <div className="relative w-full">
                         {techList.map((tech, index) => {
                             const angleStep = arcSpan / (techList.length - 1);
                             const angle = -arcSpan / 2 + angleStep * index;

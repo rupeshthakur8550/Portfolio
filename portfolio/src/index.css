@@ -11,6 +11,9 @@
   --color-theme-card-light: var(--bg-tertiary);
 
   --color-theme-text: var(--text-primary);
+  --color-theme-text-strong: var(--text-strong);
+  --color-theme-green-strong: var(--text-green-strong);
+
   --color-theme-text-sec: var(--text-secondary);
   --color-theme-text-muted: var(--text-muted);
 

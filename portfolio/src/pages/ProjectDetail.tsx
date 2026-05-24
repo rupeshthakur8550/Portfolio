@@ -10,11 +10,7 @@ const ProjectDetailPage = () => {
     return <Navigate to="/not-found" replace />;
   }
 
-  return (
-    <div className="px-4 pb-20 md:pb-28">
-      <ProjectDetails project={project} />
-    </div>
-  );
+  return <ProjectDetails project={project} />;
 };
 
 export default ProjectDetailPage;

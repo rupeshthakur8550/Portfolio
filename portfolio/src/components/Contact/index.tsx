@@ -1,5 +1,6 @@
 import { useRef, useState, type ChangeEvent, type FormEvent } from 'react';
-import { FiMail, FiSend, FiUser, FiPhone, FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
+import { FiMail, FiSend, FiUser, FiPhone, FiCheckCircle, FiAlertCircle, FiGithub, FiLinkedin } from 'react-icons/fi';
+import { motion } from 'framer-motion';
 import { portfolioContent } from '../../content/portfolio';
 import GradientText from '../UI/GradientText';
 import ScrollReveal from '../UI/ScrollReveal';
@@ -111,7 +112,13 @@ const Contact = () => {
  };
 
  return (
- <div id="contact" className="min-h-screen flex flex-col justify-center items-center py-20 px-4 relative z-20">
+ <motion.div 
+   id="contact" 
+   initial={{ opacity: 0, scale: 0.95, y: 30 }}
+   animate={{ opacity: 1, scale: 1, y: 0 }}
+   transition={{ duration: 0.5, ease: "easeOut" }}
+   className="min-h-screen flex flex-col justify-center items-center py-20 px-4 relative z-20"
+ >
  <div className="text-center mb-10 md:mb-20 px-4">
  <div className="mb-4 md:mb-6">
  <GradientText
@@ -161,6 +168,22 @@ const Contact = () => {
  <p className="text-[10px] md:text-xs text-theme-bg/60 font-semibold uppercase tracking-wider">{contactText.emailLabel}</p>
  <p className="font-bold text-theme-bg text-sm md:text-base">{contactText.email}</p>
  </div>
+ </div>
+
+ {/* Social Links */}
+ <div className="pt-6 border-t border-theme-bg/10 mt-8">
+   <p className="text-[10px] md:text-xs text-theme-bg/60 font-semibold uppercase tracking-wider mb-4">Connect on Social</p>
+   <div className="flex gap-4">
+     <a href="https://github.com/rupeshthakur8550" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-theme-bg/5 hover:bg-theme-bg/10 border border-theme-bg/10 rounded-full flex items-center justify-center text-theme-bg/80 hover:text-theme-sky transition-all duration-300 transform hover:-translate-y-1">
+       <FiGithub size={18} />
+     </a>
+     <a href="https://in.linkedin.com/in/rupesh-thakur-010209207?trk=people-guest_people_search-card" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-theme-bg/5 hover:bg-theme-bg/10 border border-theme-bg/10 rounded-full flex items-center justify-center text-theme-bg/80 hover:text-theme-purple transition-all duration-300 transform hover:-translate-y-1">
+       <FiLinkedin size={18} />
+     </a>
+     <a href="https://leetcode.com/u/rupeshthakur80078/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-theme-bg/5 hover:bg-theme-bg/10 border border-theme-bg/10 rounded-full flex items-center justify-center text-theme-bg/80 hover:text-theme-pink transition-all duration-300 transform hover:-translate-y-1 font-bold font-mono text-[11px]">
+       LC
+     </a>
+   </div>
  </div>
  </div>
  </div>
@@ -301,7 +324,7 @@ const Contact = () => {
  </form>
  </div>
  </div>
- </div>
+ </motion.div>
  );
 };
 

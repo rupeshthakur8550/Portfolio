@@ -1,20 +1,20 @@
 {
   "Portfolio": {
     "IntroPage": {
-      "heroTitle": "SOFTWARE",
+      "heroTitle": "FULL-STACK",
       "heroSubtitle": "ENGINEER",
-      "bio": "I'm a versatile full-stack software engineer with nearly 2+ years of hands-on experience. I specialize in building scalable, end-to-end applications, combining robust backend logic with intuitive frontend designs. Driven by problem-solving, I turn complex challenges into seamless digital experiences.",
+      "bio": "Full-stack software engineer focused on building AI-enabled platforms, scalable frontend systems, and production-ready internal tools. Experienced in React ecosystems, FastAPI services, RAG pipelines, and cloud-native deployments across Azure infrastructure.",
       "introSentences": [
-        "Welcome to my digital workspace...",
-        "Full Stack Software Engineer",
-        "Building scalable web solutions",
-        "Transforming ideas into reality",
-        "Crafting exceptional user experiences",
-        "Your trusted development partner"
+        "Building AI-Integrated Enterprise Applications",
+        "Scalable Frontend Systems & Component Architecture",
+        "RAG Pipelines & LLM-Powered Automation",
+        "Cloud-Native Deployments on Azure AKS/ACA",
+        "Production Debugging & Internal Tooling",
+        "Engineering Case Studies & Technical Writing"
       ],
       "profile": {
         "name": "Rupesh Thakur",
-        "description": "A Software Engineer who has developed countless innovative solutions with modern technologies."
+        "description": "Product-focused full-stack engineer solving difficult engineering problems across AI systems, web platforms, and cloud infrastructure."
       },
       "stats": [
         {
@@ -26,7 +26,7 @@
           "value": "5+"
         },
         {
-          "label": "TECHNOLOGIES MASTERED",
+          "label": "CORE TECHNOLOGIES",
           "value": "5+"
         }
       ],
@@ -39,11 +39,10 @@
             "batch": "2022-2024",
             "institution": "VJTI, Matunga",
             "learnings": [
-              "Advanced algorithms & data structures",
-              "Cloud computing and DevOps (Docker, Kubernetes)",
-              "System design & software architecture",
-              "Full-stack development with MERN",
-              "Capstone project and research papers"
+              "Data structures and algorithms",
+              "Database systems",
+              "Computer networks",
+              "Software engineering fundamentals"
             ]
           },
           {
@@ -52,10 +51,9 @@
             "batch": "2019-2022",
             "institution": "PCA, Amalner",
             "learnings": [
-              "Fundamentals of programming (C++, Java)",
+              "Programming fundamentals",
               "DBMS, OS, and Computer Networks",
-              "Mathematics & logic design",
-              "Web development basics (HTML/CSS/JS)",
+              "Web development basics",
               "Academic projects and presentations"
             ]
           }
@@ -65,12 +63,12 @@
     "Header": {
       "navigation": [
         {
-          "label": "Home",
+          "label": "About",
           "icon": "MdHome",
           "href": "/#about"
         },
         {
-          "label": "Skills",
+          "label": "Tech Stack",
           "icon": "MdFolder",
           "href": "/#technologies"
         },
@@ -90,7 +88,7 @@
           "href": "/contact"
         },
         {
-          "label": "Blogs",
+          "label": "Writing",
           "icon": "MdOutlineMenuBook",
           "href": "/blogs"
         }
@@ -106,27 +104,25 @@
           "duration": "Aug 2025 - Present",
           "role": "SDE-1",
           "bullets": [
-            "Owned full-stack applications and AI automation flows under rapid POC constraints, resulting in production-ready Langchain/Langgraph pipelines.",
-            "Owned RAG pipeline architecture under strict latency limits, resulting in efficient data retrieval using Vector DBs, MongoDB, and SQL.",
-            "Owned internal tool development under changing requirements, resulting in scalable React.js/TypeScript applications with Redis caching.",
-            "Owned authentication integration under enterprise security standards, resulting in a secure Keycloak setup with custom theming.",
-            "Owned production deployments under high availability requirements, resulting in stable Azure (ACA/AKS) and VM-based Nginx environments."
+            "Architected production-ready AI automation pipelines using LangChain and LangGraph for enterprise data workflows.",
+            "Built RAG retrieval systems with vector databases, MongoDB, and SQL, optimizing query latency for production workloads.",
+            "Developed scalable internal tools with React.js, TypeScript, and Redis caching to support evolving operational requirements.",
+            "Implemented enterprise-grade authentication using Keycloak with custom theming and SSO integration.",
+            "Managed production deployments on Azure Container Apps, AKS, and VM-based Nginx environments with high-availability configurations."
           ],
           "activities": [
             {
               "title": "Company Representative | Google Developers DevFest",
               "points": [
-                "Represented gruve.ai at DevFest, exploring cutting-edge advancements in Generative AI, Intelligent Agents, and AI-driven automation.",
-                "Engaged with industry leaders to gain insights into scalable RAG architectures and the future of LLM-powered applications.",
-                "Participated in hands-on sessions focused on Google Cloud AI services, Agentic workflows, and emerging AI frameworks.",
-                "Shared key takeaways and strategic insights with the internal engineering team to influence upcoming AI project roadmaps."
+                "Represented gruve.ai at DevFest, engaging with industry leaders on Generative AI, Intelligent Agents, and scalable RAG architectures.",
+                "Shared strategic insights on LLM-powered applications and Google Cloud AI services with the internal engineering team to influence product roadmaps."
               ]
             },
             {
               "title": "Internal Technical Mentorship & Knowledge Sharing",
               "points": [
-                "Conducted sessions on React.js to help cross-functional teams understand frontend fundamentals and component lifecycles.",
-                "Led System Design sessions focused on the Prototype Design Pattern to improve object creation mechanisms in large-scale applications."
+                "Conducted React.js fundamentals sessions for cross-functional teams covering component lifecycles and state management patterns.",
+                "Led system design sessions on the Prototype Design Pattern for scalable object creation in large-scale applications."
               ]
             }
           ],
@@ -135,37 +131,38 @@
               "title": "AIMine (AI Chatbot Platform)",
               "duration": "Aug 2025 - Present",
               "points": [
-                "Developed a chatbot using organizational internal data to provide insights on gruve's solutions and use cases.",
-                "Responsible for the entire Frontend development and partial backend logic.",
-                "Managed deployments on Azure Container Apps (ACA) and Azure Kubernetes Service (AKS).",
-                "Successfully handled production debugging, issue resolution, and redeployments."
+                "Engineered a full-stack AI chatbot platform using organizational data to deliver solution insights and use-case guidance.",
+                "Owned frontend architecture and backend logic for conversational interfaces and context-aware responses.",
+                "Managed Azure Container Apps and AKS deployments, leading production debugging and incident resolution."
               ]
             },
             {
               "title": "GSC (Global Silicon Council) AI Search",
               "duration": "Aug 2025 - Oct 2025",
               "points": [
-                "Simplified complex search mechanisms using React.js, FastAPI, and Neo4j.",
-                "Built the complete system from scratch, including UI, backend, and folder architecture.",
-                "Improved search accuracy and reduced result latency significantly."
+                "Designed and built a complex search interface from scratch using React.js, FastAPI, and Neo4j graph database.",
+                "Owned complete system architecture including UI design, backend API development, and data modeling.",
+                "Improved search accuracy and reduced result latency through optimized graph queries and indexing strategies."
               ]
             },
             {
               "title": "Glean Custom Connector Framework",
               "duration": "Nov 2025 - Dec 2025",
               "points": [
-                "Created a framework to reduce Glean's data source ingestion and verification time.",
-                "Utilized Glean API client SDK and FastAPI to automate ingestion status checks.",
-                "Reduced core development time for custom connectors by 60-70%. "
+                "Created a framework to reduce Glean data source ingestion and verification time for internal teams.",
+                "Leveraged Glean API client SDK and FastAPI to automate ingestion status checks and validation workflows.",
+                "Reduced custom connector development time through standardized templates and automated testing."
               ]
             },
             {
               "title": "Securview AI Dictionary Automation",
               "duration": "Jan 2026 - Present",
               "points": [
-                "Automated keyword dictionary creation for marketing teams using Langchain and Langgraph.",
-                "Generated contexts and converted them into HTML templates for Webflow integration.",
-                "Streamlined the content publishing process for the Securview website."
+                "Designed an end-to-end AI pipeline that transforms a curated list of marketing key topics into 25K–30K+ monthly search impressions — scaling from under 6K in under two iterations.",
+                "Built a multi-stage retrieval layer using RAG over Securview company data fused with industry-standard SEO optimization rules, enabling each definition to align with company core values and search intent simultaneously.",
+                "Engineered prompt refinement loops using LangChain + LangGraph: topic → retrieve company context → retrieve SEO keyword clusters → synthesize definition → validate against brand voice → output.",
+                "Converted LLM-generated definitions into production-ready HTML templates integrated directly into Webflow, eliminating manual copy-paste workflows between content generation and site publishing.",
+                "First iteration: 6K → 25K+ impressions. Second iteration: 30K+ and growing search-by-search."
               ]
             }
           ]
@@ -175,20 +172,19 @@
           "duration": "Aug 2024 - Aug 2025",
           "role": "Software Engineer",
           "bullets": [
-            "Owned scalable full-stack application development under tight client deadlines, resulting in successful internal and client-facing deployments.",
-            "Owned complex UI architecture under reusability constraints, resulting in a modular React.js component ecosystem.",
-            "Owned financial data mapping APIs under accuracy requirements, resulting in reliable FastAPI backend integrations.",
-            "Owned static web hosting infrastructure under cost constraints, resulting in efficient Azure VM deployments using Nginx reverse proxy."
+            "Delivered full-stack applications for internal teams and client-facing platforms from requirements to deployment.",
+            "Designed a modular React.js component ecosystem enabling rapid UI development and consistent design patterns across projects.",
+            "Built reliable FastAPI backend integrations for financial data mapping, ensuring accuracy across complex reporting requirements.",
+            "Deployed static web hosting infrastructure on Azure VMs using Nginx reverse proxy, optimizing for cost-efficiency."
           ],
           "activities": [
             {
               "title": "Internal Hackathon | gruve.ai",
               "points": [
-                "Developed a full-stack travel reimbursement platform — 'Travel Go' — as a sub-application for employees logged in via Zoho portal.",
-                "Enabled employees to submit travel reimbursement requests by selecting departments and adding expense details for pre/post-travel cases.",
-                "Implemented an automated approval flow: if the department's budget allows, the system auto-approves and notifies managers, accounts, HR, and peers with travel details (location, dates, etc.).",
-                "Built a fallback logic allowing department heads and accounts to collaboratively reallocate budgets across teams in case of funding shortages.",
-                "Displayed all approvals, requests, and travel data in dynamic tabular views for better visibility and decision-making across stakeholders."
+                "Developed 'Travel Go,' a full-stack travel reimbursement platform integrated with Zoho portal authentication.",
+                "Built automated approval flows with budget validation, enabling auto-approval for department requests within allocated limits.",
+                "Implemented fallback logic for cross-team budget reallocation when departmental funding was insufficient.",
+                "Created dynamic tabular dashboards for stakeholders to track approvals, requests, and travel data in real time."
               ]
             }
           ],
@@ -197,18 +193,18 @@
               "title": "SOW Generator (Automated Reports)",
               "duration": "Nov 2024 - June 2025",
               "points": [
-                "Developed a tool for higher management to simplify Statement of Work (SOW) creation.",
-                "Implemented complex nested state logic and modular UI components in React.js.",
-                "Handled deployment on Azure VM using Nginx reverse proxy for secure access."
+                "Built an automated Statement of Work generation tool for higher management, simplifying complex report creation.",
+                "Implemented nested state logic and modular UI components in React.js for dynamic form generation.",
+                "Deployed on Azure VM with Nginx reverse proxy for secure internal access and static file serving."
               ]
             },
             {
               "title": "FinCon App (Financial Consolidation)",
               "duration": "Aug 2024 - Nov 2024",
               "points": [
-                "Created an application for managing PL and Balance sheet data mapping across branches.",
-                "Built role-based screens and integrated CRUD APIs using FastAPI.",
-                "Developed an AI chatbot in Phase 2 to provide financial insights via tables and graphs."
+                "Developed a financial consolidation application for PL and Balance sheet data mapping across multiple branches.",
+                "Built role-based access screens and integrated CRUD APIs using FastAPI with strict data validation.",
+                "Delivered an AI chatbot in Phase 2 providing financial insights via dynamic tables and interactive graphs."
               ]
             }
           ]
@@ -218,16 +214,16 @@
           "duration": "March 2022 - Jan 2023",
           "role": "Software Engineer",
           "bullets": [
-            "Owned DB schema design and query optimization for the Telefonica Project under strict performance constraints, resulting in precision data fetching.",
-            "Owned complex SQL query development under high throughput requirements, resulting in optimized read/write operations.",
-            "Owned database performance tuning under legacy system constraints, resulting in reduced query execution times."
+            "Designed and optimized database schemas for the Telefonica project, improving data retrieval precision for critical operations.",
+            "Developed complex SQL queries and optimized read/write operations for high-throughput legacy systems.",
+            "Tuned database performance through indexing strategies and query restructuring, reducing execution times."
           ],
           "activities": [
             {
               "title": "Google Cloud Practitioner Certification",
               "points": [
-                "Completed the Google Cloud Practitioner certification as part of the Cloud Learning initiative.",
-                "Achieved this distinction as one of the top 15-20 candidates out of a cohort of 200+ students."
+                "Completed Google Cloud Practitioner certification as part of the Cloud Learning initiative.",
+                "Achieved distinction among top performers in a cohort of 200+ candidates."
               ]
             }
           ],
@@ -236,9 +232,9 @@
               "title": "Database Optimization Initiative",
               "duration": "June 2022 - Jan 2023",
               "points": [
-                "Refined legacy database queries to enhance execution speed and efficiency.",
-                "Simplified complex query structures to improve code readability and maintainability.",
-                "Focused on clean and high-performance data retrieval for critical business operations."
+                "Refined legacy database queries to enhance execution speed and maintainability.",
+                "Simplified complex query structures to improve readability and reduce technical debt.",
+                "Focused on clean, high-performance data retrieval patterns for critical business operations."
               ]
             }
           ]
@@ -248,123 +244,159 @@
     "SkillsPage": {
       "header": {
         "heading": " Technologies & Tools",
-        "subHeading": " My technical expertise spans across modern frameworks, databases, and development tools."
+        "subHeading": "Production-focused expertise across modern frontend frameworks, backend services, databases, and cloud infrastructure."
       },
       "instruction": " Tip: Click on a technology card above to see detailed experience and skills related to that stack.",
       "skillsData": [
         {
+          "name": "LangChain",
+          "icon": "langchain",
+          "color": "bg-gradient-to-br from-[#1C3C3C] to-[#1FAD7A]",
+          "description": "Built production AI automation pipelines using LangChain for RAG retrieval, multi-step agents, and enterprise data workflows."
+        },
+        {
+          "name": "LangGraph",
+          "icon": "langgraph",
+          "color": "bg-gradient-to-br from-[#0D1B2A] to-[#2563EB]",
+          "description": "Engineered stateful multi-agent orchestration with LangGraph for complex sequential and parallel AI task workflows."
+        },
+        {
+          "name": "Azure",
+          "icon": "azure",
+          "color": "bg-gradient-to-br from-[#0078D4] to-[#005A9E]",
+          "description": "Deployed and managed production workloads on Azure Container Apps, AKS, and VM-based Nginx environments."
+        },
+        {
+          "name": "Redis",
+          "icon": "redis",
+          "color": "bg-gradient-to-br from-[#D82C20] to-[#A41E11]",
+          "description": "Integrated Redis caching in scalable internal tools to reduce API latency and support high-frequency data access."
+        },
+        {
+          "name": "Python",
+          "icon": "python",
+          "color": "bg-gradient-to-br from-[#3776AB] to-[#FFD43B]",
+          "description": "Core language for AI pipelines, FastAPI services, data processing scripts, and LangChain/LangGraph agents."
+        },
+        {
+          "name": "Docker",
+          "icon": "docker",
+          "color": "bg-gradient-to-br from-[#2496ED] to-[#1d70b8]",
+          "description": "Containerized all application services for consistent deployment, enabling reproducible builds and clean CI/CD pipelines."
+        },
+        {
           "name": "React",
           "icon": "react",
           "color": "bg-gradient-to-br from-[#61dafb] to-[#21d4fd]",
-          "description": "2 years of experience developing scalable and component-driven user interfaces using React. Proficient in state management with Redux and Context API, deploying applications on virtual machines, integrating CI/CD pipelines, and containerizing frontends with Docker."
+          "description": "Built scalable React applications with Redux, TypeScript, reusable component systems, and production deployment workflows across enterprise and AI-driven platforms."
         },
         {
           "name": "Java",
           "icon": "java",
           "color": "bg-gradient-to-br from-[#f89820] to-[#ed1c24]",
-          "description": "3 years of experience in Core Java development, including JSP, Servlets, Hibernate, JDBC, and basic Spring. Built enterprise-grade applications following MVC architecture, with hands-on experience in backend development within team-based environments."
+          "description": "Core Java development with JSP, Servlets, Hibernate, JDBC, and Spring fundamentals. Built enterprise applications following MVC architecture in team environments."
         },
         {
           "name": "JavaScript",
           "icon": "javascript",
           "color": "bg-gradient-to-br from-[#f7df1e] to-[#f0db4f]",
-          "description": "2 years of experience building dynamic user interfaces and full-stack applications. Skilled in ES6+ features, asynchronous programming, and integrating JavaScript with frameworks such as React, Node.js, and Express."
+          "description": "Developed dynamic user interfaces and full-stack applications using ES6+ features, asynchronous programming, and integration with React, Node.js, and Express."
         },
         {
           "name": "TypeScript",
           "icon": "typescript",
           "color": "bg-gradient-to-br from-[#007acc] to-[#3178c6]",
-          "description": "1 year of experience using TypeScript to build type-safe and maintainable applications with React and Node.js. Skilled in defining interfaces, improving code readability, and collaborating on scalable codebases."
+          "description": "Built type-safe, maintainable applications with React and Node.js. Skilled in interface design, strict typing, and scalable codebase architecture."
         },
         {
           "name": "Node.js",
           "icon": "nodejs",
           "color": "bg-gradient-to-br from-[#68a063] to-[#8cc84b]",
-          "description": "2 years of experience using Node.js for backend development in academic projects. Built RESTful APIs, implemented file handling and email services, and applied containerization practices using Docker."
+          "description": "Developed RESTful APIs, file handling services, and email automation. Applied containerization practices using Docker for consistent deployment pipelines."
         },
         {
           "name": "Express",
           "icon": "express",
           "color": "bg-gradient-to-br from-[#404040] to-[#000000]",
-          "description": "2 years of experience building backend services with Express.js during college projects. Developed middleware, authentication systems (JWT), and error-handling layers for scalable APIs."
+          "description": "Built backend services with middleware, JWT authentication, and structured error-handling layers for scalable API development."
         },
         {
           "name": "MySQL",
           "icon": "mysql",
           "color": "bg-gradient-to-br from-[#00758f] to-[#f29111]",
-          "description": "2 years of experience designing and managing relational databases using MySQL. Proficient in writing complex SQL queries, schema normalization, and performance optimization through indexing."
+          "description": "Designed relational schemas, wrote complex SQL queries, and optimized performance through indexing and normalization strategies."
         },
         {
           "name": "SQLite",
           "icon": "sqlite",
           "color": "bg-gradient-to-br from-[#003b57] to-[#0f80cc]",
-          "description": "1 year of experience using SQLite for lightweight local databases in mobile and desktop applications. Skilled in schema design and fast prototyping for small-scale solutions."
+          "description": "Implemented lightweight local databases for rapid prototyping and small-scale applications with efficient schema design."
         },
         {
           "name": "MongoDB",
           "icon": "mongodb",
           "color": "bg-gradient-to-br from-[#4db33d] to-[#3fa037]",
-          "description": "3 years of experience working with MongoDB in MERN-stack projects. Proficient in schema design using Mongoose, implementing aggregation pipelines, and optimizing NoSQL queries for performance."
+          "description": "Designed NoSQL schemas with Mongoose, built aggregation pipelines, and optimized queries for MERN-stack production applications."
         },
         {
           "name": "Firebase",
           "icon": "firebase",
           "color": "bg-gradient-to-br from-[#ffca28] to-[#ffa000]",
-          "description": "1 year of experience with Firebase services including Firestore, Google SSO integration, and real-time data synchronization. Used extensively in rapid prototyping and collaborative web applications."
+          "description": "Integrated Firestore, Google SSO, and real-time data synchronization for rapid prototyping and collaborative web applications."
         },
         {
           "name": "Git",
           "icon": "git",
           "color": "bg-gradient-to-br from-[#f05032] to-[#e94e32]",
-          "description": "3 years of experience using Git for version control in solo and collaborative projects. Proficient in branching strategies, resolving merge conflicts, and integrating Git with CI/CD workflows."
+          "description": "Managed version control with branching strategies, merge conflict resolution, and CI/CD workflow integration in collaborative teams."
         },
         {
           "name": "GitHub",
           "icon": "github",
           "color": "bg-gradient-to-br from-[#333333] to-[#000000]",
-          "description": "3 years of experience with GitHub for repository management, code reviews, and project collaboration. Experienced in using GitHub Actions, project boards, and contributing to open-source projects."
+          "description": "Repository management, code reviews, GitHub Actions automation, and open-source contributions using project boards and workflows."
         },
         {
           "name": "Postman",
           "icon": "postman",
           "color": "bg-gradient-to-br from-[#ff6c37] to-[#ff4c00]",
-          "description": "2 years of experience using Postman for testing and documenting RESTful APIs. Proficient in automating test collections, validating request workflows, and debugging server-side logic."
+          "description": "Tested and documented RESTful APIs using automated collections, request validation, and debugging for server-side logic."
         },
         {
           "name": "Tailwind",
           "icon": "tailwindcss",
           "color": "bg-gradient-to-br from-[#06b6d4] to-[#0891b2]",
-          "description": "2 years of experience building responsive UIs using Tailwind CSS. Proficient in customizing design systems and implementing utility-first styling for React applications."
+          "description": "Built responsive UIs using utility-first styling, custom design systems, and theme configuration for React applications."
         },
         {
           "name": "Material UI",
           "icon": "materialui",
           "color": "bg-gradient-to-br from-[#0081cb] to-[#00695c]",
-          "description": "2 years of experience developing user interfaces using Material UI. Skilled in component customization, theming, and ensuring consistent design across web applications."
+          "description": "Developed consistent, accessible interfaces using Material UI components, custom theming, and design system standardization."
         },
         {
           "name": "Flowbite",
           "icon": "react",
           "color": "bg-gradient-to-br from-[#1e40af] to-[#3b82f6]",
-          "description": "1 year of experience using Flowbite for rapid UI development in React projects. Utilized pre-designed components to ensure design consistency and responsiveness."
+          "description": "Rapid UI development using pre-designed Flowbite components to ensure design consistency and responsiveness in React projects."
         },
         {
           "name": "FastAPI",
           "icon": "fastapi",
           "color": "bg-gradient-to-br from-[#009688] to-[#4caf50]",
-          "description": "1 year of experience developing high-performance RESTful APIs using FastAPI. Implemented JWT authentication, background tasks, and integrated APIs with frontend clients."
+          "description": "Developed high-performance RESTful APIs with JWT authentication, background task processing, and async endpoint design."
         },
         {
           "name": "Vitest",
           "icon": "vitest",
           "color": "bg-gradient-to-br from-[#fedd00] to-[#ffeb3b]",
-          "description": "1 year of experience writing unit tests with Vitest for React components and hooks. Ensured code quality and robustness in Vite-based applications through comprehensive test coverage."
+          "description": "Wrote unit tests for React components and hooks in Vite-based applications, ensuring robust code quality and coverage."
         },
         {
           "name": "Jest",
           "icon": "jest",
           "color": "bg-gradient-to-br from-[#c21325] to-[#e53e3e]",
-          "description": "1 year of experience using Jest for testing React applications and Node.js services. Proficient in test-driven development, mocking dependencies, and maintaining high test coverage."
+          "description": "Tested React applications and Node.js services using mocking, snapshot testing, and TDD practices for reliable deployments."
         }
       ]
     },
@@ -378,13 +410,13 @@
       "clickToOpen": "Click to Open"
     },
     "blogsPage": {
-      "title": "Latest Blogs",
-      "subtitle": "Thoughts, tutorials, and insights on software development and technology.",
+      "title": "Engineering Writing",
+      "subtitle": "Case studies, architecture decisions, and debugging stories from production systems.",
       "readArticle": "Read Article"
     },
     "contactPage": {
       "title": "Get In Touch",
-      "subtitle": "I'm just an email away! Send me a message and I'll get back to you as soon as possible.",
+      "subtitle": "Open to engineering collaborations, architecture discussions, and new opportunities.",
       "letsTalk": "Let's Talk!",
       "description": "Whether you have a question about my work, want to collaborate on a project, or just want to say hi, feel free to drop me a message.",
       "emailLabel": "Email Me on",
@@ -407,9 +439,81 @@
     },
     "projects": [
       {
+        "title": "Securview AI Dictionary",
+        "cardDescription": "A multi-stage LangChain + LangGraph pipeline that automates SEO keyword dictionary creation, scaling from 6K to 30K+ monthly search impressions through RAG-driven, brand-aligned content generation.",
+        "pageDescription": "Securview faced a common enterprise content problem: manually writing SEO-optimized marketing dictionaries is slow, inconsistent, and disconnected from both company values and search intent. A single round of manual dictionary creation could take weeks and still miss keyword clusters that drive discovery.\n\nThe Securview AI Dictionary pipeline replaces this entirely. The workflow begins with a curated list of marketing key topics. For each topic, a multi-stage retrieval layer runs in parallel:\n1. RAG retrieval over Securview's internal company knowledge base — ensures every definition reflects actual company values, product positioning, and tone of voice.\n2. Industry-standard SEO optimization rules retrieval — injects keyword clusters, search intent signals, and semantic variants that maximize discoverability.\n3. Supplementary research synthesis — additional context from external industry sources to add depth.\n\nA LangGraph orchestration layer sequences these retrieval stages and feeds the merged context into a prompt refinement loop. The loop iterates until the generated definition passes brand voice validation and meets SEO quality thresholds.\n\nThe output is not just content — it is production-ready HTML templates formatted for direct Webflow integration. This eliminates the manual copy-paste pipeline between LLM output and the live website.\n\nResults speak directly to the system quality: first iteration scaled impressions from under 6K to over 25K. Second iteration reached 30K+ and continues to grow search-by-search as more topics are processed.",
+        "tech": [
+          "LangChain",
+          "LangGraph",
+          "Python",
+          "FastAPI",
+          "RAG",
+          "Webflow",
+          "HTML Templates"
+        ],
+        "link": "https://github.com/rupeshthakur8550",
+        "livelink": null,
+        "image": "/securview-arch.svg",
+        "outcome": "Scaled Securview's search impressions from under 6K to 30K+ across two pipeline iterations. Each dictionary entry is auto-generated, brand-aligned, SEO-optimized, and deployed directly to Webflow without manual intervention.",
+        "problem": "Marketing dictionary creation was entirely manual — writers spent weeks producing definitions that were neither SEO-optimized nor consistently aligned with company values. The result was low search discovery and brand inconsistency across published content.",
+        "constraint": "The pipeline had to produce definitions that felt human and brand-authentic, not generic LLM output. This required fusing company-specific RAG retrieval with external SEO signal injection in a single coherent generation pass — without exposing internal company data externally.",
+        "architecture": "LangGraph stateful workflow: topic ingestion → parallel RAG retrieval (company KB + SEO rules + research) → context fusion → prompt refinement loop → brand voice validation → HTML template rendering → Webflow-ready output. LangChain handles retrieval chains; LangGraph manages state and iteration control.",
+        "tradeoff": "Chose LangGraph over a simple sequential LangChain pipeline to enable conditional retry loops when brand voice validation fails. This adds orchestration overhead but ensures output quality without human review on every entry — critical for processing large topic lists at scale.",
+        "security": "Company knowledge base RAG retrieval operates over internal documents only. Generated content is validated before export. No internal company data leaves the pipeline — Webflow receives only the finalized HTML output.",
+        "metric": "6K → 25K+ search impressions in iteration 1. 30K+ in iteration 2 and growing search-by-search as the topic list expands. Each dictionary entry contributes incrementally to organic search visibility with zero manual publishing effort.",
+        "whatIdChange": "Would add an A/B testing layer to compare two prompt refinement strategies per topic and route the winner to production based on predicted CTR signals. This would accelerate the search impression growth curve beyond the current linear scaling."
+      },
+      {
+        "title": "AIMine",
+        "cardDescription": "Enterprise AI chatbot platform using organizational data for solution insights, with Azure Container Apps deployment and context-aware conversational interfaces.",
+        "pageDescription": "Enterprise AI chatbot platform using organizational data for solution insights, with Azure Container Apps deployment and context-aware conversational interfaces.",
+        "tech": [
+          "React.js",
+          "FastAPI",
+          "LangChain",
+          "Azure AKS",
+          "Azure Container Apps",
+          "TypeScript"
+        ],
+        "link": "https://github.com/rupeshthakur8550",
+        "livelink": null,
+        "image": "/aimine-arch.svg",
+        "outcome": "Built AIMine",
+        "problem": "...",
+        "constraint": "...",
+        "architecture": "...",
+        "tradeoff": "...",
+        "security": "...",
+        "metric": "...",
+        "whatIdChange": "..."
+      },
+      {
+        "title": "GSC AI Search",
+        "cardDescription": "Graph-powered AI search interface for the Global Silicon Council, built from scratch with React.js, FastAPI, and Neo4j for precise entity relationship querying.",
+        "pageDescription": "Graph-powered AI search interface for the Global Silicon Council, built from scratch with React.js, FastAPI, and Neo4j for precise entity relationship querying.",
+        "tech": [
+          "React.js",
+          "FastAPI",
+          "Neo4j",
+          "TypeScript",
+          "Python"
+        ],
+        "link": "https://github.com/rupeshthakur8550",
+        "livelink": null,
+        "image": "/gsc-arch.svg",
+        "outcome": "Built GSC",
+        "problem": "...",
+        "constraint": "...",
+        "architecture": "...",
+        "tradeoff": "...",
+        "security": "...",
+        "metric": "...",
+        "whatIdChange": "..."
+      },
+      {
         "title": "FoodSpace",
-        "cardDescription": "A MERN-based food marketplace connecting local home cooks with nearby buyers, promoting zero food waste and 0% platform commission.",
-        "pageDescription": "FoodSpace is a full-stack web application inspired by platforms like Zomato and Swiggy, built to empower local home cooks and reduce food waste. The platform enables individuals to sell freshly prepared homemade food to nearby users without any platform fees. Buyers can browse food listings based on their primary location and a configurable distance range, while sellers have complete control over menu visibility, pricing, and availability.\n\nThe application focuses on transparency and decentralization — sellers receive payments directly, and the platform does not act as an intermediary for delivery. Each seller is responsible for fulfilling and delivering their own orders, ensuring trust and accountability.\n\nFrom a technical perspective, FoodSpace includes secure JWT-based authentication, role-based access for buyers and sellers, location-aware listings, cart and order management, and a dedicated seller dashboard. The frontend is optimized for responsiveness and usability using modern UI libraries, while the backend follows RESTful API principles for scalability and maintainability.\n\nDue to limited resources, the application is not hosted, but the complete source code and architecture are available on GitHub.",
+        "cardDescription": "A zero-commission peer-to-peer food marketplace connecting local home cooks with nearby buyers, built on the MERN stack with geospatial discovery.",
+        "pageDescription": "FoodSpace is a full-stack marketplace application engineered to solve a fundamental economic problem in the home-cooked food industry: centralized delivery platforms charge 30–40% commission per order, making small-scale home cooking financially unsustainable for individual sellers. The platform eliminates the platform-as-intermediary model entirely, enabling direct peer-to-peer transactions where sellers receive 100% of the revenue and buyers pay no hidden service fees.\n\nThe technical architecture centers on a monolithic MERN stack with MongoDB's native geospatial indexing powering radius-based food discovery. Buyers configure a primary location and adjustable search radius; the backend uses MongoDB's $geoWithin and $nearSphere operators to return location-aware listings sorted by proximity. This eliminates the need for external geocoding services and keeps the data layer self-contained.\n\nAuthentication is implemented via stateless JWT sessions with bcrypt-hashed credentials and role-based access control (RBAC) distinguishing Buyers, Sellers, and Admins. Sellers operate through a dedicated dashboard where they control menu visibility, pricing, availability windows, and order fulfillment status. The platform deliberately avoids managing payments or logistics — sellers handle direct payment collection and physical delivery themselves, which removes the engineering complexity of payment gateway integration and real-time delivery tracking while preserving the core value proposition of zero commission.\n\nThe frontend is built with React.js, Redux for state management, Tailwind CSS, and Flowbite React for rapid component development. The backend follows RESTful API principles with Express.js, and the entire application is designed for self-contained deployment on low-cost infrastructure.",
         "tech": [
           "MongoDB",
           "Express.js",
@@ -420,21 +524,21 @@
           "Flowbite React"
         ],
         "link": "https://github.com/rupeshthakur8550/FoodSpace",
-        "livelink": null,
+        "livelink": "",
         "image": "/foodspace-arch.svg",
-        "outcome": "Enabled direct peer-to-peer food exchange with 0% platform commission.",
-        "problem": "Centralized platforms enforce 30%+ margins, making local home-cooking economically unviable.",
-        "constraint": "Zero budget for cloud hosting; required self-contained deployment.",
-        "architecture": "MERN stack monolithic API with JWT-based role isolation (Buyer/Seller/Admin) and geospatial indexing in MongoDB for radius-based discovery.",
-        "tradeoff": "Chose MongoDB's built-in geospatial queries over PostGIS for faster prototyping, sacrificing complex routing algorithms.",
-        "security": "Role-based access control (RBAC), bcrypt password hashing, and stateless JWT sessions to minimize server overhead.",
-        "metric": "Supports 100+ concurrent users with <200ms API latency on local testing infrastructure.",
-        "whatIdChange": "Would decouple the geospatial search into a dedicated microservice to allow independent scaling during peak meal times."
+        "outcome": "Created a viable zero-commission marketplace where home cooks retain full revenue. Geospatial discovery enables buyers to find nearby food within configurable radiuses, and the seller dashboard provides complete inventory and order control without platform interference.",
+        "problem": "Centralized food delivery platforms impose 30%+ commission fees, making home-cooking businesses economically unviable. Individual home cooks lack a digital channel to reach local buyers directly, and existing marketplace tools are built for restaurants with dedicated staff, not individuals operating from home kitchens.",
+        "constraint": "Zero budget for cloud hosting or third-party SaaS dependencies. The entire platform needed to run on free or low-cost self-hosted infrastructure without payment gateway APIs, delivery logistics providers, or external geocoding services.",
+        "architecture": "MERN stack monolith with MongoDB geospatial indexing for radius-based food discovery, JWT-based RBAC with three distinct roles (Buyer/Seller/Admin), and a React.js frontend with Redux state management. The backend exposes RESTful endpoints for listings, cart management, and order workflows.",
+        "tradeoff": "Selected MongoDB's built-in 2dsphere geospatial queries over a dedicated PostGIS instance to eliminate infrastructure overhead and reduce hosting costs. This simplified radius-based discovery but sacrificed advanced routing capabilities and complex polygon-based search that PostGIS would have enabled.",
+        "security": "Role-based access control isolates seller data from buyer views, bcrypt password hashing prevents credential exposure, and stateless JWT sessions eliminate server-side session storage overhead. Input sanitization and CORS policies protect against injection and cross-origin attacks.",
+        "metric": "Geospatial query optimization through MongoDB indexing enables sub-second radius-based food discovery on commodity hardware during local testing.",
+        "whatIdChange": "Would extract the geospatial search and recommendation engine into an independent microservice with its own MongoDB read replica. This would allow horizontal scaling of the discovery layer during peak meal-time traffic without scaling the entire monolithic API."
       },
       {
         "title": "Travel Diaries",
-        "cardDescription": "A privacy-focused social platform for travel enthusiasts to share guides, connect with like-minded travelers, and chat in real time.",
-        "pageDescription": "Travel Diaries is a social networking web application built specifically for travel enthusiasts who want more than just photo sharing. The platform enables users to document complete travel journeys, including routes, experiences, and guidance, while fostering a responsible travel culture that respects destinations and local communities.\n\nUsers can create detailed posts, like and comment on shared experiences, and connect with individuals or groups that share similar travel interests. The application also features a real-time chat system supporting one-to-one and group conversations.\n\nA strong emphasis is placed on user privacy and data protection. Chats are end-to-end aware in behavior — deleted messages are removed from both sides, screenshots and chat saving are restricted, and sensitive actions are safeguarded. Authentication is handled using Google OAuth 2.0 and OTP-based email verification to ensure secure onboarding.\n\nFrom a technical standpoint, the application leverages the MERN stack for scalability, Socket.io for real-time communication, Firebase for secure image storage, and SMTP services for OTP delivery. Although not deployed due to resource limitations, the project demonstrates advanced full-stack, real-time, and privacy-centric application design.",
+        "cardDescription": "A privacy-first social platform for travel enthusiasts featuring structured journey storytelling, interest-based matching, and ephemeral real-time chat.",
+        "pageDescription": "Travel Diaries addresses two critical gaps in existing social platforms: the lack of structured travel storytelling tools and the absence of privacy-by-design communication features. General-purpose networks like Instagram and Facebook optimize for photo consumption, not narrative depth — travelers cannot easily document routes, experiences, and logistical guidance in a structured format that helps other travelers plan similar trips. Simultaneously, privacy on these platforms is an afterthought; messages can be screenshotted, saved indefinitely, and mined for data without user consent.\n\nThe platform solves the storytelling problem by enabling users to create detailed travel posts that include routes, experiences, budgets, and guidance rather than just images. A matching algorithm connects users with shared travel interests, allowing them to form private groups or one-to-one connections based on destination preferences, travel styles, and planned itineraries.\n\nThe privacy problem is addressed through an ephemeral communication layer built on Socket.io. Messages deleted by a user are removed from both sender and receiver storage simultaneously. The platform restricts screenshot behaviors through frontend policies and does not persist chat history indefinitely on the client. Authentication combines Google OAuth 2.0 for frictionless onboarding with SMTP-based OTP email verification as a fallback mechanism, ensuring account integrity without forcing password management on users.\n\nTechnically, the application uses the MERN stack with Socket.io managing WebSocket connections for real-time chat, Firebase Storage handling secure image uploads, and SMTP services delivering time-sensitive OTP codes. The backend implements strict CORS policies and input validation to protect the real-time event layer from unauthorized cross-origin injection.",
         "tech": [
           "MongoDB",
           "Express.js",
@@ -446,21 +550,21 @@
           "SMTP"
         ],
         "link": "https://github.com/rupeshthakur8550/TravelDiaries",
-        "livelink": null,
+        "livelink": "None",
         "image": "/traveldiaries-arch.svg",
-        "outcome": "Delivered a real-time, privacy-focused travel networking platform.",
-        "problem": "Existing social networks lack structured storytelling and proactive privacy controls (preventing screenshotting, saving).",
-        "constraint": "Need to handle concurrent websocket connections for real-time chat on a single Node instance.",
-        "architecture": "Event-driven real-time chat via Socket.io with OAuth 2.0 onboarding and SMTP-based OTP fallback.",
-        "tradeoff": "Stored chat messages in MongoDB without end-to-end encryption to allow server-side moderation, accepting the privacy tradeoff for platform safety.",
-        "security": "OAuth 2.0 flows, ephemeral chat persistence (deleted on both sides), and strict CORS policies.",
-        "metric": "Maintains stable websocket connections for up to 500 simulated concurrent users.",
-        "whatIdChange": "Would migrate from Socket.io to Redis Pub/Sub for horizontal scalability across multiple WebSocket servers."
+        "outcome": "Delivered a structured travel storytelling platform with privacy-preserving real-time chat. Users can document complete journeys with contextual guidance, connect with travelers sharing similar interests, and communicate without leaving permanent digital traces.",
+        "problem": "Existing social networks are optimized for photo sharing, not structured travel documentation. Travelers cannot easily share routes, budgets, and detailed guidance. Additionally, mainstream platforms treat privacy reactively — chats are permanently archived, screenshots are unrestricted, and user data is monetized. There is no dedicated space for travelers to both tell complete stories and communicate with guaranteed ephemerality.",
+        "constraint": "Real-time chat infrastructure needed to operate on a single Node.js instance without the budget for Redis clusters or dedicated WebSocket scaling services. Privacy features had to be implemented at the application layer since end-to-end encryption libraries would add significant complexity and prevent server-side content moderation.",
+        "architecture": "Event-driven real-time communication via Socket.io over a monolithic Node.js/Express backend. OAuth 2.0 handles primary authentication with SMTP-based OTP fallback. MongoDB stores user profiles, travel posts, and temporary chat metadata. Firebase Storage manages image assets with signed URLs.",
+        "tradeoff": "Stored chat messages in MongoDB without end-to-end encryption to maintain server-side moderation capabilities and simplify implementation. This accepted a privacy tradeoff where the server technically has access to message content, balanced against the ability to enforce community guidelines and report abuse.",
+        "security": "Google OAuth 2.0 flows eliminate password exposure, OTP verification adds a secondary identity check, ephemeral chat deletion removes data from both clients, and strict CORS policies isolate the WebSocket layer from unauthorized domains.",
+        "metric": "Socket.io architecture supports real-time group and private messaging with automatic cleanup of deleted messages across connected clients.",
+        "whatIdChange": "Would migrate the chat layer from direct Socket.io broadcasting to a Redis Pub/Sub backbone. This would enable horizontal scaling across multiple WebSocket server instances behind a load balancer, eliminating the single-node bottleneck for concurrent connections."
       },
       {
         "title": "Route Planning Tool",
-        "cardDescription": "A smart route optimization tool that calculates and visualizes the shortest path across multiple destinations using Mapbox.",
-        "pageDescription": "The Route Planning Tool is a web-based navigation application designed to help users efficiently plan trips involving multiple destinations. Unlike standard map applications that primarily focus on point-to-point navigation, this tool calculates an optimized route covering all selected locations with the shortest possible distance.\n\nUsers can enter their current location and add multiple destinations dynamically. The system processes these inputs using route optimization logic and visualizes the complete path on an interactive Mapbox-powered map.\n\nAs the user moves, the application updates the route in real time and automatically removes destination markers once they are reached, providing a clean and intuitive navigation experience. This makes the tool especially useful for delivery routes, travel itineraries, and multi-stop journeys.\n\nThe backend is built using Node.js and Express.js, with SQLite used for lightweight and efficient data storage. Although the application is not hosted, it demonstrates strong integration of mapping services, real-time updates, and algorithm-driven route optimization.",
+        "cardDescription": "A multi-stop route optimization and visualization tool using Mapbox GL JS to compute shortest paths across dynamic waypoints with real-time progress tracking.",
+        "pageDescription": "Standard navigation applications are architected for point-to-point travel: they excel at routing from origin A to destination B but provide no optimization logic for trips involving multiple stops. This creates significant friction for delivery drivers planning daily routes, road trippers organizing multi-city itineraries, and field service technicians visiting several client sites. Users are forced to manually order their stops, resulting in suboptimal paths that increase fuel consumption, travel time, and operational costs.\n\nThe Route Planning Tool solves this by accepting a current location and an arbitrary number of dynamic destinations, then computing an optimized traversal order that minimizes total travel distance. The optimization logic evaluates waypoint permutations and selects the most efficient path using a nearest-neighbor heuristic with distance-matrix calculations derived from Mapbox's Directions API.\n\nAs the user travels, the application tracks progress against the planned route and automatically removes destination markers once they are reached, decluttering the map interface and providing immediate visual feedback on remaining stops. This real-time cleanup is critical for usability during multi-stop journeys where accumulated markers would otherwise obscure the navigation view.\n\nThe frontend is built with React.js and Mapbox GL JS, leveraging WebGL for smooth map rendering and client-side route computation. The backend uses Node.js and Express.js with SQLite for lightweight data persistence, caching user preferences and recent routes locally without requiring external database hosting. The entire stack is designed to run as a self-contained application suitable for offline-capable deployment on edge devices or low-cost VMs.",
         "tech": [
           "React.js",
           "Mapbox",
@@ -469,16 +573,16 @@
           "SQLite"
         ],
         "link": "https://github.com/rupeshthakur8550/Route-Planning-Tool",
-        "livelink": null,
+        "livelink": "",
         "image": "/routeplanner-arch.svg",
-        "outcome": "Reduced multi-stop travel computation time for complex routes.",
-        "problem": "Standard navigation tools are inefficient for planning trips with multiple dynamic stops.",
-        "constraint": "Client-heavy map rendering causing frame drops during rapid route recalculations.",
-        "architecture": "React.js frontend leveraging Mapbox GL JS for WebGL rendering, backed by an Express.js API and SQLite for rapid localized state caching.",
-        "tradeoff": "Delegated heavy route optimization logic to the client side to save backend compute, increasing initial load times on low-end devices.",
-        "security": "Rate-limited API endpoints and sanitized geospatial inputs to prevent injection attacks.",
-        "metric": "Calculates optimal routes for up to 20 waypoints in under 1.5 seconds.",
-        "whatIdChange": "Would implement a Web Worker for background route calculation to keep the main UI thread at 60fps."
+        "outcome": "Reduced route planning complexity for multi-stop journeys by automating waypoint ordering and providing real-time visual progress tracking. Users receive an optimized path across all destinations with automatic map decluttering as stops are completed.",
+        "problem": "Mainstream navigation tools are designed for single-destination routing. When users need to visit multiple locations — delivery routes, sales territories, road trips — they must manually determine the optimal visit order. This leads to inefficient backtracking, increased fuel costs, and longer travel times. No lightweight, self-hosted tool exists that combines multi-stop optimization with real-time progress visualization and automatic map cleanup.",
+        "constraint": "Client-side map rendering with WebGL caused frame drops during rapid route recalculations when users added or removed waypoints dynamically. The backend needed to remain lightweight enough to run on minimal infrastructure without dedicated geospatial databases like PostGIS.",
+        "architecture": "React.js frontend with Mapbox GL JS for WebGL-accelerated map rendering and client-side path optimization. An Express.js API layer handles route persistence and user preferences in SQLite. The optimization engine runs partially on the client to reduce backend compute load.",
+        "tradeoff": "Delegated the computationally expensive route optimization to the client browser rather than a backend service. This eliminated server-side scaling concerns and reduced API latency but increased initial JavaScript bundle size and placed higher CPU demands on low-end mobile devices during complex multi-waypoint calculations.",
+        "security": "All geospatial inputs are sanitized before being passed to the Mapbox API to prevent injection attacks. Backend API endpoints implement rate limiting to prevent abuse of the route calculation and caching endpoints.",
+        "metric": "Client-side optimization engine computes efficient paths for up to 20 dynamic waypoints and updates the rendered route in real time as the user progresses through the itinerary.",
+        "whatIdChange": "Would offload the route calculation into a Web Worker to prevent blocking the main UI thread during complex waypoint permutations. This would maintain 60fps map interactions even when computing optimal paths across 15+ destinations on mid-tier devices."
       }
     ],
     "blogs": [
@@ -497,18 +601,18 @@
         "githubLink": ""
       },
       {
-        "title": "Containerization Strategies for Local Development",
-        "summary": "Standardizing local development environments and eliminating dependency drift through foundational Docker patterns.",
+        "title": "Eliminating Environment Drift with Docker",
+        "summary": "Standardizing local development environments and eliminating dependency drift through containerization patterns.",
         "image": "https://www.francofernando.com/assets/img/blog/frameworks/docker/docker.png",
-        "fullContent": "Docker is a containerization platform that allows developers to package applications and their dependencies into lightweight, portable containers. These containers can run consistently across different environments such as development, testing, and production.\n\nNote: For local Linux systems, use `sudo` before every Docker command.\n\n```bash\n# 1. Build a Docker Image\ndocker build -t image_name .\ndocker build -t image_name:v1.0.0 .\n# Semantic Versioning: v1.0.0 -> 1 (Major), 0 (Minor), 0 (Bug Fix)\n\n# 2. Run a Docker Image\ndocker run -it -p host_port:container_port image_name:v1.0.0\ndocker run -it -p host_port:container_port --restart=always image_name:v1.0.0\n\n# Example with NGINX port mapping\ndocker run -it -p host_port:nginx_port --restart=always image_name:v1.0.0\n\n# Interactive mode (-it)\n# Detached mode (-d)\ndocker run -d image_name\n\n# Inject environment variables\ndocker run -e ENV_VAR=value image_name\n\n# Assign a container name\ndocker run -d --name first-docker-container hello-world\n\n# Persistent volume mapping\ndocker run -v host_path:container_path image_name\n\n# Note: docker run always creates a new container\n\n# 3. Start an existing container\ndocker start container_id | container_name\n\n# 4. Stop a running container\ndocker stop container_id\n\n# List running containers\ndocker ps\n\n# 5. List Docker images\ndocker images\n\n# 6. List running containers\ndocker ps\n\n# 7. List all containers (running + stopped)\ndocker ps -a\n\n# 8. Remove a Docker image\ndocker rmi image_name\n# If image is in use, stop the container first\n\n# 9. Remove a Docker container\ndocker rm container_id | container_name\n```\n\nDockerfile Instructions:\n\n```Dockerfile\nFROM node:18-alpine        # Base image\nWORKDIR /app               # Working directory\nCOPY . .                   # Copy files to container\nRUN npm install             # Run build commands\nEXPOSE 3000                # Expose container port\nENV NODE_ENV=production    # Environment variable\nCMD [\"npm\", \"start\"]     # Start application (only one CMD allowed)\n```\n\nAdditional Dockerfile Instructions:\n\n```Dockerfile\nARG VERSION=1.0\nENTRYPOINT [\"node\", \"app.js\"]\nVOLUME /data\nLABEL version=\"1.0\" description=\"Sample Docker App\"\nSHELL [\"/bin/sh\", \"-c\"]\nUSER node\n```\n",
+        "fullContent": "Docker is a containerization platform that allows developers to package applications and their dependencies into lightweight, portable containers. These containers can run consistently across different environments such as development, testing, and production.\n\nNote: For local Linux systems, use `sudo` before every Docker command.\n\n```bash\n# 1. Build a Docker Image\ndocker build -t image_name .\ndocker build -t image_name:v1.0.0 .\n# Semantic Versioning: v1.0.0 -> 1 (Major), 0 (Minor), 0 (Bug Fix)\n\n# 2. Run a Docker Image\ndocker run -it -p host_port:container_port image_name:v1.0.0\ndocker run -it -p host_port:container_port --restart=always image_name:v1.0.0\n\n# Example with NGINX port mapping\ndocker run -it -p host_port:nginx_port --restart=always image_name:v1.0.0\n\n# Interactive mode (-it)\n# Detached mode (-d)\ndocker run -d image_name\n\n# Inject environment variables\ndocker run -e ENV_VAR=value image_name\n\n# Assign a container name\ndocker run -d --name first-docker-container hello-world\n\n# Persistent volume mapping\ndocker run -v host_path:container_path image_name\n\n# Note: docker run always creates a new container\n\n# 3. Start an existing container\ndocker start container_id | container_name\n\n# 4. Stop a running container\ndocker stop container_id\n\n# List running containers\ndocker ps\n\n# 5. List Docker images\ndocker images\n\n# 6. List running containers\ndocker ps\n\n# 7. List all containers (running + stopped)\ndocker ps -a\n\n# 8. Remove a Docker image\ndocker rmi image_name\n# If image is in use, stop the container first\n\n# 9. Remove a Docker container\ndocker rm container_id | container_name\n```\n\n## Dockerfile Instructions:\n\n```Dockerfile\nFROM node:18-alpine        # Base image\nWORKDIR /app               # Working directory\nCOPY . .                   # Copy files to container\nRUN npm install             # Run build commands\nEXPOSE 3000                # Expose container port\nENV NODE_ENV=production    # Environment variable\nCMD [\"npm\", \"start\"]     # Start application (only one CMD allowed)\n```\n\nAdditional ## Dockerfile Instructions:\n\n```Dockerfile\nARG VERSION=1.0\nENTRYPOINT [\"node\", \"app.js\"]\nVOLUME /data\nLABEL version=\"1.0\" description=\"Sample Docker App\"\nSHELL [\"/bin/sh\", \"-c\"]\nUSER node\n```\n",
         "learningOutcomes": [
-          "Understand what Docker is and why containerization is useful",
-          "Learn how to build, run, stop, and manage Docker containers",
-          "Differentiate between Docker images and containers",
-          "Apply semantic versioning when tagging Docker images",
-          "Write and understand Dockerfile instructions",
+          "Understand how containerization eliminates environment drift between development and production",
+          "Learn how to build, run, stop, and manage Docker containers in team workflows",
+          "Differentiate between Docker images and containers for efficient resource usage",
+          "Apply semantic versioning when tagging Docker images for release management",
+          "Write and understand Dockerfile instructions for production-ready builds",
           "Manage ports, volumes, environment variables, and restart policies",
-          "Use essential Docker CLI commands confidently"
+          "Use essential Docker CLI commands confidently in local development"
         ],
         "githubLink": ""
       },
@@ -516,7 +620,7 @@
         "title": "API Gateway Patterns with NGINX",
         "summary": "Configuring efficient reverse proxy architectures for Dockerized frontend and backend services using internal network DNS.",
         "image": "https://miro.medium.com/v2/resize:fit:1200/1*5H07sEFDVqS9HuNGvrstXg.png",
-        "fullContent": "NGINX is commonly used as a reverse proxy in Docker-based applications to route incoming traffic to multiple services. In this setup, NGINX listens on port 80 inside the container and forwards requests to separate frontend and backend services running on the same Docker network.\n\nThe `/api/` path is routed to a backend service, while all other requests are forwarded to a frontend service (typically a SPA such as React or Angular).\n\n```nginx\nserver {\n    listen 80; # NGINX listens on port 80 inside the container\n    server_name localhost;\n\n    # Backend / API routing\n    location /api/ {\n        # Proxy requests to the backend service on the Docker network\n        proxy_pass http://opik-backend:8080/;\n        proxy_set_header Host $host;\n        proxy_set_header X-Real-IP $remote_addr;\n        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n    }\n\n    # Frontend routing (all other requests)\n    location / {\n        # Proxy requests to the frontend service on the Docker network\n        proxy_pass http://opik-frontend:80;\n        proxy_set_header Host $host;\n        proxy_set_header X-Real-IP $remote_addr;\n        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n        \n        # Support client-side routing for SPAs\n        try_files $uri $uri/ /index.html;\n    }\n}\n```\n\nKey Notes:\n- Service names (`opik-backend`, `opik-frontend`) come from Docker Compose and act as internal DNS hostnames.\n- NGINX runs inside its own container and communicates with other containers via the Docker network.\n- The `try_files` directive ensures proper routing for single-page applications.\n- Forwarded headers preserve the original client request information.",
+        "fullContent": "NGINX is commonly used as a reverse proxy in Docker-based applications to route incoming traffic to multiple services. In this setup, NGINX listens on port 80 inside the container and forwards requests to separate frontend and backend services running on the same Docker network.\n\nThe `/api/` path is routed to a backend service, while all other requests are forwarded to a frontend service (typically a SPA such as React or Angular).\n\n```nginx\nserver {\n    listen 80; # NGINX listens on port 80 inside the container\n    server_name localhost;\n\n    # Backend / API routing\n    location /api/ {\n        # Proxy requests to the backend service on the Docker network\n        proxy_pass http://opik-backend:8080/;\n        proxy_set_header Host $host;\n        proxy_set_header X-Real-IP $remote_addr;\n        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n    }\n\n    # Frontend routing (all other requests)\n    location / {\n        # Proxy requests to the frontend service on the Docker network\n        proxy_pass http://opik-frontend:80;\n        proxy_set_header Host $host;\n        proxy_set_header X-Real-IP $remote_addr;\n        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n        \n        # Support client-side routing for SPAs\n        try_files $uri $uri/ /index.html;\n    }\n}\n```\n\n## Key Notes:\n- Service names (`opik-backend`, `opik-frontend`) come from Docker Compose and act as internal DNS hostnames.\n- NGINX runs inside its own container and communicates with other containers via the Docker network.\n- The `try_files` directive ensures proper routing for single-page applications.\n- Forwarded headers preserve the original client request information.",
         "learningOutcomes": [
           "Understand how NGINX works as a reverse proxy in Docker",
           "Route API and frontend traffic using location blocks",
@@ -531,7 +635,7 @@
         "title": "Serverless Event-Driven Architecture on AWS",
         "summary": "Deploying a highly available, serverless visitor tracking system utilizing S3, CloudFront, Lambda, and DynamoDB.",
         "image": "https://media.licdn.com/dms/image/v2/D4E22AQH9nOanFzSpnA/feedshare-shrink_800/B4EZqXZjm0IwAg-/0/1763476651996?e=2147483647&v=beta&t=ZGqIQJymKIKU1j9md_cON9e5k-R-SMs6EgP8eUJBO5g",
-        "fullContent": "The Cloud Resume Challenge is a hands-on project that demonstrates cloud proficiency by building and deploying a resume website using AWS services, incorporating infrastructure as code, CI/CD pipelines, and modern web development practices.\n\nCHALLENGE CHECKLIST\n\n- Certification (Completed)\n- HTML & CSS (Completed)\n- Static Website (Completed)\n- HTTPS & DNS (Completed)\n- Javascript & Database (Completed)\n- API & Python (Completed)\n- Tests (Completed)\n- Infrastructure as Code (Pending)\n- Source Control (Completed)\n- CI/CD - Front end & Back end (Completed)\n- Blog post (Pending)\n\nPART 1: CERTIFICATION\nObtain an AWS certification to validate your cloud knowledge. Recommended paths: AWS Certified Cloud Practitioner or AWS Certified Solutions Architect – Associate.\n\nPART 2-3: CREATE ONLINE RESUME\nBuild your resume using HTML/CSS or React. For this guide, we use React for modularity. \nProject Structure:\nsrc/\n  assets/common.json (Data)\n  components/ (Sidebar, Hero, Experience, Education, Projects, Skills, Achievements, Footer)\n  App.tsx & main.tsx (Logic & Entry)\n\nPART 4: STATIC WEBSITE (S3)\n1. Create S3 Bucket: Log in to AWS, search for S3, and create a globally unique bucket (e.g., my-resume-challenge-123).\n2. Configure Public Access: Temporarily uncheck Block Public Access settings for testing.\n3. Upload Files: Open the bucket, click Upload, and add your website files (HTML, CSS, JS, images).\n4. Bucket Policy: Add a policy for public read access (replace YOUR-BUCKET-NAME):\n\n```json\n{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"PublicReadGetObject\",\n      \"Effect\": \"Allow\",\n      \"Principal\": \"*\",\n      \"Action\": [\"s3:GetObject\"],\n      \"Resource\": \"arn:aws:s3:::YOUR-BUCKET-NAME/*\"\n    }\n  ]\n}\n```\n\n5. Enable Hosting: In Properties, toggle Static website hosting to Enable and set Index document as index.html.\n\nPART 5: HTTPS & DISTRIBUTION (CLOUDFRONT)\n1. Create Distribution: Open CloudFront and click Create Distribution. Select your S3 bucket as the origin.\n2. Configure Settings: Set Viewer Protocol Policy to Redirect HTTP to HTTPS. Set Default Root Object to index.html.\n3. Update S3 Policy: Update your S3 bucket policy to allow CloudFront access (often via OAC - Origin Access Control).\n4. Global Access: Once enabled, copy the Distribution Domain Name to access your site securely via HTTPS.\n\nPART 6: DNS (ROUTE 53)\n1. Hosted Zone: Create a hosted zone in Route 53 for your domain name.\n2. DNS Records: Create an A-record alias pointing to your CloudFront distribution.\n3. SSL Certificate: Use AWS Certificate Manager (ACM) in us-east-1 to request a public certificate for your domain and validate it via DNS.\n\nPART 7: JAVASCRIPT & VISITOR COUNTER\nAdd a function to your frontend to fetch the visitor count from your API:\n\n```javascript\nuseEffect(() => {\n    const fetchData = async () => {\n      try {\n        const response = await fetch(api_url, { method: \"GET\" });\n        const data = await response.json();\n        setVisitCount(data.visitorCount);\n      } catch (err) { console.error(err); }\n    };\n    fetchData();\n}, [api_url]);\n```\n\nPART 8: DATABASE (DYNAMODB)\n1. Create Table: In DynamoDB, create a table named resume-visitor-counter with partition key id (String).\n2. Initial Item: Create an item with id: viewCounter and a number attribute count set to 0.\n\nPART 9-10: API & PYTHON (LAMBDA)\n1. Create Function: Create a Lambda function with Python runtime.\n2. Lambda Code:\n\n```python\nimport boto3\nimport json\nfrom decimal import Decimal\n\ndynamodb = boto3.resource(\"dynamodb\")\ntable = dynamodb.Table(\"resume-visitor-counter\")\n\ndef lambda_handler(event, context):\n    try:\n        method = event.get(\"httpMethod\", \"\")\n        if method.upper() != \"GET\":\n            return {\"statusCode\": 405, \"body\": json.dumps({\"error\": \"Method not allowed\"})}\n\n        response = table.update_item(\n            Key={\"id\": \"viewCounter\"},\n            UpdateExpression=\"SET #c = if_not_exists(#c, :start) + :inc\",\n            ExpressionAttributeNames={\"#c\": \"count\"},\n            ExpressionAttributeValues={\":inc\": 1, \":start\": 0},\n            ReturnValues=\"UPDATED_NEW\"\n        )\n        count = int(response[\"Attributes\"][\"count\"])\n        return {\n            \"statusCode\": 200,\n            \"headers\": {\"Content-Type\": \"application/json\", \"Access-Control-Allow-Origin\": \"*\"},\n            \"body\": json.dumps({\"visitorCount\": count})\n        }\n    except Exception as e:\n        return {\"statusCode\": 500, \"body\": json.dumps({\"error\": str(e)})}\n```\n\n3. IAM Permissions: Attach AmazonDynamoDBFullAccess to the Lambda role.\n4. Function URL: Enable a Function URL with Auth Type NONE and configure CORS for GET requests.\n\nPART 11: TESTING\nWrite unit tests for your Lambda function in Python (using unittest or pytest) and for your React components (using Jest or Vitest) to ensure the visitor counter and API interactions work as expected.\n\nPART 12: INFRASTRUCTURE AS CODE (IAC)\nUse Terraform or AWS SAM to define your infrastructure. This allows you to manage S3, CloudFront, DynamoDB, and Lambda consistently through code.\n\nPART 13-15: SOURCE CONTROL & CI/CD\n1. Source Control: Push your project to GitHub.\n2. CI/CD Backend: Use GitHub Actions to automate Lambda deployments on every push to the main branch.\n3. CI/CD Frontend: Create a workflow to build your Vite app, sync files to S3, and invalidate CloudFront cache.\n\nARCHITECTURE & COSTS\nThe architecture follows a serverless flow: Route 53 -> CloudFront -> S3 (Static Assets) and Lambda -> DynamoDB (API Data). The entire setup is Free Tier eligible, with estimated costs of $2-3/month for domain management.\n\nCONCLUSIONS & NEXT STEPS\nCompleting this challenge validates skills in cloud architecture, security, and automation. Move forward by implementing AWS WAF for security and monitoring with CloudWatch Alarms.",
+        "fullContent": "The Cloud Resume Challenge is a hands-on project that demonstrates cloud proficiency by building and deploying a resume website using AWS services, incorporating infrastructure as code, CI/CD pipelines, and modern web development practices.\n\n## CHALLENGE CHECKLIST\n\n- Certification (Completed)\n- HTML & CSS (Completed)\n- Static Website (Completed)\n- HTTPS & DNS (Completed)\n- Javascript & Database (Completed)\n- API & Python (Completed)\n- Tests (Completed)\n- Infrastructure as Code (Pending)\n- Source Control (Completed)\n- CI/CD - Front end & Back end (Completed)\n- Blog post (Pending)\n\n## PART 1: CERTIFICATION\nObtain an AWS certification to validate your cloud knowledge. Recommended paths: AWS Certified Cloud Practitioner or AWS Certified Solutions Architect – Associate.\n\nPART 2-3: CREATE ONLINE RESUME\nBuild your resume using HTML/CSS or React. For this guide, we use React for modularity. \nProject Structure:\nsrc/\n  assets/common.json (Data)\n  components/ (Sidebar, Hero, Experience, Education, Projects, Skills, Achievements, Footer)\n  App.tsx & main.tsx (Logic & Entry)\n\nPART 4: STATIC WEBSITE (S3)\n1. Create S3 Bucket: Log in to AWS, search for S3, and create a globally unique bucket (e.g., my-resume-challenge-123).\n2. Configure Public Access: Temporarily uncheck Block Public Access settings for testing.\n3. Upload Files: Open the bucket, click Upload, and add your website files (HTML, CSS, JS, images).\n4. Bucket Policy: Add a policy for public read access (replace YOUR-BUCKET-NAME):\n\n```json\n{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"PublicReadGetObject\",\n      \"Effect\": \"Allow\",\n      \"Principal\": \"*\",\n      \"Action\": [\"s3:GetObject\"],\n      \"Resource\": \"arn:aws:s3:::YOUR-BUCKET-NAME/*\"\n    }\n  ]\n}\n```\n\n5. Enable Hosting: In Properties, toggle Static website hosting to Enable and set Index document as index.html.\n\nPART 5: HTTPS & DISTRIBUTION (CLOUDFRONT)\n1. Create Distribution: Open CloudFront and click Create Distribution. Select your S3 bucket as the origin.\n2. Configure Settings: Set Viewer Protocol Policy to Redirect HTTP to HTTPS. Set Default Root Object to index.html.\n3. Update S3 Policy: Update your S3 bucket policy to allow CloudFront access (often via OAC - Origin Access Control).\n4. Global Access: Once enabled, copy the Distribution Domain Name to access your site securely via HTTPS.\n\nPART 6: DNS (ROUTE 53)\n1. Hosted Zone: Create a hosted zone in Route 53 for your domain name.\n2. DNS Records: Create an A-record alias pointing to your CloudFront distribution.\n3. SSL Certificate: Use AWS Certificate Manager (ACM) in us-east-1 to request a public certificate for your domain and validate it via DNS.\n\nPART 7: JAVASCRIPT & VISITOR COUNTER\nAdd a function to your frontend to fetch the visitor count from your API:\n\n```javascript\nuseEffect(() => {\n    const fetchData = async () => {\n      try {\n        const response = await fetch(api_url, { method: \"GET\" });\n        const data = await response.json();\n        setVisitCount(data.visitorCount);\n      } catch (err) { console.error(err); }\n    };\n    fetchData();\n}, [api_url]);\n```\n\nPART 8: DATABASE (DYNAMODB)\n1. Create Table: In DynamoDB, create a table named resume-visitor-counter with partition key id (String).\n2. Initial Item: Create an item with id: viewCounter and a number attribute count set to 0.\n\nPART 9-10: API & PYTHON (LAMBDA)\n1. Create Function: Create a Lambda function with Python runtime.\n2. Lambda Code:\n\n```python\nimport boto3\nimport json\nfrom decimal import Decimal\n\ndynamodb = boto3.resource(\"dynamodb\")\ntable = dynamodb.Table(\"resume-visitor-counter\")\n\ndef lambda_handler(event, context):\n    try:\n        method = event.get(\"httpMethod\", \"\")\n        if method.upper() != \"GET\":\n            return {\"statusCode\": 405, \"body\": json.dumps({\"error\": \"Method not allowed\"})}\n\n        response = table.update_item(\n            Key={\"id\": \"viewCounter\"},\n            UpdateExpression=\"SET #c = if_not_exists(#c, :start) + :inc\",\n            ExpressionAttributeNames={\"#c\": \"count\"},\n            ExpressionAttributeValues={\":inc\": 1, \":start\": 0},\n            ReturnValues=\"UPDATED_NEW\"\n        )\n        count = int(response[\"Attributes\"][\"count\"])\n        return {\n            \"statusCode\": 200,\n            \"headers\": {\"Content-Type\": \"application/json\", \"Access-Control-Allow-Origin\": \"*\"},\n            \"body\": json.dumps({\"visitorCount\": count})\n        }\n    except Exception as e:\n        return {\"statusCode\": 500, \"body\": json.dumps({\"error\": str(e)})}\n```\n\n3. IAM Permissions: Attach AmazonDynamoDBFullAccess to the Lambda role.\n4. Function URL: Enable a Function URL with Auth Type NONE and configure CORS for GET requests.\n\nPART 11: TESTING\nWrite unit tests for your Lambda function in Python (using unittest or pytest) and for your React components (using Jest or Vitest) to ensure the visitor counter and API interactions work as expected.\n\nPART 12: INFRASTRUCTURE AS CODE (IAC)\nUse Terraform or AWS SAM to define your infrastructure. This allows you to manage S3, CloudFront, DynamoDB, and Lambda consistently through code.\n\nPART 13-15: SOURCE CONTROL & CI/CD\n1. Source Control: Push your project to GitHub.\n2. CI/CD Backend: Use GitHub Actions to automate Lambda deployments on every push to the main branch.\n3. CI/CD Frontend: Create a workflow to build your Vite app, sync files to S3, and invalidate CloudFront cache.\n\n## ARCHITECTURE & COSTS\nThe architecture follows a serverless flow: Route 53 -> CloudFront -> S3 (Static Assets) and Lambda -> DynamoDB (API Data). The entire setup is Free Tier eligible, with estimated costs of $2-3/month for domain management.\n\n## CONCLUSIONS & NEXT STEPS\nCompleting this challenge validates skills in cloud architecture, security, and automation. Move forward by implementing AWS WAF for security and monitoring with CloudWatch Alarms.",
         "learningOutcomes": [
           "Provision and secure S3 buckets for static hosting",
           "Enable global HTTPS and caching via CloudFront CDN",

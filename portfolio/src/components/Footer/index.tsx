@@ -44,11 +44,11 @@ const VerticalSocialBar = () => {
 };
 
 const Footer = () => {
- return (
- <div className="text-theme-text absolute">
- <VerticalSocialBar />
- </div>
- );
+  return (
+    <footer className="text-theme-text">
+      <VerticalSocialBar />
+    </footer>
+  );
 };
 
 export default Footer;

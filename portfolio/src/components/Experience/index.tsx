@@ -1,7 +1,8 @@
 import React from "react";
 import { portfolioContent, type CompanyExperience } from "../../content/portfolio";
 import { Badge } from "../UI/badge";
-import ScrollReveal from "../UI/ScrollReveal";
+
+import { motion } from "framer-motion";
 
 interface Project {
     title: string;
@@ -36,24 +37,30 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
     projectsLabel
 }) => {
     return (
-        <article className="group relative bg-card/80 backdrop-blur-xl border border-border rounded-3xl mb-12 p-6 md:p-10 hover:border-border/80 transition-all duration-500 overflow-hidden shadow-sm hover:shadow-md">
+        <motion.article 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="group relative bg-theme-text/90 backdrop-blur-xl border border-theme-bg/10 rounded-3xl mb-12 p-6 md:p-10 hover:border-theme-bg/30 transition-all duration-500 overflow-hidden shadow-sm hover:shadow-md"
+        >
             {/* Glassmorphic/Neopop Hover Accent */}
-            <div className="absolute inset-0 bg-gradient-to-br from-foreground/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#00E676] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-x-0 group-hover:scale-x-100"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-theme-bg/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-theme-green to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-x-0 group-hover:scale-x-100"></div>
 
             <div className="flex flex-col gap-6 relative z-20">
                 {/* Header */}
-                <div className="border-b border-border/50 pb-6 flex flex-col md:flex-row justify-between md:items-end gap-4">
+                <div className="border-b border-theme-bg/20 pb-6 flex flex-col md:flex-row justify-between md:items-end gap-4">
                     <div>
-                        <h3 className="text-2xl md:text-4xl font-semibold tracking-tight text-foreground mb-1">
+                        <h3 className="text-2xl md:text-4xl font-semibold tracking-tight text-theme-bg mb-1">
                             {company}
                         </h3>
-                        <h4 className="text-lg md:text-xl font-medium text-muted-foreground">
+                        <h4 className="text-lg md:text-xl font-medium text-theme-bg/90">
                             {role}
                         </h4>
                     </div>
                     {/* Terminal Monospace Date */}
-                    <Badge variant="outline" className="px-3 py-1 bg-muted/30 border-border text-emerald-600 dark:text-[#00E676] font-mono text-xs md:text-sm rounded-md">
+                    <Badge variant="outline" className="px-3 py-1 bg-[#329a58]/10 border-[#329a58]/30 text-[#329a58] font-mono text-xs md:text-sm rounded-md">
                         {duration}
                     </Badge>
                 </div>
@@ -64,17 +71,10 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                         {bullets.map((point, idx) => (
                             <li
                                 key={idx}
-                                className="text-foreground/80 font-light text-sm md:text-base leading-relaxed flex items-start group/item"
+                                className="text-theme-bg/90 font-light text-sm md:text-base leading-relaxed flex items-start group/item"
                             >
-                                <span className="mr-3 text-muted-foreground/50 font-mono text-sm group-hover/item:text-[#00E676] transition-colors mt-0.5">▹</span>
-                                <ScrollReveal
-                                    baseOpacity={1}
-                                    enableBlur={false}
-                                    baseRotation={0}
-                                    textClassName="inline"
-                                >
-                                    {point}
-                                </ScrollReveal>
+                                <span className="mr-3 text-theme-bg/70 font-mono text-sm group-hover/item:text-theme-green-strong transition-colors mt-0.5">▹</span>
+                                <span>{point}</span>
                             </li>
                         ))}
                     </ul>
@@ -83,23 +83,24 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                 {/* Projects & Activities */}
                 <div className="flex flex-col lg:flex-row gap-6 mt-4">
                     {activities && (
-                        <section className="flex-1 bg-muted/10 border border-border/50 rounded-2xl p-5 hover:bg-muted/20 transition-colors shadow-sm">
-                            <h5 className="font-mono text-xs text-muted-foreground uppercase tracking-widest mb-4">
-                                // {activitiesLabel}
+                        <section className="flex-1 bg-theme-bg/5 border border-theme-bg/10 rounded-2xl p-5 hover:bg-theme-bg/10 transition-colors shadow-sm">
+                            <h5 className="font-mono text-xs text-theme-bg/80 uppercase tracking-widest mb-4 flex items-center gap-2">
+                                <span className="w-3 h-[1px] bg-current opacity-50 block" />
+                                {activitiesLabel}
                             </h5>
                             <div className="space-y-4">
                                 {activities.map((activity, idx) => (
                                     <div key={idx} className="mb-4 last:mb-0">
-                                        <p className="text-foreground/90 font-medium text-sm mb-2">
+                                        <p className="text-theme-bg font-medium text-sm mb-2">
                                             {activity.title}
                                         </p>
                                         <ul className="space-y-2">
                                             {activity.points.map((p, i) => (
                                                 <li
                                                     key={i}
-                                                    className="text-xs md:text-sm font-light text-muted-foreground leading-relaxed flex items-start"
+                                                    className="text-xs md:text-sm font-light text-theme-bg/80 leading-relaxed flex items-start"
                                                 >
-                                                    <span className="mr-2 text-muted-foreground/30 font-mono">→</span>
+                                                    <span className="mr-2 text-theme-bg/40 font-mono">→</span>
                                                     <span>{p}</span>
                                                 </li>
                                             ))}
@@ -111,18 +112,19 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                     )}
 
                     {projects && (
-                        <section className="flex-1 bg-muted/10 border border-border/50 rounded-2xl p-5 hover:bg-muted/20 transition-colors shadow-sm">
-                            <h5 className="font-mono text-xs text-muted-foreground uppercase tracking-widest mb-4">
-                                // {projectsLabel}
+                        <section className="flex-1 bg-theme-bg/5 border border-theme-bg/10 rounded-2xl p-5 hover:bg-theme-bg/10 transition-colors shadow-sm">
+                            <h5 className="font-mono text-xs text-theme-bg/80 uppercase tracking-widest mb-4 flex items-center gap-2">
+                                <span className="w-3 h-[1px] bg-current opacity-50 block" />
+                                {projectsLabel}
                             </h5>
                             <div className="space-y-5">
                                 {projects.map((project, idx) => (
-                                    <div key={idx} className="relative pl-4 border-l border-border hover:border-[#00E676] transition-colors">
+                                    <div key={idx} className="relative pl-4 border-l border-theme-bg/20 hover:border-theme-green transition-colors">
                                         <div className="flex justify-between items-start gap-2 mb-2 flex-col md:flex-row">
-                                            <p className="text-foreground/90 font-medium text-sm">
+                                            <p className="text-theme-bg font-medium text-sm">
                                                 {project.title}
                                             </p>
-                                            <Badge variant="outline" className="font-mono text-muted-foreground text-[10px] md:text-xs tracking-wider border-border/50 bg-transparent rounded-md">
+                                            <Badge variant="outline" className="font-mono text-[#329a58] text-[10px] md:text-xs tracking-wider border-[#329a58]/30 bg-[#329a58]/10 rounded-md">
                                                 {project.duration}
                                             </Badge>
                                         </div>
@@ -130,9 +132,9 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                                             {project.points.map((p, i) => (
                                                 <li
                                                     key={i}
-                                                    className="text-xs md:text-sm font-light text-muted-foreground leading-relaxed flex items-start"
+                                                    className="text-xs md:text-sm font-light text-theme-bg/80 leading-relaxed flex items-start"
                                                 >
-                                                    <span className="mr-2 text-muted-foreground/30 font-mono">→</span>
+                                                    <span className="mr-2 text-theme-bg/40 font-mono">→</span>
                                                     <span>{p}</span>
                                                 </li>
                                             ))}
@@ -147,11 +149,11 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 
             {/* Subtle geometric dots (Memphis influence, but minimal) */}
             <div className="absolute top-4 right-4 flex gap-1 opacity-20 dark:opacity-20 opacity-10">
-                <div className="w-1 h-1 rounded-full bg-foreground"></div>
-                <div className="w-1 h-1 rounded-full bg-foreground"></div>
-                <div className="w-1 h-1 rounded-full bg-foreground"></div>
+                <div className="w-1 h-1 rounded-full bg-theme-bg/30"></div>
+                <div className="w-1 h-1 rounded-full bg-theme-bg/30"></div>
+                <div className="w-1 h-1 rounded-full bg-theme-bg/30"></div>
             </div>
-        </article>
+        </motion.article>
     );
 };
 
@@ -163,14 +165,14 @@ const Experience: React.FC = () => {
             className="py-16 md:py-24 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto relative z-20 w-full overflow-hidden"
             id="experience"
         >
-            {/* Background Glows (Premium Glass) */}
-            <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-[#00E676] rounded-full blur-[150px] opacity-10 dark:opacity-[0.03] -z-10 pointer-events-none"></div>
-            <div className="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[150px] opacity-10 dark:opacity-[0.03] -z-10 pointer-events-none"></div>
+            {/* Background Glows (Premium Glass)
+            <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-theme-green rounded-full blur-[150px] opacity-10 dark:opacity-[0.03] -z-10 pointer-events-none"></div>
+            <div className="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[150px] opacity-10 dark:opacity-[0.03] -z-10 pointer-events-none"></div> */}
 
             {/* Header Section */}
             <div className="mb-16 md:mb-24 relative flex flex-col items-start max-w-3xl">
-                <div className="font-mono text-emerald-600 dark:text-[#00E676] text-sm md:text-base tracking-widest uppercase mb-4 flex items-center gap-3">
-                    <span className="w-8 h-[1px] bg-[#00E676]/50"></span>
+                <div className="font-mono text-theme-green text-sm md:text-base tracking-widest uppercase mb-4 flex items-center gap-3">
+                    <span className="w-8 h-[1px] bg-theme-green/50"></span>
                     <span>Professional Journey</span>
                 </div>
                 <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-foreground mb-6">
@@ -190,7 +192,7 @@ const Experience: React.FC = () => {
                     {experienceData.companyDetails.map((company: CompanyExperience, i: number) => (
                         <div key={i + company.company} className="relative">
                             {/* Timeline dot */}
-                            <div className="absolute -left-[37px] top-10 w-3 h-3 rounded-full border-2 border-emerald-500 dark:border-[#00E676] bg-background hidden md:block z-10"></div>
+                            <div className="absolute -left-[37px] top-10 w-3 h-3 rounded-full border-2 border-theme-green bg-background hidden md:block z-10"></div>
                             
                             <ExperienceCard
                                 company={company.company}

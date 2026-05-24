@@ -1,5 +1,7 @@
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useState, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import Lenis from 'lenis';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Preloader from "./components/UI/Preloader";
@@ -9,6 +11,7 @@ import { usePrefersReducedMotion } from "./hooks/usePrefersReducedMotion";
 
 const App = () => {
   const [showPreloader, setShowPreloader] = useState(true);
+  const hasShownPreloader = useRef(false);
   const location = useLocation();
   const { theme } = useTheme();
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -20,7 +23,10 @@ const App = () => {
       return undefined;
     }
 
-    setShowPreloader(true);
+    if (!hasShownPreloader.current) {
+      hasShownPreloader.current = true;
+      setShowPreloader(true);
+    }
     return undefined;
   }, [prefersReducedMotion]);
 
@@ -43,6 +49,34 @@ const App = () => {
     window.scrollTo({ top: 0, behavior: "auto" });
     return undefined;
   }, [location.hash, location.pathname, prefersReducedMotion]);
+
+  useEffect(() => {
+    const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+    const raf = (time: number) => { lenis.raf(time); requestAnimationFrame(raf); };
+    requestAnimationFrame(raf);
+    return () => lenis.destroy();
+  }, []);
+
+  useEffect(() => {
+    const getTitle = (path: string) => {
+      if (path === "/") return "Rupesh Thakur | AI Full Stack Engineer";
+      if (path === "/projects") return "Projects | Rupesh Thakur";
+      if (path === "/blogs") return "Blogs | Rupesh Thakur";
+      if (path === "/contact") return "Contact | Rupesh Thakur";
+      if (path.startsWith("/projects/")) {
+        const slug = path.split('/').pop() || "";
+        const titleCase = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        return `${titleCase} | Rupesh Thakur`;
+      }
+      if (path.startsWith("/blogs/")) {
+        const slug = path.split('/').pop() || "";
+        const titleCase = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        return `${titleCase} | Rupesh Thakur`;
+      }
+      return "Rupesh Thakur | Portfolio";
+    };
+    document.title = getTitle(location.pathname);
+  }, [location.pathname]);
 
   return (
     <>
@@ -80,7 +114,17 @@ const App = () => {
           id="main-content"
         >
           <Suspense fallback={<div className="min-h-[70vh]" aria-hidden="true" />}>
-            <Outlet />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={location.pathname}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              >
+                <Outlet />
+              </motion.div>
+            </AnimatePresence>
           </Suspense>
         </main>
 
