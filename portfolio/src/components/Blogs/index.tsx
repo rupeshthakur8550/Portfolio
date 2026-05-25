@@ -61,7 +61,7 @@ const Blogs = () => {
                 show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
               }}
               key={blog.slug}
-              className="group relative block bg-theme-bg/5 hover:bg-theme-bg/10 backdrop-blur-xl border border-theme-bg/10 hover:border-theme-bg/30 rounded-3xl p-6 md:p-8 transition-all duration-500 hover:shadow-lg w-full md:w-[calc(50%-16px)] lg:w-[calc(33.33%-22px)] flex flex-col overflow-hidden"
+              className="group relative block bg-theme-text/90 backdrop-blur-xl border border-theme-bg/10 hover:border-theme-bg/30 rounded-3xl p-6 md:p-8 transition-all duration-500 hover:shadow-lg w-full md:w-[calc(50%-16px)] lg:w-[calc(33.33%-22px)] flex flex-col overflow-hidden hover:bg-theme-text"
             >
               {/* Hover Top Accent */}
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-theme-green to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-x-0 group-hover:scale-x-100"></div>
@@ -79,12 +79,12 @@ const Blogs = () => {
                 </div>
 
                 {blog.date && (
-                  <div className="flex justify-between items-center text-sm text-theme-text/70 mb-4">
+                  <div className="flex justify-between items-center text-sm text-theme-bg/70 mb-4">
                     <span>{blog.date}</span>
                   </div>
                 )}
 
-                <h3 className="text-2xl font-semibold text-theme-text mb-3 tracking-tight group-hover:text-theme-green transition-colors overflow-hidden text-ellipsis line-clamp-3">
+                <h3 className="text-2xl font-semibold text-theme-bg mb-3 tracking-tight group-hover:text-theme-green transition-colors overflow-hidden text-ellipsis line-clamp-3">
                   {blog.title}
                 </h3>
 
@@ -94,7 +94,7 @@ const Blogs = () => {
                     enableBlur
                     blurStrength={4}
                     baseRotation={0}
-                    textClassName="text-theme-text/70 font-light text-sm leading-relaxed line-clamp-3"
+                    textClassName="text-theme-bg/70 font-light text-sm leading-relaxed line-clamp-3"
                   >
                     {blog.summary}
                   </ScrollReveal>

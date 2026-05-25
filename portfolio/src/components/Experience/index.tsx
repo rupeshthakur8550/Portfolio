@@ -3,7 +3,8 @@ import { portfolioContent, type CompanyExperience } from "../../content/portfoli
 import { Badge } from "../UI/badge";
 
 import { motion } from "framer-motion";
-
+import GradientText from "../UI/GradientText";
+import ScrollReveal from "../UI/ScrollReveal";
 interface Project {
     title: string;
     duration: string;
@@ -170,17 +171,24 @@ const Experience: React.FC = () => {
             <div className="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[150px] opacity-10 dark:opacity-[0.03] -z-10 pointer-events-none"></div> */}
 
             {/* Header Section */}
-            <div className="mb-16 md:mb-24 relative flex flex-col items-start max-w-3xl">
-                <div className="font-mono text-theme-green text-sm md:text-base tracking-widest uppercase mb-4 flex items-center gap-3">
-                    <span className="w-8 h-[1px] bg-theme-green/50"></span>
-                    <span>Professional Journey</span>
-                </div>
-                <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-foreground mb-6">
+            <div className="text-center mb-12 md:mb-20 h-fit">
+                <GradientText
+                    animationSpeed={3}
+                    showBorder={false}
+                    className="text-5xl sm:text-7xl font-black tracking-tight"
+                >
                     {experienceData.heading}
-                </h2>
-                <p className="text-muted-foreground font-light text-lg md:text-xl leading-relaxed">
-                    A timeline of refining digital landscapes, building scalable architectures, and driving technical excellence.
-                </p>
+                </GradientText>
+                <div className="mt-2 text-center flex justify-center">
+                    <ScrollReveal
+                        baseOpacity={0.2}
+                        enableBlur
+                        blurStrength={8}
+                        textClassName="text-sm sm:text-lg text-theme-text-sec max-w-2xl mx-auto"
+                    >
+                        A timeline of refining digital landscapes, building scalable architectures, and driving technical excellence.
+                    </ScrollReveal>
+                </div>
             </div>
 
             {/* Experience List */}

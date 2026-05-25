@@ -37,9 +37,9 @@ const scaleIn: Variants = {
 // ─── Sub-Components ──────────────────────────────────────────────────
 
 const MetaItem = ({ label, children }: { label: string; children: React.ReactNode }) => (
-  <li className="flex justify-between items-center border-b border-theme-text/10 pb-4 last:border-0 last:pb-0">
-    <span className="text-theme-text/60 text-sm">{label}</span>
-    <span className="text-theme-text/90 text-sm font-medium">{children}</span>
+  <li className="flex justify-between items-center border-b border-theme-bg/10 pb-4 last:border-0 last:pb-0">
+    <span className="text-theme-bg/60 text-sm">{label}</span>
+    <span className="text-theme-bg/90 text-sm font-medium">{children}</span>
   </li>
 );
 
@@ -174,11 +174,11 @@ const BlogDetails = ({ blog }: BlogDetailsProps) => {
                   <span className="w-5 h-[1px] bg-theme-purple/50 block"></span>
                   Detailed Documentation
                 </h3>
-                <div className="bg-theme-bg/5 backdrop-blur-xl border border-theme-text/10 rounded-3xl p-7 md:p-8 hover:bg-theme-bg/10 transition-colors">
-                  <p className="text-theme-text/90 mb-6 text-base leading-[1.85] font-light">
+                <div className="bg-theme-text/90 backdrop-blur-xl border border-theme-bg/10 rounded-3xl p-7 md:p-8 hover:bg-theme-text/100 transition-colors">
+                  <p className="text-theme-bg/90 mb-6 text-base leading-[1.85] font-light">
                     For a complete, step-by-step technical breakdown including advanced configurations, comprehensive architecture diagrams, and deployment scripts, explore the dedicated guide on GitHub.
                   </p>
-                  <a href={blog.githubLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 px-7 py-3.5 font-medium rounded-2xl bg-theme-text text-theme-bg border border-theme-bg/20 hover:bg-theme-green hover:text-black hover:shadow-lg hover:shadow-theme-green/20 transition-all duration-300">
+                  <a href={blog.githubLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 px-7 py-3.5 font-medium rounded-2xl bg-theme-bg text-theme-text border border-theme-text/20 hover:bg-theme-green hover:text-black hover:shadow-lg hover:shadow-theme-green/20 transition-all duration-300">
                     <FiGithub className="text-lg" />
                     <span>View on GitHub</span>
                   </a>
@@ -192,14 +192,14 @@ const BlogDetails = ({ blog }: BlogDetailsProps) => {
             <div className="sticky top-8 space-y-6">
               {/* Table of Contents */}
               {toc.length > 0 && (
-                <motion.div variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-theme-bg/5 backdrop-blur-xl border border-theme-text/10 rounded-3xl p-7 shadow-sm">
-                  <h3 className="text-[11px] font-mono text-theme-text/80 uppercase tracking-[0.2em] mb-6">Table of Contents</h3>
+                <motion.div variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-theme-text/90 backdrop-blur-xl border border-theme-bg/10 rounded-3xl p-7 shadow-sm">
+                  <h3 className="text-[11px] font-mono text-theme-bg/80 uppercase tracking-[0.2em] mb-6">Table of Contents</h3>
                   <nav className="space-y-3">
                     {toc.map((item, i) => (
                       <a
                         key={i}
                         href={`#${item.id}`}
-                        className="block text-[13px] text-theme-text/90 hover:text-theme-green-strong transition-colors font-medium border-l-2 border-theme-text/10 pl-3 hover:border-theme-green-strong/50 leading-snug"
+                        className="block text-[13px] text-theme-bg/90 hover:text-theme-green-strong transition-colors font-medium border-l-2 border-theme-bg/10 pl-3 hover:border-theme-green-strong/50 leading-snug"
                         onClick={(e) => {
                           e.preventDefault();
                           const el = document.getElementById(item.id);
@@ -216,12 +216,12 @@ const BlogDetails = ({ blog }: BlogDetailsProps) => {
               )}
 
               {/* Article Meta */}
-              <motion.div variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-theme-bg/5 backdrop-blur-xl border border-theme-text/10 rounded-3xl p-7 shadow-sm">
-                <h3 className="text-[11px] font-mono text-theme-text/80 uppercase tracking-[0.2em] mb-6">Article Meta</h3>
+              <motion.div variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-theme-text/90 backdrop-blur-xl border border-theme-bg/10 rounded-3xl p-7 shadow-sm">
+                <h3 className="text-[11px] font-mono text-theme-bg/80 uppercase tracking-[0.2em] mb-6">Article Meta</h3>
                 <ul className="space-y-4">
                   {blog.date && (
                     <MetaItem label="Published">
-                      <span className="text-theme-text/90 flex items-center gap-2"><FiCalendar className="text-theme-green-strong" /> {blog.date}</span>
+                      <span className="text-theme-bg/90 flex items-center gap-2"><FiCalendar className="text-theme-green-strong" /> {blog.date}</span>
                     </MetaItem>
                   )}
                   <MetaItem label="Category">
@@ -232,11 +232,11 @@ const BlogDetails = ({ blog }: BlogDetailsProps) => {
 
               {/* Key Takeaways */}
               {blog.learningOutcomes && blog.learningOutcomes.length > 0 && (
-                <motion.div variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.1} className="bg-theme-bg/5 backdrop-blur-xl border border-theme-text/10 rounded-3xl p-7 shadow-sm">
-                  <h3 className="text-[11px] font-mono text-theme-text/80 uppercase tracking-[0.2em] mb-6">Key Takeaways</h3>
+                <motion.div variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.1} className="bg-theme-text/90 backdrop-blur-xl border border-theme-bg/10 rounded-3xl p-7 shadow-sm">
+                  <h3 className="text-[11px] font-mono text-theme-bg/80 uppercase tracking-[0.2em] mb-6">Key Takeaways</h3>
                   <ul className="space-y-4">
                     {blog.learningOutcomes.map((outcome, i) => (
-                      <li key={i} className="flex items-start gap-3 text-theme-text/90 font-light text-[14px] leading-relaxed">
+                      <li key={i} className="flex items-start gap-3 text-theme-bg/90 font-light text-[14px] leading-relaxed">
                         <span className="text-theme-green-strong mt-1.5 flex-shrink-0 text-[10px]">●</span>
                         <span>{outcome}</span>
                       </li>

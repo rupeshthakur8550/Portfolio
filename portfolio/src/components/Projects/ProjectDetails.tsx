@@ -48,25 +48,25 @@ const TerminalHeader = ({ slug }: { slug: string }) => (
     initial="hidden"
     animate="visible"
     custom={0.1}
-    className="mb-10 font-mono text-xs md:text-sm text-theme-text/70 bg-theme-bg/5 p-5 rounded-2xl border border-theme-text/10 shadow-inner overflow-hidden backdrop-blur-sm"
+    className="mb-10 font-mono text-xs md:text-sm text-theme-bg/70 bg-theme-text/90 p-5 rounded-2xl border border-theme-bg/10 shadow-inner overflow-hidden backdrop-blur-sm"
   >
-    <div className="flex gap-2 mb-3 border-b border-border/30 pb-3">
+    <div className="flex gap-2 mb-3 border-b border-theme-bg/10 pb-3">
       <div className="w-3 h-3 rounded-full bg-rose-500/70" />
       <div className="w-3 h-3 rounded-full bg-amber-500/70" />
       <div className="w-3 h-3 rounded-full bg-emerald-500/70" />
     </div>
     <div>
       <span className="text-emerald-400">rupesh@portfolio</span>
-      <span className="text-theme-text/50">:</span>
+      <span className="text-theme-bg/50">:</span>
       <span className="text-blue-400">~/projects/{slug}</span>
-      <span className="text-theme-text/50">$</span>{" "}
-      <span className="text-theme-text/60">cat README.md</span>
+      <span className="text-theme-bg/50">$</span>{" "}
+      <span className="text-theme-bg/60">cat README.md</span>
     </div>
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.8 }}
-      className="mt-2 text-foreground/40 text-xs"
+      className="mt-2 text-theme-bg/40 text-xs"
     >
       Loading project details... <span className="text-emerald-400">Done.</span>
     </motion.div>
@@ -76,7 +76,7 @@ const TerminalHeader = ({ slug }: { slug: string }) => (
 const TechBadge = ({ tech }: { tech: string }) => (
   <Badge
     variant="outline"
-    className="font-mono text-[11px] text-theme-text/80 bg-theme-text/5 border-theme-text/20 px-3 py-1.5 hover:border-emerald-500/40 hover:bg-emerald-500/5 hover:text-emerald-400 transition-all duration-300 cursor-default rounded-xl"
+    className="font-mono text-[11px] text-theme-bg/80 bg-theme-bg/5 border-theme-bg/20 px-3 py-1.5 hover:border-emerald-500/40 hover:bg-emerald-500/5 hover:text-emerald-400 transition-all duration-300 cursor-default rounded-xl"
   >
     {tech}
   </Badge>
@@ -117,9 +117,9 @@ const MetaItem = ({
   label: string;
   children: React.ReactNode;
 }) => (
-  <li className="flex justify-between items-center border-b border-theme-text/10 pb-4 last:border-0 last:pb-0">
-    <span className="text-theme-text/60 text-sm">{label}</span>
-    <span className="text-theme-text/90 text-sm font-medium">{children}</span>
+  <li className="flex justify-between items-center border-b border-theme-bg/10 pb-4 last:border-0 last:pb-0">
+    <span className="text-theme-bg/60 text-sm">{label}</span>
+    <span className="text-theme-bg/90 text-sm font-medium">{children}</span>
   </li>
 );
 
@@ -331,9 +331,9 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="bg-theme-bg/5 backdrop-blur-xl border border-theme-text/10 rounded-3xl p-7 shadow-sm sticky top-8"
+              className="bg-theme-text/90 backdrop-blur-xl border border-theme-bg/10 rounded-3xl p-7 shadow-sm sticky top-8"
             >
-              <h3 className="text-[11px] font-mono text-theme-text/60 uppercase tracking-[0.2em] mb-6">
+              <h3 className="text-[11px] font-mono text-theme-bg/60 uppercase tracking-[0.2em] mb-6">
                 Technology Stack
               </h3>
               <div className="flex flex-wrap gap-2.5">
@@ -350,9 +350,9 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
               whileInView="visible"
               viewport={{ once: true }}
               custom={0.1}
-              className="bg-theme-bg/5 backdrop-blur-xl border border-theme-text/10 rounded-3xl p-7 shadow-sm"
+              className="bg-theme-text/90 backdrop-blur-xl border border-theme-bg/10 rounded-3xl p-7 shadow-sm"
             >
-              <h3 className="text-[11px] font-mono text-theme-text/60 uppercase tracking-[0.2em] mb-6">
+              <h3 className="text-[11px] font-mono text-theme-bg/60 uppercase tracking-[0.2em] mb-6">
                 Project Meta
               </h3>
               <ul className="space-y-4">
@@ -365,14 +365,14 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
                   </Badge>
                 </MetaItem>
                 <MetaItem label="Category">
-                  <span className="text-foreground/80">Software Engineering</span>
+                  <span className="text-theme-bg/80">Software Engineering</span>
                 </MetaItem>
                 <MetaItem label="Repository">
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-mono text-xs text-theme-text/50 hover:text-theme-text transition-colors duration-300 flex items-center gap-1.5 group"
+                    className="font-mono text-xs text-theme-bg/50 hover:text-theme-bg transition-colors duration-300 flex items-center gap-1.5 group"
                   >
                     <FiGithub className="group-hover:text-emerald-400 transition-colors" />
                     /github

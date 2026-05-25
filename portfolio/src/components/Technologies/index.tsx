@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { portfolioContent } from "../../content/portfolio";
 import GradientText from "../UI/GradientText";
 import ScrollReveal from "../UI/ScrollReveal";
+import { motion } from "framer-motion";
 import {
     SiReact,
     SiJavascript,
@@ -139,7 +140,16 @@ const Technologies = () => {
 
             <div className="relative mx-auto max-w-7xl px-2 py-4 md:px-6 md:py-8">
                 <div className="relative flex min-h-[10rem] justify-center items-start pt-14 md:min-h-[12rem] lg:min-h-[20rem]">
-                    <div className="relative w-full">
+                    <motion.div 
+                        className="relative w-full"
+                        variants={{
+                            hidden: { opacity: 0 },
+                            show: { opacity: 1, transition: { staggerChildren: 0.05 } }
+                        }}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, margin: "-50px" }}
+                    >
                         {techList.map((tech, index) => {
                             const angleStep = arcSpan / (techList.length - 1);
                             const angle = -arcSpan / 2 + angleStep * index;
@@ -162,8 +172,14 @@ const Technologies = () => {
                                         zIndex: isActive ? 999 : index,
                                     }}
                                 >
-                                    <button
-                                        type="button"
+                                    <motion.div
+                                        variants={{
+                                            hidden: { opacity: 0, y: 30 },
+                                            show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 15 } }
+                                        }}
+                                    >
+                                        <button
+                                            type="button"
                                         onClick={() =>
                                             setActiveTech(
                                                 isActive
@@ -192,10 +208,11 @@ const Technologies = () => {
                                             </p>
                                         </div>
                                     </button>
+                                    </motion.div>
                                 </div>
                             );
                         })}
-                    </div>
+                    </motion.div>
                 </div>
 
                 <div className="relative mt-3 md:mt-5">

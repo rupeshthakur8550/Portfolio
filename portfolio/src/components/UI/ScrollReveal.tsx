@@ -115,7 +115,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
  });
 
  return (
- <div ref={containerRef} className={`relative block w-full p-5 ${containerClassName}`}>
+ <div ref={containerRef} className={`relative block w-full ${containerClassName}`}>
  <div className={`block whitespace-pre-wrap break-words leading-[inherit] ${textClassName}`}>
  {prefersReducedMotion || !plainText ? children : splitText}
  </div>

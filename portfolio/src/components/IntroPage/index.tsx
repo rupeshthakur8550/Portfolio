@@ -8,6 +8,7 @@ import DecryptedText from "../UI/DecryptedText";
 import GradientText from "../UI/GradientText";
 import ScrollReveal from "../UI/ScrollReveal";
 import { motion } from "framer-motion";
+import { Badge } from "../UI/badge";
 
 const ProfileCard = ({ profile }: { profile: IntroProfile }) => {
   const { toggleTheme } = useTheme();
@@ -70,7 +71,7 @@ const ProfileCard = ({ profile }: { profile: IntroProfile }) => {
  </div> */}
           </div>
 
-          <div className="flex justify-center">
+          <div className="flex justify-center p-5">
             <ScrollReveal
               baseOpacity={0.2}
               enableBlur
@@ -129,7 +130,7 @@ const BioSection = ({ introData, sentenceIndex }: { introData: IntroContent; sen
 );
 
 const EducationTimeline = ({ education, className = "" }: { education: IntroContent["education"]; className?: string }) => (
-  <div className={`pt-16 md:py-24 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto w-full ${className}`}>
+  <div className={`pt-16 md:py-24 px-4 md:px-12 lg:px-20 max-w-[1440px] mx-auto w-full ${className}`}>
     <div className="text-center mb-12 md:mb-20">
       <GradientText
         animationSpeed={3}
@@ -143,25 +144,25 @@ const EducationTimeline = ({ education, className = "" }: { education: IntroCont
       {education.data.map((edu: EducationEntry, idx: number) => (
         <div
           key={idx}
-          className="relative border-l border-theme-text/10 pl-10 group"
+          className="relative border-l border-theme-text/10 pl-6 md:pl-10 group"
         >
           <div className="absolute w-4 h-4 bg-theme-orange rounded-full -left-[8.5px] top-1.5 ring-4 ring-theme-bg transition-all duration-300 group-hover:scale-125 group-hover:bg-theme-orange z-10"></div>
 
-          <h3 className="text-2xl font-bold text-theme-text mb-2 group-hover:text-theme-sky transition-colors tracking-tight">
+          <h3 className="text-xl md:text-2xl font-bold text-theme-text mb-2 group-hover:text-theme-sky transition-colors tracking-tight">
             {edu.title}
           </h3>
 
-          <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
-            <span className="text-theme-sky/90 font-medium tracking-wide uppercase text-sm">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-6">
+            <span className="text-theme-sky/90 font-medium tracking-wide uppercase text-xs sm:text-sm">
               {edu.degree}
             </span>
-            <span className="text-theme-sky/90 font-medium tracking-wide uppercase text-sm">
+            <span className="text-theme-sky/90 font-medium tracking-wide uppercase text-xs sm:text-sm">
               {edu.institution}
             </span>
             <span className="hidden sm:block text-theme-text">|</span>
-            <span className="text-[10px] font-mono font-medium text-theme-text-muted tracking-widest uppercase bg-theme-card-light/30 px-3 py-1 rounded border border-white/5 w-fit">
+            <Badge variant="outline" className="px-3 py-1 bg-[#329a58]/10 border-[#329a58]/30 text-[#329a58] font-mono text-xs md:text-sm rounded-md">
               {edu.batch}
-            </span>
+            </Badge>
           </div>
 
           <ul className="space-y-3 mt-6">
